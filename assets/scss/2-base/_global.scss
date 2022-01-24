@@ -1,0 +1,21 @@
+@use "../0-helpers/variables" as colors;
+
+:root {
+  --color-light-blue: #{colors.$light-blue};
+  --color-light-blue-hover: #{colors.$light-blue-hover};
+  --color-light-yellow: #{colors.$light-yellow};
+  --color-light-yellow-hover: #{colors.$light-yellow-hover};
+  --color-dark-navy: #{colors.$dark-navy};
+  --color-semi-dark-navy: #{colors.$semi-dark-navy};
+  --color-silver: #{colors.$silver};
+  --color-silver-hover: #{colors.$silver-hover};
+}
+
+a {
+  color: unset;
+  font-style: unset;
+}
+
+html {
+  box-sizing: border-box;
+}

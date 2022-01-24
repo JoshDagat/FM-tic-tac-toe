@@ -1,0 +1,260 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+:root {
+  --color-light-blue: #31c3bd;
+  --color-light-blue-hover: #65e9e4;
+  --color-light-yellow: #f2b137;
+  --color-light-yellow-hover: #ffc860;
+  --color-dark-navy: #1a2a33;
+  --color-semi-dark-navy: #1f3641;
+  --color-silver: #a8bfc9;
+  --color-silver-hover: #dbe8ed;
+}
+
+a {
+  color: unset;
+  font-style: unset;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+.start-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.start-menu__logo {
+  margin-bottom: 2rem;
+  align-self: center;
+}
+
+.start-menu__mark-select-container {
+  background-color: #1f3641;
+  padding: 1.5rem;
+  box-shadow: inset 0px -8px 0px #10212a;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
+
+.start-menu__prompt,
+.start-menu__reminder {
+  font-family: "Outfit", sans-serif;
+  color: #a8bfc9;
+  font-weight: bold;
+  display: inline-block;
+  margin: 0 auto;
+  margin-bottom: 1.5rem;
+}
+
+.start-menu__reminder {
+  margin-top: 1.5rem;
+}
+
+.start-menu__mark-choices {
+  display: flex;
+  padding: 9px;
+  background-color: #1a2a33;
+  border-radius: 15px;
+  gap: 0.2rem;
+}
+
+.start-menu__cross-mark,
+.start-menu__circle-mark {
+  display: flex;
+  justify-content: center;
+  flex: 1 1 auto;
+  fill: #a8bfc9;
+  padding: 11px 0;
+  border-radius: 10px;
+}
+
+.start-menu__cross-mark--selected,
+.start-menu__circle-mark--selected {
+  fill: #1a2a33;
+  background-color: #a8bfc9;
+}
+
+.btn {
+  border: none;
+  border-radius: 15px;
+  padding: 1rem 0;
+}
+
+.btn__text {
+  font-family: "Outfit", sans-serif;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.btn--new-game-cpu {
+  background-color: #f2b137;
+  box-shadow: inset 0px -8px 0px #cc8b13;
+  margin-bottom: 1rem;
+}
+
+.btn--new-game-player {
+  background-color: #31c3bd;
+  box-shadow: inset 0px -8px 0px #118c87;
+  margin-bottom: 1rem;
+}
+
+html {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+html * {
+  flex: 1 1 auto;
+}
+
+.body {
+  background: #1a2a33;
+  min-height: calc(100vh - 100px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 508px;
+}
+
+/*# sourceMappingURL=main.css.map */

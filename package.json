@@ -4,7 +4,8 @@
   "description": "A tic-tac-toe game for the frontendmentor challenge of the same name.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "sass --watch assets/scss/main.scss assets/css/main.css"
   },
   "author": "",
   "license": "ISC",
