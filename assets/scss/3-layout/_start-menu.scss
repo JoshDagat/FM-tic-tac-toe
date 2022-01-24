@@ -29,7 +29,6 @@
 
 .start-menu__prompt,
 .start-menu__reminder {
-  font-family: variables.$font-main;
   color: variables.$silver;
   font-weight: bold;
 
@@ -75,7 +74,6 @@
 }
 
 .btn__text {
-  font-family: variables.$font-main;
   font-weight: bold;
   font-size: 1rem;
 }

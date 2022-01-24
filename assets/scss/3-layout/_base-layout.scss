@@ -1,4 +1,5 @@
 @use "../0-helpers/variables" as variables;
+
 html {
   display: flex;
 
@@ -17,7 +18,8 @@ html * {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
 
   max-width: 508px;
+
+  font-family: variables.$font-main;
 }

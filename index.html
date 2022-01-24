@@ -26,7 +26,7 @@
   <body class="body">
     <div class="start-menu">
       <div class="start-menu__logo">
-        <!-- start-menu svg -->
+        <!-- start-menu svg logo-->
         <svg viewBox="0 0 72 32" width="72px" height="32px">
           <g fill="none" fill-rule="evenodd">
             <path
@@ -79,11 +79,42 @@
 
     <div class="main-game">
       <header class="main-game__header">
-        <div class="main-game__logo"></div>
+        <div class="main-game__logo">
+          <!-- main-game svg logo -->
+          <svg viewBox="0 0 72 32" width="72px" height="32px">
+            <g fill="none" fill-rule="evenodd">
+              <path
+                d="M8.562 1.634 16 9.073l7.438-7.439a3 3 0 0 1 4.243 0l2.685 2.685a3 3 0 0 1 0 4.243L22.927 16l7.439 7.438a3 3 0 0 1 0 4.243l-2.685 2.685a3 3 0 0 1-4.243 0L16 22.927l-7.438 7.439a3 3 0 0 1-4.243 0L1.634 27.68a3 3 0 0 1 0-4.243L9.073 16 1.634 8.562a3 3 0 0 1 0-4.243L4.32 1.634a3 3 0 0 1 4.243 0Z"
+                fill="#31C3BD"
+              />
+              <path
+                d="M56.1 0c8.765 0 15.87 7.106 15.87 15.87 0 8.766-7.105 15.871-15.87 15.871-8.765 0-15.87-7.105-15.87-15.87C40.23 7.106 47.334 0 56.1 0Zm0 9.405a6.466 6.466 0 1 0 0 12.931 6.466 6.466 0 0 0 0-12.931Z"
+                fill="#F2B137"
+                fill-rule="nonzero"
+              />
+            </g>
+          </svg>
+        </div>
+
         <div class="main-game__turn-indicator">
+          <!-- start-menu choices -- cross svg -->
+          <div class="main-game__svg">
+            <svg viewBox="0 0 64 64" width="16px" height="16px">
+              <path
+                d="M15.002 1.147 32 18.145 48.998 1.147a3 3 0 0 1 4.243 0l9.612 9.612a3 3 0 0 1 0 4.243L45.855 32l16.998 16.998a3 3 0 0 1 0 4.243l-9.612 9.612a3 3 0 0 1-4.243 0L32 45.855 15.002 62.853a3 3 0 0 1-4.243 0L1.147 53.24a3 3 0 0 1 0-4.243L18.145 32 1.147 15.002a3 3 0 0 1 0-4.243l9.612-9.612a3 3 0 0 1 4.243 0Z"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </div>
           <span>TURN</span>
         </div>
-        <div class="main-game__reset-btn"></div>
+        <div class="main-game__reset-btn">
+          <svg width="16" height="16" viewBox="0 0 20 20">
+            <path
+              d="M19.524 0h-1.88a.476.476 0 0 0-.476.499l.159 3.284A9.81 9.81 0 0 0 9.835.317C4.415.317-.004 4.743 0 10.167.004 15.597 4.406 20 9.835 20a9.796 9.796 0 0 0 6.59-2.536.476.476 0 0 0 .019-.692l-1.348-1.349a.476.476 0 0 0-.65-.022 6.976 6.976 0 0 1-9.85-.63 6.987 6.987 0 0 1 .63-9.857 6.976 6.976 0 0 1 10.403 1.348l-4.027-.193a.476.476 0 0 0-.498.476v1.881c0 .263.213.476.476.476h7.944A.476.476 0 0 0 20 8.426V.476A.476.476 0 0 0 19.524 0Z"
+            />
+          </svg>
+        </div>
       </header>
 
       <div class="main-game__play-field">
@@ -99,18 +130,42 @@
       </div>
 
       <div class="main-game__scoreboard">
-        <div class="main-game__cross-score">
-          <span>X</span>
+        <div class="main-game__cross-scoreboard">
+          <span>X<span class="main-game__cross-player"></span></span>
+          <span class="main-game__cross-counter">0</span>
         </div>
-        <div class="main-game__ties">
+        <div class="main-game__ties-scoreboard">
           <span>TIES</span>
+          <span class="main-game__ties-counter">0</span>
         </div>
-        <div class="main-game__circle-score">
-          <span>O</span>
+        <div class="main-game__circle-scoreboard">
+          <span>O<span class="main-game__circle-player"></span> </span>
+          <span class="main-game__circle-counter">0</span>
         </div>
       </div>
     </div>
 
-    <div class="modal-lost"></div>
+    <div class="modal-win-lose">
+      <p class="modal-win-lose__message">OH NO, YOU LOST...</p>
+      <p class="modal-win-lose__win-announcement"></p>
+      <div class="modal__btn-group">
+        <button class="modal__quit">QUIT</button>
+        <button class="modal__next-round">NEXT ROUND</button>
+      </div>
+    </div>
+    <div class="modal-tied">
+      <p class="modal-tied__announcement">ROUND TIED</p>
+      <div class="modal__btn-group">
+        <button class="modal__quit">QUIT</button>
+        <button class="modal__next-round">NEXT ROUND</button>
+      </div>
+    </div>
+    <div class="modal-restart">
+      <p class="modal-restart__question">RESTART GAME?</p>
+      <div class="modal__btn-group">
+        <button class="modal__restart-cancel">NO, CANCEL</button>
+        <button class="modal__restart-confirm">YES, RESTART</button>
+      </div>
+    </div>
   </body>
 </html>

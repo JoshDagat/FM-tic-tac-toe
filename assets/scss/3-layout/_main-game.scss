@@ -1,0 +1,121 @@
+@use "../0-helpers/variables" as variables;
+
+.main-game {
+  padding: 10px;
+}
+
+.main-game__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 4.25rem;
+}
+
+.main-game__logo {
+  flex: 0 0 72px;
+}
+
+.main-game__turn-indicator {
+  color: variables.$silver;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 1.285;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: variables.$semi-dark-navy;
+  border-radius: 5px;
+  box-shadow: inset 0px -4px 0px #10212a;
+
+  flex: 0 0 96px;
+
+  padding: 0.56rem 0 0.81rem 0;
+}
+
+.main-game__svg {
+  fill: variables.$silver;
+
+  display: flex;
+  justify-content: center;
+}
+
+.main-game__reset-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  fill: variables.$semi-dark-navy;
+  flex: 0 0 40px;
+  height: 40px;
+
+  background-color: variables.$silver;
+  box-shadow: inset 0px -4px 0px #6b8997;
+  border-radius: 5px;
+}
+
+.main-game__play-field {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+
+  justify-items: center;
+  align-items: center;
+
+  margin-bottom: 1.25rem;
+}
+
+.main-game__play-cell {
+  width: 96px;
+  height: 96px;
+
+  background: variables.$semi-dark-navy;
+  box-shadow: inset 0px -8px 0px #10212a;
+  border-radius: 10px;
+}
+
+.main-game__scoreboard {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  justify-items: center;
+  align-items: center;
+
+  color: variables.$dark-navy;
+  font-size: 14px;
+  line-height: 1.286;
+}
+
+.main-game__cross-scoreboard,
+.main-game__ties-scoreboard,
+.main-game__circle-scoreboard {
+  width: 96px;
+  text-align: center;
+  border-radius: 10px;
+
+  padding: 12px 0;
+}
+
+.main-game__cross-scoreboard {
+  background-color: variables.$light-blue;
+}
+
+.main-game__ties-scoreboard {
+  background-color: variables.$silver;
+}
+.main-game__circle-scoreboard {
+  background-color: variables.$light-yellow;
+}
+
+.main-game__cross-counter,
+.main-game__circle-counter,
+.main-game__ties-counter {
+  display: block;
+  text-align: center;
+
+  font-size: 20px;
+  line-height: 1.25;
+  letter-spacing: 1.25px;
+}
