@@ -1,0 +1,93 @@
+@use "../0-helpers/variables" as variables;
+
+.start-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  // border: 1px solid white;
+
+  padding: 1.5rem;
+}
+
+.start-menu__logo {
+  margin-bottom: 2rem;
+  align-self: center;
+}
+
+.start-menu__mark-select-container {
+  background-color: variables.$semi-dark-navy;
+  padding: 1.5rem;
+  box-shadow: inset 0px -8px 0px #10212a;
+  border-radius: 15px;
+
+  display: flex;
+  flex-direction: column;
+
+  margin-bottom: 2rem;
+}
+
+.start-menu__prompt,
+.start-menu__reminder {
+  font-family: variables.$font-main;
+  color: variables.$silver;
+  font-weight: bold;
+
+  display: inline-block;
+  margin: 0 auto;
+  margin-bottom: 1.5rem;
+}
+
+.start-menu__reminder {
+  margin-top: 1.5rem;
+}
+.start-menu__mark-choices {
+  display: flex;
+
+  padding: 9px;
+  background-color: variables.$dark-navy;
+  border-radius: 15px;
+
+  gap: 0.2rem;
+}
+
+.start-menu__cross-mark,
+.start-menu__circle-mark {
+  display: flex;
+  justify-content: center;
+  flex: 1 1 auto;
+  fill: variables.$silver;
+
+  padding: 11px 0;
+  border-radius: 10px;
+}
+
+.start-menu__cross-mark--selected,
+.start-menu__circle-mark--selected {
+  fill: variables.$dark-navy;
+  background-color: variables.$silver;
+}
+
+.btn {
+  border: none;
+  border-radius: 15px;
+  padding: 1rem 0;
+}
+
+.btn__text {
+  font-family: variables.$font-main;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.btn--new-game-cpu {
+  background-color: variables.$light-yellow;
+  box-shadow: inset 0px -8px 0px #cc8b13;
+  margin-bottom: 1rem;
+}
+
+.btn--new-game-player {
+  background-color: variables.$light-blue;
+  box-shadow: inset 0px -8px 0px #118c87;
+  margin-bottom: 1rem;
+}
