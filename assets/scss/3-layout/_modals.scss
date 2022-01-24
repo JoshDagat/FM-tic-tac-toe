@@ -1,0 +1,75 @@
+@use "../0-helpers/variables" as variables;
+
+.modal {
+  border: 1px solid yellow;
+
+  color: variables.$silver;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  min-height: 228px;
+}
+
+.modal__message {
+  border: 1px solid red;
+  flex: 0 1 auto;
+
+  margin-bottom: 1rem;
+}
+
+.modal__win-announcement {
+  display: flex;
+  align-items: center;
+
+  font-size: 24px;
+  line-height: 1.25;
+  letter-spacing: 1.5px;
+
+  border: 1px solid red;
+  flex: 0 1 auto;
+
+  margin-bottom: 1.25rem;
+}
+
+.modal__svg {
+  flex: 0 0 auto;
+  margin-right: 0.25rem;
+}
+
+.modal__btn-group {
+  display: flex;
+
+  border: 1px solid red;
+  flex: 0 1 auto;
+  gap: 1rem;
+}
+
+.modal__btn-left,
+.modal__btn-right {
+  font-family: variables.$font-main;
+  font-size: 16px;
+  line-height: 1.25;
+  border-radius: 10px;
+  padding: 1rem;
+
+  flex: 1 1 auto;
+}
+
+.modal__btn-left {
+  background: variables.$silver;
+  box-shadow: inset 0px -4px 0px #6b8997;
+
+  min-width: 76px;
+  max-width: 306px;
+}
+
+.modal__btn-right {
+  background: variables.$light-yellow;
+  box-shadow: inset 0px -4px 0px #cc8b13;
+
+  min-width: 146px;
+  max-width: 151px;
+}

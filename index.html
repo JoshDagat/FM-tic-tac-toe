@@ -145,26 +145,20 @@
       </div>
     </div>
 
-    <div class="modal-win-lose">
-      <p class="modal-win-lose__message">OH NO, YOU LOST...</p>
-      <p class="modal-win-lose__win-announcement"></p>
+    <div class="modal">
+      <p class="modal__message">OH NO, YOU LOST...</p>
+      <p class="modal__win-announcement">
+        <svg class="modal__svg" width="30" height="30" viewBox="0 0 64 64">
+          <path
+            d="M32 0c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32C14.327 64 0 49.673 0 32 0 14.327 14.327 0 32 0Zm0 18.963c-7.2 0-13.037 5.837-13.037 13.037 0 7.2 5.837 13.037 13.037 13.037 7.2 0 13.037-5.837 13.037-13.037 0-7.2-5.837-13.037-13.037-13.037Z"
+            fill="#F2B137"
+          />
+        </svg>
+        TAKES THE ROUND
+      </p>
       <div class="modal__btn-group">
-        <button class="modal__quit">QUIT</button>
-        <button class="modal__next-round">NEXT ROUND</button>
-      </div>
-    </div>
-    <div class="modal-tied">
-      <p class="modal-tied__announcement">ROUND TIED</p>
-      <div class="modal__btn-group">
-        <button class="modal__quit">QUIT</button>
-        <button class="modal__next-round">NEXT ROUND</button>
-      </div>
-    </div>
-    <div class="modal-restart">
-      <p class="modal-restart__question">RESTART GAME?</p>
-      <div class="modal__btn-group">
-        <button class="modal__restart-cancel">NO, CANCEL</button>
-        <button class="modal__restart-confirm">YES, RESTART</button>
+        <button class="modal__btn-left">QUIT</button>
+        <button class="modal__btn-right">NEXT ROUND</button>
       </div>
     </div>
   </body>
