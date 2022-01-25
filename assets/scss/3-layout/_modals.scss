@@ -1,8 +1,6 @@
 @use "../0-helpers/variables" as variables;
 
 .modal {
-  border: 1px solid yellow;
-
   color: variables.$silver;
 
   display: flex;
@@ -14,7 +12,6 @@
 }
 
 .modal__message {
-  border: 1px solid red;
   flex: 0 1 auto;
 
   margin-bottom: 1rem;
@@ -28,7 +25,6 @@
   line-height: 1.25;
   letter-spacing: 1.5px;
 
-  border: 1px solid red;
   flex: 0 1 auto;
 
   margin-bottom: 1.25rem;
@@ -42,7 +38,6 @@
 .modal__btn-group {
   display: flex;
 
-  border: 1px solid red;
   flex: 0 1 auto;
   gap: 1rem;
 }

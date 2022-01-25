@@ -1,16 +1,5 @@
 @use "../0-helpers/variables" as variables;
 
-html {
-  display: flex;
-
-  justify-content: center;
-  align-items: center;
-}
-
-html * {
-  flex: 1 1 auto;
-}
-
 .body {
   background: variables.$dark-navy;
   min-height: calc(100vh - 100px);
@@ -22,4 +11,5 @@ html * {
   max-width: 508px;
 
   font-family: variables.$font-main;
+  margin: 0 auto;
 }

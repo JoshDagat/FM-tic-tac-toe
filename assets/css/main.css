@@ -1,3 +1,7 @@
+.toggle--hide {
+  display: none !important;
+}
+
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -153,16 +157,6 @@ html {
   box-sizing: border-box;
 }
 
-html {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-html * {
-  flex: 1 1 auto;
-}
-
 .body {
   background: #1a2a33;
   min-height: calc(100vh - 100px);
@@ -171,6 +165,7 @@ html * {
   justify-content: center;
   max-width: 508px;
   font-family: "Outfit", sans-serif;
+  margin: 0 auto;
 }
 
 .start-menu {
@@ -257,6 +252,7 @@ html * {
 
 .main-game {
   padding: 10px;
+  border: 1px solid red;
 }
 
 .main-game__header {
@@ -285,6 +281,11 @@ html * {
   padding: 0.56rem 0 0.81rem 0;
 }
 
+@media screen and (min-width: 768px) {
+  .main-game__turn-indicator {
+    flex: 0 0 140px;
+  }
+}
 .main-game__svg {
   fill: #a8bfc9;
   display: flex;
@@ -320,6 +321,12 @@ html * {
   border-radius: 10px;
 }
 
+@media screen and (min-width: 768px) {
+  .main-game__play-cell {
+    width: 140px;
+    height: 140px;
+  }
+}
 .main-game__scoreboard {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -340,6 +347,11 @@ html * {
   padding: 12px 0;
 }
 
+@media screen and (min-width: 768px) {
+  .main-game__scoreboard > * {
+    width: 140px;
+  }
+}
 .main-game__cross-scoreboard {
   background-color: #31c3bd;
 }
@@ -363,7 +375,6 @@ html * {
 }
 
 .modal {
-  border: 1px solid yellow;
   color: #a8bfc9;
   display: flex;
   flex-direction: column;
@@ -373,7 +384,6 @@ html * {
 }
 
 .modal__message {
-  border: 1px solid red;
   flex: 0 1 auto;
   margin-bottom: 1rem;
 }
@@ -384,7 +394,6 @@ html * {
   font-size: 24px;
   line-height: 1.25;
   letter-spacing: 1.5px;
-  border: 1px solid red;
   flex: 0 1 auto;
   margin-bottom: 1.25rem;
 }
@@ -396,7 +405,6 @@ html * {
 
 .modal__btn-group {
   display: flex;
-  border: 1px solid red;
   flex: 0 1 auto;
   gap: 1rem;
 }
