@@ -252,21 +252,18 @@ html {
 
 .main-game {
   display: grid;
-  grid-template-rows: auto;
   grid-template-areas: "logo turn reset" "a1 a2 a3" "b1 b2 b3" "c1 c2 c3" "cross ties circle";
-  justify-content: center;
   gap: 20px;
+  padding: 1.5em;
 }
 
 .main-game__logo {
   width: 72px;
   height: 32px;
   grid-area: logo;
-  border: 1px solid white;
 }
 
 .main-game__turn-indicator {
-  border: 1px solid white;
   grid-area: turn;
   display: flex;
   justify-content: center;
@@ -301,7 +298,6 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid white;
 }
 
 .reset-btn__svg-wrapper {
@@ -311,8 +307,9 @@ html {
   background: #a8bfc9;
   box-shadow: inset 0px -4px 0px #6b8997;
   border-radius: 5px;
-  width: 40px;
-  height: 40px;
+  width: clamp(40px, 5vw, 52px);
+  aspect-ratio: 1/1;
+  margin-left: auto;
 }
 
 .main-game__reset-svg {
@@ -356,13 +353,27 @@ html {
   grid-area: c3;
 }
 
+#a2,
+#b2,
+#c2 {
+  justify-self: center;
+}
+
+#a3,
+#b3,
+#c3 {
+  justify-self: flex-end;
+}
+
 .main-game__play-cell {
   display: flex;
   justify-content: center;
   align-items: center;
   background: #1f3641;
-  width: 96px;
-  height: 96px;
+  min-width: 96px;
+  max-width: 140px;
+  width: 100%;
+  aspect-ratio: 1/1;
   box-shadow: inset 0px -8px 0px #10212a;
   border-radius: 10px;
 }
@@ -376,6 +387,7 @@ html {
   flex-direction: column;
   border-radius: 10px;
   padding: 0.75rem 0;
+  width: 100%;
 }
 
 .main-game__cross-scoreboard {
