@@ -1,143 +1,154 @@
 @use "../0-helpers/variables" as variables;
+@use "../0-helpers/mixins" as mix;
 
 .main-game {
-  padding: 10px;
-
-  border: 1px solid red;
-  // max-width: 460px;
-}
-
-.main-game__header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  margin-bottom: 4.25rem;
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "logo turn reset"
+    "a1 a2 a3"
+    "b1 b2 b3"
+    "c1 c2 c3"
+    "cross ties circle";
+  justify-content: center;
+  gap: 20px;
 }
 
 .main-game__logo {
-  flex: 0 0 72px;
+  width: 72px;
+  height: 32px;
+
+  grid-area: logo;
+
+  border: 1px solid white;
 }
 
 .main-game__turn-indicator {
-  color: variables.$silver;
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 1.285;
+  border: 1px solid white;
+  grid-area: turn;
 
   display: flex;
   justify-content: center;
-  align-items: center;
+}
 
-  background-color: variables.$semi-dark-navy;
-  border-radius: 5px;
+.turn-indicator__svg-wrapper {
+  @include mix.centered-flex;
+  flex: 1 1 auto;
+  gap: 0.5625em;
+
+  background: variables.$semi-dark-navy;
   box-shadow: inset 0px -4px 0px #10212a;
+  border-radius: 5px;
 
-  flex: 0 0 96px;
-
-  padding: 0.56rem 0 0.81rem 0;
+  max-width: 96px;
+  padding: 0.5625rem 0 0.8125rem 0;
 }
 
-@media screen and (min-width: 768px) {
-  .main-game__turn-indicator {
-    flex: 0 0 140px;
-  }
-}
+.main-game__indicator-svg {
+  width: 16px;
+  height: 16px;
 
-.main-game__svg {
   fill: variables.$silver;
+}
 
-  display: flex;
-  justify-content: center;
+.main-game__indicator-text {
+  color: variables.$silver;
+  font-size: 0.875rem;
+  line-height: 1.26;
 }
 
 .main-game__reset-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  fill: variables.$semi-dark-navy;
-  flex: 0 0 40px;
-  height: 40px;
-
-  background-color: variables.$silver;
-  box-shadow: inset 0px -4px 0px #6b8997;
-  border-radius: 5px;
+  @include mix.centered-flex;
+  border: 1px solid white;
 }
 
-.main-game__play-field {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 20px;
+.reset-btn__svg-wrapper {
+  @include mix.centered-flex;
+  background: variables.$silver;
+  box-shadow: inset 0px -4px 0px #6b8997;
+  border-radius: 5px;
 
-  justify-items: center;
-  align-items: center;
+  width: 40px;
+  height: 40px;
+}
 
-  margin-bottom: 1.25rem;
+.main-game__reset-svg {
+  width: 16px;
+  height: 16px;
+}
+
+#a1 {
+  grid-area: a1;
+}
+#a2 {
+  grid-area: a2;
+}
+#a3 {
+  grid-area: a3;
+}
+#b1 {
+  grid-area: b1;
+}
+#b2 {
+  grid-area: b2;
+}
+#b3 {
+  grid-area: b3;
+}
+#c1 {
+  grid-area: c1;
+}
+#c2 {
+  grid-area: c2;
+}
+#c3 {
+  grid-area: c3;
 }
 
 .main-game__play-cell {
+  @include mix.centered-flex;
+  background: variables.$semi-dark-navy;
   width: 96px;
   height: 96px;
-
-  background: variables.$semi-dark-navy;
   box-shadow: inset 0px -8px 0px #10212a;
   border-radius: 10px;
-}
-
-@media screen and (min-width: 768px) {
-  .main-game__play-cell {
-    width: 140px;
-    height: 140px;
-  }
-}
-
-.main-game__scoreboard {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 20px;
-  justify-items: center;
-  align-items: center;
-
-  color: variables.$dark-navy;
-  font-size: 14px;
-  line-height: 1.286;
 }
 
 .main-game__cross-scoreboard,
 .main-game__ties-scoreboard,
 .main-game__circle-scoreboard {
-  width: 96px;
-  text-align: center;
+  @include mix.centered-flex;
+  flex-direction: column;
+
   border-radius: 10px;
-
-  padding: 12px 0;
+  padding: 0.75rem 0;
 }
-
-@media screen and (min-width: 768px) {
-  .main-game__scoreboard > * {
-    width: 140px;
-  }
-}
-
 .main-game__cross-scoreboard {
-  background-color: variables.$light-blue;
+  grid-area: cross;
+  background: variables.$light-blue;
 }
 
 .main-game__ties-scoreboard {
-  background-color: variables.$silver;
+  grid-area: ties;
+  background: variables.$silver;
 }
+
 .main-game__circle-scoreboard {
-  background-color: variables.$light-yellow;
+  grid-area: circle;
+  background: variables.$light-yellow;
+}
+
+.main-game__cross-text,
+.main-game__ties-text,
+.main0game__circle-text {
+  font-size: 0.875rem;
+  line-height: 1.2857;
 }
 
 .main-game__cross-counter,
-.main-game__circle-counter,
-.main-game__ties-counter {
+.main-game__ties-counter,
+.main-game__circle-counter {
+  font-size: 1.25rem;
+  line-height: 1.26;
   display: block;
-  text-align: center;
-
-  font-size: 20px;
-  line-height: 1.25;
-  letter-spacing: 1.25px;
 }
