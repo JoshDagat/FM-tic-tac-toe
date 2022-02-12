@@ -64,8 +64,8 @@ cells.forEach((cell) => cell.addEventListener("click", addMark));
 
 function addMark(e) {
   if (turn === 1) {
-    e.target.classList.toggle("marked--cross");
+    e.target.classList.add("marked--cross");
   } else {
-    e.target.classList.toggle("marked--circle");
+    e.target.classList.add("marked--circle");
   }
 }

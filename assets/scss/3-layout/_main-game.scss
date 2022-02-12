@@ -144,19 +144,34 @@
   position: relative;
 }
 
-.marked--cross {
+.cross,
+.circle,
+.cross--outline,
+.circle--outline {
   display: none;
   position: absolute;
   margin: 0 auto;
   left: 0;
   right: 0;
   text-align: center;
+  pointer-events: none;
+  cursor: pointer;
 }
 
-.marked--cross.inactive {
+.main-game__play-cell.marked--cross > .cross {
+  display: block;
+}
+.main-game__play-cell.marked--circle > .circle {
   display: block;
 }
 
+.main-game__play-cell[data-flag="1"]:hover > .cross--outline {
+  display: block;
+}
+
+.main-game__play-cell[data-flag="0"]:hover > .circle--outline {
+  display: block;
+}
 .main-game__cross-scoreboard,
 .main-game__ties-scoreboard,
 .main-game__circle-scoreboard {
