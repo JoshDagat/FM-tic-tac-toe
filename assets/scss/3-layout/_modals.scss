@@ -1,18 +1,40 @@
 @use "../0-helpers/variables" as variables;
-
+@use "../0-helpers/mixins" as mix;
 .modal {
+  @include mix.centered-flex;
+  border: 1px solid red;
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+
   color: variables.$silver;
+
+  visibility: hidden;
+  opacity: 0;
+}
+
+.modal--active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal__content-box {
+  background-color: variables.$semi-dark-navy;
+  width: 100%;
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 
-  min-height: 228px;
+  padding: 2.8125rem 0;
 }
 
 .modal__message {
   flex: 0 1 auto;
+  font-size: clamp(14px, 2vw, 16px);
+  line-height: 1.25;
 
   margin-bottom: 1rem;
 }
@@ -21,18 +43,21 @@
   display: flex;
   align-items: center;
 
-  font-size: 24px;
+  font-size: clamp(24px, 5.2vw, 40px);
   line-height: 1.25;
   letter-spacing: 1.5px;
 
   flex: 0 1 auto;
 
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
+  color: variables.$light-yellow;
 }
 
 .modal__svg {
   flex: 0 0 auto;
   margin-right: 0.25rem;
+  width: clamp(30px, 9.44vw, 64px);
+  aspect-ratio: 1/1;
 }
 
 .modal__btn-group {

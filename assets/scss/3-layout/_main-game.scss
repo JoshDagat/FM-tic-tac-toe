@@ -14,6 +14,14 @@
   padding: 1.5em;
 }
 
+.main-game.hidden {
+  display: none;
+}
+
+.main-game--active {
+  display: grid;
+}
+
 .main-game__logo {
   width: 72px;
   height: 32px;
@@ -56,6 +64,8 @@
 
 .main-game__reset-btn {
   @include mix.centered-flex;
+
+  transition: transform 0.2s ease-in-out;
 }
 
 .reset-btn__svg-wrapper {
@@ -64,11 +74,16 @@
   box-shadow: inset 0px -4px 0px #6b8997;
   border-radius: 5px;
 
-  // min-width: 40px;
-  // max-width: 52px;
-  width: clamp(40px, 5vw, 52px);
+  width: clamp(40px, 6.5vw, 52px);
   aspect-ratio: 1/1;
   margin-left: auto;
+
+  transition: transform 0.2s ease-in-out;
+}
+
+.reset-btn__svg-wrapper:hover {
+  transform: scale(1.05);
+  background-color: variables.$silver-hover;
 }
 
 .main-game__reset-svg {
@@ -125,6 +140,21 @@
   aspect-ratio: 1/1;
   box-shadow: inset 0px -8px 0px #10212a;
   border-radius: 10px;
+
+  position: relative;
+}
+
+.marked--cross {
+  display: none;
+  position: absolute;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+.marked--cross.inactive {
+  display: block;
 }
 
 .main-game__cross-scoreboard,
