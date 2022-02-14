@@ -1,14 +1,25 @@
-const startMenu = document.querySelector(".start-menu");
-const mainGame = document.querySelector(".main-game");
-const newCpu = document.querySelector(".btn--new-game-cpu");
-const newPlayer = document.querySelector(".btn--new-game-player");
+import { globals } from "../_global.js";
 
-newCpu.addEventListener("click", startGame);
-newPlayer.addEventListener("click", startGame);
+const elements = globals.elements;
+
+elements.startBtnCPU.addEventListener("click", startGame);
+elements.startBtnPlayer.addEventListener("click", startGame);
 
 function startGame(e) {
-  startMenu.classList.toggle("hidden");
-  mainGame.classList.toggle("hidden");
+  if (
+    !elements.crossToken.classList.contains("start-menu__mark--selected") ||
+    !elements.circleToken.classList.contains("start-menu__mark--selected")
+  ) {
+    elements.requireTokens.classList.toggle("active");
+    return;
+  }
+
+  console.log(
+    elements.crossToken.classList.contains("start-menu__mark--selected")
+  );
+
+  elements.startMenu.classList.toggle("hidden");
+  elements.mainGame.classList.toggle("hidden");
 }
 
 export default startGame;

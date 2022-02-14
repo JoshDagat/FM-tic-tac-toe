@@ -1,22 +1,21 @@
-const marks = document.querySelectorAll(".mark");
+import { globals } from "../_global.js";
 
-marks.forEach((mark) => {
-  mark.addEventListener("click", selectMark);
+const elements = globals.elements;
+
+elements.tokens.forEach((token) => {
+  token.addEventListener("click", selectMark);
 });
 
 function selectMark(e) {
-  const cross = document.querySelector(".start-menu__cross-mark");
-  const circle = document.querySelector(".start-menu__circle-mark");
-
   e.target.classList.toggle("start-menu__mark--selected");
 
-  if (e.target === cross) {
-    if (circle.classList.contains("start-menu__mark--selected")) {
-      circle.classList.remove("start-menu__mark--selected");
+  if (e.target === elements.crossToken) {
+    if (elements.circleToken.classList.contains("start-menu__mark--selected")) {
+      elements.circleToken.classList.remove("start-menu__mark--selected");
     }
   } else {
-    if (cross.classList.contains("start-menu__mark--selected")) {
-      cross.classList.remove("start-menu__mark--selected");
+    if (elements.crossToken.classList.contains("start-menu__mark--selected")) {
+      elements.crossToken.classList.remove("start-menu__mark--selected");
     }
   }
 }

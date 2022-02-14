@@ -203,6 +203,18 @@ html {
   margin-top: 1.5rem;
 }
 
+.start-menu__require-token {
+  color: #da2c2c;
+  text-align: center;
+  letter-spacing: 1px;
+  font-weight: bold;
+  display: none;
+}
+
+.start-menu__require-token.active {
+  display: block;
+}
+
 .start-menu__mark-choices {
   display: flex;
   padding: 9px;
