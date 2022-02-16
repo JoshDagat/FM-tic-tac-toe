@@ -1,4 +1,5 @@
 import { globals } from "./../_global.js";
+import { gameState } from "./_gameState.js";
 
 const cells = document.querySelectorAll(".main-game__play-cell");
 
@@ -20,6 +21,8 @@ function addMark(e) {
     e.target.style.pointerEvents = "none";
     globals.turn = 1;
   }
+
+  gameState();
 }
 
 export default addMark;

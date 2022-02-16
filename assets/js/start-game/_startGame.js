@@ -1,25 +1,32 @@
+/*
+This function handles the new game buttons in the start-menu
+*/
+
 import { globals } from "../_global.js";
 
-const elements = globals.elements;
+const startBtnCPU = globals.elements.startBtnCPU,
+  startBtnPlayer = globals.elements.startBtnPlayer,
+  crossToken = globals.elements.crossToken,
+  circleToken = globals.elements.circleToken,
+  requireTokens = globals.elements.requireTokens,
+  startMenu = globals.elements.startMenu,
+  mainGame = globals.elements.mainGame;
 
-elements.startBtnCPU.addEventListener("click", startGame);
-elements.startBtnPlayer.addEventListener("click", startGame);
+startBtnCPU.addEventListener("click", startGame);
+startBtnPlayer.addEventListener("click", startGame);
 
 function startGame(e) {
   if (
-    !elements.crossToken.classList.contains("start-menu__mark--selected") ||
-    !elements.circleToken.classList.contains("start-menu__mark--selected")
+    !crossToken.classList.contains("start-menu__mark--selected") &&
+    !circleToken.classList.contains("start-menu__mark--selected")
   ) {
-    elements.requireTokens.classList.toggle("active");
+    requireTokens.classList.add("active");
     return;
   }
 
-  console.log(
-    elements.crossToken.classList.contains("start-menu__mark--selected")
-  );
-
-  elements.startMenu.classList.toggle("hidden");
-  elements.mainGame.classList.toggle("hidden");
+  startMenu.classList.toggle("hidden");
+  mainGame.classList.toggle("hidden");
+  requireTokens.classList.remove("active");
 }
 
 export default startGame;
