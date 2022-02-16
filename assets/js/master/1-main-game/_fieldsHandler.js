@@ -1,4 +1,4 @@
-import { globals } from "../_global.js";
+import { globals } from "./../../_global.js";
 
 const playfield = globals.elements.playfield;
 

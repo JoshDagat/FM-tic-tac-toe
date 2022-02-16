@@ -50,10 +50,15 @@
 }
 
 .main-game__indicator-svg {
+  display: none;
   width: 16px;
   height: 16px;
 
   fill: variables.$silver;
+}
+
+.main-game__indicator-svg.active {
+  display: block;
 }
 
 .main-game__indicator-text {
