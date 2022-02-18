@@ -1,8 +1,8 @@
 @use "../0-helpers/variables" as variables;
 @use "../0-helpers/mixins" as mix;
-.modal {
+
+.modals__round-result {
   @include mix.centered-flex;
-  border: 1px solid red;
   position: fixed;
   width: 100%;
   height: 100vh;
@@ -15,12 +15,12 @@
   opacity: 0;
 }
 
-.modal--active {
+.modals__round-result.modal--active {
   visibility: visible;
   opacity: 1;
 }
 
-.modal__content-box {
+.round-result__announcement-box {
   background-color: variables.$semi-dark-navy;
   width: 100%;
 
@@ -31,7 +31,7 @@
   padding: 2.8125rem 0;
 }
 
-.modal__message {
+.announcement-box__message {
   flex: 0 1 auto;
   font-size: clamp(14px, 2vw, 16px);
   line-height: 1.25;
@@ -39,7 +39,7 @@
   margin-bottom: 1rem;
 }
 
-.modal__win-announcement {
+.announcement-box__winner-announcement {
   display: flex;
   align-items: center;
 
@@ -53,11 +53,16 @@
   color: variables.$light-yellow;
 }
 
-.modal__svg {
+.announcement-box__svg {
+  display: none;
   flex: 0 0 auto;
   margin-right: 0.25rem;
   width: clamp(30px, 9.44vw, 64px);
   aspect-ratio: 1/1;
+}
+
+.announcement-box__svg.active {
+  display: block;
 }
 
 .modal__btn-group {
@@ -67,8 +72,8 @@
   gap: 1rem;
 }
 
-.modal__btn-left,
-.modal__btn-right {
+.modal__quit-game,
+.modal__next-round {
   font-family: variables.$font-main;
   font-size: 16px;
   line-height: 1.25;
@@ -78,7 +83,7 @@
   flex: 1 1 auto;
 }
 
-.modal__btn-left {
+.modal__quit-game {
   background: variables.$silver;
   box-shadow: inset 0px -4px 0px #6b8997;
 
@@ -86,7 +91,7 @@
   max-width: 306px;
 }
 
-.modal__btn-right {
+.modal__next-round {
   background: variables.$light-yellow;
   box-shadow: inset 0px -4px 0px #cc8b13;
 

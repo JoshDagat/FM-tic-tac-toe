@@ -170,11 +170,11 @@
   display: block;
 }
 
-.main-game__play-cell[data-flag="1"]:hover > .cross--outline {
+.main-game__play-cell[data-turn-flag="1"]:hover > .cross--outline {
   display: block;
 }
 
-.main-game__play-cell[data-flag="0"]:hover > .circle--outline {
+.main-game__play-cell[data-turn-flag="2"]:hover > .circle--outline {
   display: block;
 }
 .main-game__cross-scoreboard,

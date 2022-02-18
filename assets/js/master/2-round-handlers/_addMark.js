@@ -29,13 +29,13 @@ function allocateCross(e) {
 
 function allocateCircle(e) {
   e.target.classList.add("marked--circle");
-  e.target.setAttribute("data-value", 0);
+  e.target.setAttribute("data-value", 2);
   e.target.style.pointerEvents = "none";
 }
 
 function changeTurn() {
   if (globals.turn === 1) {
-    globals.turn = 0;
+    globals.turn = 2;
   } else {
     globals.turn = 1;
   }

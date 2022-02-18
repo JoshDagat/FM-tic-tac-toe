@@ -1,12 +1,14 @@
 import { globals } from "./../../_global.js";
 
-function handleScores(result) {
+function handleScores() {
+  const result = globals.roundWinner;
+
   if (result === "cross") {
     updateCross();
   } else if (result === "circle") {
     updateCircle();
-  } else {
-    updateTies;
+  } else if (result === "tied") {
+    updateTies();
   }
 }
 
@@ -23,8 +25,5 @@ function updateCircle() {
   let countCircle = +globals.elements.circleCounter.textContent;
   globals.elements.circleCounter.textContent = ++countCircle;
 }
-
-updateCross();
-console.log(globals.elements.crossCounter);
 
 export { handleScores };

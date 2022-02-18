@@ -180,7 +180,7 @@ html {
   align-self: center;
 }
 
-.start-menu__mark-select-container {
+.start-menu__token-select-container {
   background-color: #1f3641;
   padding: 1.5rem;
   box-shadow: inset 0px -8px 0px #10212a;
@@ -215,7 +215,7 @@ html {
   display: block;
 }
 
-.start-menu__mark-choices {
+.start-menu__token-choices {
   display: flex;
   padding: 9px;
   background-color: #1a2a33;
@@ -223,8 +223,8 @@ html {
   gap: 0.2rem;
 }
 
-.start-menu__cross-mark,
-.start-menu__circle-mark {
+.start-menu__cross-token,
+.start-menu__circle-token {
   display: flex;
   justify-content: center;
   flex: 1 1 auto;
@@ -233,27 +233,27 @@ html {
   border-radius: 10px;
 }
 
-.start-menu__cross-mark:hover,
-.start-menu__circle-mark:hover,
-.start-menu__mark--selected,
-.start-menu__mark--selected {
+.start-menu__cross-token:hover,
+.start-menu__circle-token:hover,
+.start-menu__token--selected,
+.start-menu__token--selected {
   fill: #1a2a33;
   background-color: #a8bfc9;
 }
 
-.start-menu__cross-mark.start-menu__mark--selected {
+.start-menu__cross-token.start-menu__token--selected {
   background-color: #31c3bd;
 }
 
-.start-menu__cross-mark.start-menu__mark--selected:hover {
+.start-menu__cross-token.start-menu__token--selected:hover {
   background-color: #65e9e4;
 }
 
-.start-menu__circle-mark.start-menu__mark--selected {
+.start-menu__circle-token.start-menu__token--selected {
   background-color: #f2b137;
 }
 
-.start-menu__circle-mark.start-menu__mark--selected:hover {
+.start-menu__circle-token.start-menu__token--selected:hover {
   background-color: #f3ab27;
 }
 
@@ -463,11 +463,11 @@ html {
   display: block;
 }
 
-.main-game__play-cell[data-flag="1"]:hover > .cross--outline {
+.main-game__play-cell[data-turn-flag="1"]:hover > .cross--outline {
   display: block;
 }
 
-.main-game__play-cell[data-flag="0"]:hover > .circle--outline {
+.main-game__play-cell[data-turn-flag="2"]:hover > .circle--outline {
   display: block;
 }
 
@@ -513,11 +513,10 @@ html {
   display: block;
 }
 
-.modal {
+.modals__round-result {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid red;
   position: fixed;
   width: 100%;
   height: 100vh;
@@ -528,12 +527,12 @@ html {
   opacity: 0;
 }
 
-.modal--active {
+.modals__round-result.modal--active {
   visibility: visible;
   opacity: 1;
 }
 
-.modal__content-box {
+.round-result__announcement-box {
   background-color: #1f3641;
   width: 100%;
   display: flex;
@@ -542,14 +541,14 @@ html {
   padding: 2.8125rem 0;
 }
 
-.modal__message {
+.announcement-box__message {
   flex: 0 1 auto;
   font-size: clamp(14px, 2vw, 16px);
   line-height: 1.25;
   margin-bottom: 1rem;
 }
 
-.modal__win-announcement {
+.announcement-box__winner-announcement {
   display: flex;
   align-items: center;
   font-size: clamp(24px, 5.2vw, 40px);
@@ -560,11 +559,16 @@ html {
   color: #f2b137;
 }
 
-.modal__svg {
+.announcement-box__svg {
+  display: none;
   flex: 0 0 auto;
   margin-right: 0.25rem;
   width: clamp(30px, 9.44vw, 64px);
   aspect-ratio: 1/1;
+}
+
+.announcement-box__svg.active {
+  display: block;
 }
 
 .modal__btn-group {
@@ -573,8 +577,8 @@ html {
   gap: 1rem;
 }
 
-.modal__btn-left,
-.modal__btn-right {
+.modal__quit-game,
+.modal__next-round {
   font-family: "Outfit", sans-serif;
   font-size: 16px;
   line-height: 1.25;
@@ -583,14 +587,14 @@ html {
   flex: 1 1 auto;
 }
 
-.modal__btn-left {
+.modal__quit-game {
   background: #a8bfc9;
   box-shadow: inset 0px -4px 0px #6b8997;
   min-width: 76px;
   max-width: 306px;
 }
 
-.modal__btn-right {
+.modal__next-round {
   background: #f2b137;
   box-shadow: inset 0px -4px 0px #cc8b13;
   min-width: 146px;
