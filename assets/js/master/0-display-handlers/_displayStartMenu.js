@@ -1,13 +1,11 @@
-// import { globals } from "../../_global.js";
+import { containersUI } from "../../_global.js";
 
-// const startMenu = globals.elements.startMenu;
+function displayStartMenu() {
+  containersUI.startMenu.classList.remove("hidden");
+}
 
-// function displayStartMenu() {
-//   startMenu.classList.remove("hidden");
-// }
+function hideStartMenu() {
+  containersUI.startMenu.classList.add("hidden");
+}
 
-// function hideStartMenu() {
-//   startMenu.classList.add("hidden");
-// }
-
-// export { displayStartMenu, hideStartMenu };
+export { displayStartMenu, hideStartMenu };

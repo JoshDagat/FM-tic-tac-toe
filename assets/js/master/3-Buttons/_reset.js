@@ -1,16 +1,10 @@
-import { globals } from "./../../_global.js";
-
-const resetBtn = globals.elements.resetBtn,
-  startMenu = globals.elements.startMenu,
-  mainGame = globals.elements.mainGame,
-  playfield = globals.elements.playfield,
-  choiceCircle = globals.elements.choiceCircle,
-  choiceCross = globals.elements.choiceCross,
-  crossCounter = globals.elements.crossCounter,
-  circleCounter = globals.elements.circleCounter,
-  tiesCounter = globals.elements.tiesCounter;
-
-resetBtn.addEventListener("click", resetGame);
+import {
+  gameState,
+  playField,
+  containersUI,
+  tokens,
+  scoreBoard,
+} from "./../../_global.js";
 
 function resetGame(e) {
   showStartMenu();
@@ -21,9 +15,7 @@ function resetGame(e) {
 }
 
 function resetFields() {
-  playfield.forEach((field) => {
-    field.classList.remove("marked--cross");
-    field.classList.remove("marked--circle");
+  playField.fields.forEach((field) => {
     field.removeAttribute("style");
     field.setAttribute("data-turn-flag", 1);
     field.setAttribute("data-value", "");
@@ -31,26 +23,26 @@ function resetFields() {
 }
 
 function showStartMenu() {
-  startMenu.classList.remove("hidden");
-  mainGame.classList.add("hidden");
+  containersUI.startMenu.classList.remove("hidden");
+  containersUI.mainGame.classList.add("hidden");
 }
 
 function resetGlobalVariables() {
-  globals.turn = 1;
-  globals.gameType = "CPU";
-  globals.roundWinner = "";
-  globals.player1Token = "";
+  gameState.turn = 1;
+  gameState.gameType = "";
+  gameState.roundWinner = "";
+  gameState.player1Token = "";
 }
 
 function resetTokenChoices() {
-  choiceCircle.classList.remove("start-menu__mark--selected");
-  choiceCross.classList.remove("start-menu__mark--selected");
+  tokens.circle.classList.remove("start-menu__token--selected");
+  tokens.cross.classList.remove("start-menu__token--selected");
 }
 
 function scoreReset() {
-  crossCounter.textContent = 0;
-  circleCounter.textContent = 0;
-  tiesCounter.textContent = 0;
+  scoreBoard.counterCross.textContent = 0;
+  scoreBoard.counterCircle.textContent = 0;
+  scoreBoard.counterTies.textContent = 0;
 }
 
-export { resetGame };
+export { resetGame, resetFields };

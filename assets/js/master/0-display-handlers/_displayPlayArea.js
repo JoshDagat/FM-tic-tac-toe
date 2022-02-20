@@ -1,13 +1,11 @@
-// import { globals } from "../../_global.js";
+import { containersUI } from "../../_global.js";
 
-// const mainGame = globals.elements.mainGame;
+function displayPlayArea() {
+  containersUI.mainGame.classList.remove("hidden");
+}
 
-// function displayPlayArea() {
-//   mainGame.classList.remove("hidden");
-// }
+function hidePlayArea() {
+  containersUI.mainGame.classList.add("hidden");
+}
 
-// function hidePlayArea() {
-//   mainGame.classList.add("hidden");
-// }
-
-// export { displayPlayArea, hidePlayArea };
+export { displayPlayArea, hidePlayArea };

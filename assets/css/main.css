@@ -203,7 +203,7 @@ html {
   margin-top: 1.5rem;
 }
 
-.start-menu__require-token {
+.start-menu__reminder-token {
   color: #da2c2c;
   text-align: center;
   letter-spacing: 1px;
@@ -211,7 +211,7 @@ html {
   display: none;
 }
 
-.start-menu__require-token.active {
+.start-menu__reminder-token.active {
   display: block;
 }
 
@@ -455,11 +455,11 @@ html {
   cursor: pointer;
 }
 
-.main-game__play-cell.marked--cross > .cross {
+.main-game__play-cell[data-value="1"] > .cross {
   display: block;
 }
 
-.main-game__play-cell.marked--circle > .circle {
+.main-game__play-cell[data-value="2"] > .circle {
   display: block;
 }
 

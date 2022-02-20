@@ -45,7 +45,7 @@
   margin-top: 1.5rem;
 }
 
-.start-menu__require-token {
+.start-menu__reminder-token {
   color: variables.$red;
   text-align: center;
   letter-spacing: 1px;
@@ -53,7 +53,7 @@
   display: none;
 }
 
-.start-menu__require-token.active {
+.start-menu__reminder-token.active {
   display: block;
 }
 .start-menu__token-choices {

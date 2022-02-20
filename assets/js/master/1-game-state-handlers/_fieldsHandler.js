@@ -1,15 +1,13 @@
-import { globals } from "./../../_global.js";
-
-const playfield = globals.elements.playfield;
+import { playField } from "../../_global.js";
 
 function disableFields() {
-  playfield.forEach((field) => {
+  playField.fields.forEach((field) => {
     field.style.pointerEvents = "none";
   });
 }
 
 function enableFields() {
-  playfield.forEach((field) => {
+  playField.fields.forEach((field) => {
     field.style.pointerEvents = "auto";
   });
 }

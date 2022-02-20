@@ -163,10 +163,10 @@
   cursor: pointer;
 }
 
-.main-game__play-cell.marked--cross > .cross {
+.main-game__play-cell[data-value="1"] > .cross {
   display: block;
 }
-.main-game__play-cell.marked--circle > .circle {
+.main-game__play-cell[data-value="2"] > .circle {
   display: block;
 }
 

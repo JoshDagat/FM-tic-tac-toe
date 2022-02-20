@@ -1,8 +1,10 @@
-import { gameState } from "../../_global.js";
+import { gameState, tokens } from "../../_global.js";
 
 function initializeGlobals(e) {
   const isPvP = e.target.classList.contains("btn--new-game-player");
-  const playerIsCross = globals.elements.choiceCross.contains("marked--cross");
+  const playerIsCross = tokens.cross.classList.contains(
+    "start-menu__token--selected"
+  );
 
   if (isPvP) {
     gameState.gameType = "PvP";
