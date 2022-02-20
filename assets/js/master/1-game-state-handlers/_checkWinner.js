@@ -1,6 +1,11 @@
 import { playField, gameState } from "../../_global.js";
 import { updateScores } from "../2-round-handlers/_updateScores.js";
 import { enableFields, disableFields } from "./_fieldsHandler.js";
+import {
+  displayCircleWins,
+  displayCrossWins,
+  displayTied,
+} from "./../0-display-handlers/indexDisplay.js";
 
 function checkWinner() {
   // These fields can have either of the ff "data-value":
@@ -56,6 +61,9 @@ function checkWinner() {
     disableFields();
     gameState.roundWinner = "cross";
     updateScores();
+    displayCrossWins();
+    console.log(gameState);
+
     return true;
   }
   // If even one of the circleWins condition returns true,
@@ -64,6 +72,9 @@ function checkWinner() {
     disableFields();
     gameState.roundWinner = "circle";
     updateScores();
+    displayCircleWins();
+    console.log(gameState);
+
     return true;
   }
 
@@ -72,6 +83,8 @@ function checkWinner() {
   else if (fields.every((val) => val > "0")) {
     gameState.roundWinner = "tied";
     updateScores();
+    displayTied();
+    console.log(gameState);
 
     return true;
   }

@@ -7,7 +7,6 @@ import { initializeGlobals } from "./_initializeGlobals.js";
 import {
   displayReminder,
   displayPlayArea,
-  hideStartMenu,
 } from "../0-display-handlers/indexDisplay.js";
 
 function startGame(e) {
@@ -22,7 +21,6 @@ function startGame(e) {
     return;
   }
 
-  hideStartMenu();
   displayPlayArea();
   initializeGlobals(e);
 }

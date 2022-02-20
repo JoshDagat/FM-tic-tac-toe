@@ -18,7 +18,7 @@ function resetFields() {
   playField.fields.forEach((field) => {
     field.removeAttribute("style");
     field.setAttribute("data-turn-flag", 1);
-    field.setAttribute("data-value", "");
+    field.setAttribute("data-value", 0);
   });
 }
 

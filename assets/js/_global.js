@@ -16,7 +16,7 @@ const buttons = {
 const containersUI = {
   startMenu: document.querySelector(".start-menu"),
   mainGame: document.querySelector(".main-game"),
-  modal: document.querySelector("modals__round-result"),
+  modal: document.querySelector(".modals__round-result"),
 };
 
 const playField = {
@@ -53,9 +53,10 @@ const scoreBoard = {
 };
 
 const modalComponents = {
-  announcement: document.querySelector(".announcement-box__message"),
+  roundMsg: document.querySelector(".announcement-box__message"),
+  announcement: document.querySelector(".announcement-box__winner-text"),
   circleSVG: document.querySelector(".modal--circle"),
-  crossSVG: document.querySelector(".modal--cross "),
+  crossSVG: document.querySelector(".modal--cross"),
 };
 
 export {
