@@ -1,5 +1,5 @@
-import { gameState } from "../_global.js";
-import { changeTurn } from "../_changeTurn.js";
+import { gameState } from "./_global.js";
+import { changeTurn } from "./_changeTurn.js";
 
 function markComputerCell() {
   const unmarkedFields = Array.from(

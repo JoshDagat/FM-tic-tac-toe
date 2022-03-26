@@ -1,8 +1,8 @@
-import { gameState } from "../_global.js";
-import { checkWinner } from "../_checkWinner.js";
-import { endRound } from "../_endRound.js";
-import { markComputerCell } from "../_markComputerCell.js";
-import { changeTurn } from "../_changeTurn.js";
+import { gameState } from "./_global.js";
+import { checkWinner } from "./_checkWinner.js";
+import { endRound } from "./_endRound.js";
+import { markComputerCell } from "./_markComputerCell.js";
+import { changeTurn } from "./_changeTurn.js";
 
 function markPlayerCell(e) {
   // Mark the cell with the player's token

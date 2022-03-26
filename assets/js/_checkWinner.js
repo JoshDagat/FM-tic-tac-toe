@@ -1,4 +1,4 @@
-import { playField } from "../_global.js";
+import { playField } from "./_global.js";
 
 function checkWinner() {
   // These fields can have either of the ff "data-value":
