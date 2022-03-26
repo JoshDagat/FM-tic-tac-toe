@@ -7,7 +7,7 @@ import {
   markPlayerCell,
   newGame,
   gameState,
-} from "./_index.js";
+} from "./index.js";
 
 const tokens = document.querySelectorAll(".token");
 

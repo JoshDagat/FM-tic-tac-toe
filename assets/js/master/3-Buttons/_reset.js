@@ -4,7 +4,7 @@ import {
   containersUI,
   tokens,
   scoreBoard,
-} from "./../../_global.js";
+} from "../../global.js";
 
 function resetGame(e) {
   showStartMenu();
