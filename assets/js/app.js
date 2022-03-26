@@ -1,13 +1,6 @@
-import {
-  changeTurn,
-  checkWinner,
-  endRound,
-  highlightSelectedToken,
-  markComputerCell,
-  markPlayerCell,
-  newGame,
-  gameState,
-} from "./index.js";
+import { highlightSelectedToken } from "../highlightSelectedToken.js";
+import { markPlayerCell } from "../markPlayerCell.js";
+import { newGame } from "../newGame.js";
 
 const tokens = document.querySelectorAll(".token");
 
