@@ -1,26 +1,28 @@
-import {
-  changeTurn,
-  checkWinner,
-  endRound,
-  highlightSelectedToken,
-  markComputerCell,
-  markPlayerCell,
-  newGame,
-  gameState,
-} from "./_index.js";
+// import {
+//   changeTurn,
+//   checkWinner,
+//   endRound,
+//   highlightSelectedToken,
+//   markComputerCell,
+//   markPlayerCell,
+//   newGame,
+//   gameState,
+// } from "./_index.js";
 
-const tokens = document.querySelectorAll(".token");
+// const tokens = document.querySelectorAll(".token");
 
-tokens.forEach((token) =>
-  token.addEventListener("click", highlightSelectedToken)
-);
+// tokens.forEach((token) =>
+//   token.addEventListener("click", highlightSelectedToken)
+// );
 
-const startMenuBtns = document.querySelectorAll(".btn--sm");
+// const startMenuBtns = document.querySelectorAll(".btn--sm");
 
-startMenuBtns.forEach((btn) => btn.addEventListener("click", newGame));
+// startMenuBtns.forEach((btn) => btn.addEventListener("click", newGame));
 
-startMenuBtns.forEach((btn) => btn.addEventListener("click", newGame));
+// startMenuBtns.forEach((btn) => btn.addEventListener("click", newGame));
 
-const cells = document.querySelectorAll(".play-cell");
+// const cells = document.querySelectorAll(".play-cell");
 
-cells.forEach((cell) => cell.addEventListener("click", markPlayerCell));
+// cells.forEach((cell) => cell.addEventListener("click", markPlayerCell));
+
+console.log("hello");
