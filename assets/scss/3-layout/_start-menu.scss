@@ -1,38 +1,40 @@
 @use "../0-helpers/variables" as variables;
 
 .start-menu {
-  display: flex;
+  display: none;
   flex-direction: column;
   justify-content: center;
-
-  // border: 1px solid white;
-
   padding: 1.5rem;
 }
 
-.start-menu.hidden {
-  display: none;
+.start-menu.active {
+  display: flex;
 }
 
-.start-menu__logo {
-  margin-bottom: 2rem;
+.logo {
   align-self: center;
 }
 
-.start-menu__token-select-container {
+.logo__svg--sm {
+  height: 32px;
+  width: 72px;
+  margin-bottom: 2rem;
+}
+
+.player-tokens {
   background-color: variables.$semi-dark-navy;
-  padding: 1.5rem;
   box-shadow: inset 0px -8px 0px #10212a;
   border-radius: 15px;
 
   display: flex;
   flex-direction: column;
 
+  padding: 1.5rem;
   margin-bottom: 2rem;
 }
 
-.start-menu__prompt,
-.start-menu__reminder {
+.pt__prompt,
+.pt__reminder {
   color: variables.$silver;
   font-weight: bold;
 
@@ -41,22 +43,24 @@
   margin-bottom: 1.5rem;
 }
 
-.start-menu__reminder {
+.pt__reminder {
   margin-top: 1.5rem;
 }
 
-.start-menu__reminder-token {
+.pt__alert {
+  display: none;
+
   color: variables.$red;
+  font-weight: bold;
   text-align: center;
   letter-spacing: 1px;
-  font-weight: bold;
-  display: none;
 }
 
-.start-menu__reminder-token.active {
+.pt__alert.active {
   display: block;
 }
-.start-menu__token-choices {
+
+.pt__choices {
   display: flex;
 
   padding: 9px;
@@ -64,10 +68,11 @@
   border-radius: 15px;
 
   gap: 0.2rem;
+  cursor: pointer;
 }
 
-.start-menu__cross-token,
-.start-menu__circle-token {
+.pt__cross,
+.pt__circle {
   display: flex;
   justify-content: center;
   flex: 1 1 auto;
@@ -75,28 +80,38 @@
 
   padding: 11px 0;
   border-radius: 10px;
+
+  width: 32px;
+  height: 32px;
 }
 
-.start-menu__cross-token:hover,
-.start-menu__circle-token:hover,
-.start-menu__token--selected,
-.start-menu__token--selected {
+.pt__cross-svg,
+.pt__circle-svg {
+  width: 32px;
+  height: 32px;
+  pointer-events: none;
+}
+
+.pt__cross:hover,
+.pt__circle:hover {
   fill: variables.$dark-navy;
   background-color: variables.$silver;
 }
 
-.start-menu__cross-token.start-menu__token--selected {
+.pt__choices.pt__choices--cross-selected > .pt__cross {
   background-color: variables.$light-blue;
+  fill: variables.$dark-navy;
 }
-.start-menu__cross-token.start-menu__token--selected:hover {
+.pt__choices.pt__choices--cross-selected > .pt__cross:hover {
   background-color: variables.$light-blue-hover;
 }
 
-.start-menu__circle-token.start-menu__token--selected {
+.pt__choices.pt__choices--circle-selected > .pt__circle {
   background-color: variables.$light-yellow;
+  fill: variables.$dark-navy;
 }
 
-.start-menu__circle-token.start-menu__token--selected:hover {
+.pt__choices.pt__choices--circle-selected > .pt__circle:hover {
   background-color: variables.$light-yellow-hover;
 }
 
@@ -104,35 +119,4 @@
   border: none;
   border-radius: 15px;
   padding: 1rem 0;
-}
-
-.btn__text {
-  font-weight: bold;
-  font-size: 1rem;
-}
-
-.btn--new-game-cpu {
-  background-color: variables.$light-yellow;
-  box-shadow: inset 0px -8px 0px #cc8b13;
-  margin-bottom: 1rem;
-
-  transition: transform 0.2s ease-in-out;
-}
-
-.btn--new-game-cpu:hover {
-  background-color: variables.$light-yellow-hover;
-  transform: scale(1.01);
-}
-
-.btn--new-game-player {
-  background-color: variables.$light-blue;
-  box-shadow: inset 0px -8px 0px #118c87;
-  margin-bottom: 1rem;
-
-  transition: transform 0.2s ease-in-out;
-}
-
-.btn--new-game-player:hover {
-  background-color: variables.$light-blue-hover;
-  transform: scale(1.01);
 }

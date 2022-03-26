@@ -1,0 +1,32 @@
+@use "../../0-helpers/variables.scss" as variables;
+
+.btn__text {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.btn--ng-pvc {
+  background-color: variables.$light-yellow;
+  box-shadow: inset 0px -8px 0px #cc8b13;
+  margin-bottom: 1rem;
+
+  transition: transform 0.2s ease-in-out;
+}
+
+.btn--ng-pvc:hover {
+  background-color: variables.$light-yellow-hover;
+  transform: scale(1.01);
+}
+
+.btn--ng-pvp {
+  background-color: variables.$light-blue;
+  box-shadow: inset 0px -8px 0px #118c87;
+  margin-bottom: 1rem;
+
+  transition: transform 0.2s ease-in-out;
+}
+
+.btn--ng-pvp:hover {
+  background-color: variables.$light-blue-hover;
+  transform: scale(1.01);
+}

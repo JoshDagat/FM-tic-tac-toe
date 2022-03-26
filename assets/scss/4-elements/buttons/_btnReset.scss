@@ -1,0 +1,31 @@
+@use "../../0-helpers/mixins" as mix;
+@use "../../0-helpers/variables" as variables;
+
+.reset-btn {
+  @include mix.centered-flex;
+
+  transition: transform 0.2s ease-in-out;
+}
+
+.reset-btn__svg-wrapper {
+  @include mix.centered-flex;
+  background: variables.$silver;
+  box-shadow: inset 0px -4px 0px #6b8997;
+  border-radius: 5px;
+
+  width: clamp(40px, 6.5vw, 52px);
+  aspect-ratio: 1/1;
+  margin-left: auto;
+
+  transition: transform 0.2s ease-in-out;
+}
+
+.reset-btn__svg-wrapper:hover {
+  transform: scale(1.05);
+  background-color: variables.$silver-hover;
+}
+
+.reset-btn__svg {
+  width: 16px;
+  height: 16px;
+}

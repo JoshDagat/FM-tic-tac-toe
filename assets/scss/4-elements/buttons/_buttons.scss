@@ -1,0 +1,10 @@
+@use "btnReset";
+@use "btnsNewGame";
+
+.btn {
+  border: none;
+  border-radius: 15px;
+  padding: 1rem 0;
+
+  cursor: pointer;
+}

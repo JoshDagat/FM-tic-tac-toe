@@ -1,100 +1,119 @@
 @use "../0-helpers/variables" as variables;
 @use "../0-helpers/mixins" as mix;
 
-.modals__round-result {
+.modal-container {
   @include mix.centered-flex;
+  flex-direction: column;
   position: fixed;
   width: 100%;
   height: 100vh;
   top: 0;
   left: 0;
-
-  color: variables.$silver;
+  background-color: rgba(0, 0, 0, 0.25);
 
   visibility: hidden;
   opacity: 0;
 }
 
-.modals__round-result.modal--active {
+.modal-container.active {
   visibility: visible;
   opacity: 1;
 }
 
-.round-result__announcement-box {
+.result-modal {
   background-color: variables.$semi-dark-navy;
   width: 100%;
 
   display: flex;
   flex-direction: column;
   align-items: center;
-
   padding: 2.8125rem 0;
 }
 
-.announcement-box__message {
-  flex: 0 1 auto;
-  font-size: clamp(14px, 2vw, 16px);
-  line-height: 1.25;
+.result-modal--tied {
+  padding: 6rem 0;
+}
 
+.result-modal__variable-message {
+  font-family: variables.$font-main;
+  font-weight: 700;
+  font-size: clamp(14px, 1.5vw, 16px);
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: 1px;
+
+  /* Silver */
+
+  color: #a8bfc9;
+}
+
+.result-modal__announcement {
+  display: flex;
+  align-items: center;
   margin-bottom: 1rem;
 }
 
-.announcement-box__winner-announcement {
-  display: flex;
-  align-items: center;
-
-  font-size: clamp(24px, 5.2vw, 40px);
-  line-height: 1.25;
-  letter-spacing: 1.5px;
-
-  flex: 0 1 auto;
-
-  margin-bottom: 1.5rem;
-  color: variables.$light-yellow;
-}
-
-.announcement-box__svg {
-  display: none;
+.result-modal__svg {
   flex: 0 0 auto;
-  margin-right: 0.25rem;
+  margin-right: 1.5rem;
   width: clamp(30px, 9.44vw, 64px);
   aspect-ratio: 1/1;
 }
 
-.announcement-box__svg.active {
-  display: block;
-}
-
-.modal__btn-group {
-  display: flex;
-
+.result-modal__constant-text {
   flex: 0 1 auto;
-  gap: 1rem;
-}
 
-.modal__quit-game,
-.modal__next-round {
   font-family: variables.$font-main;
-  font-size: 16px;
+  font-weight: 700;
+  font-size: clamp(24px, 5.2vw, 40px);
   line-height: 1.25;
-  border-radius: 10px;
-  padding: 1rem;
+  letter-spacing: 2.5px;
 
-  flex: 1 1 auto;
+  color: variables.$light-blue;
 }
 
-.modal__quit-game {
+.result-modal__constant-text--tied {
+  line-height: 30px;
+  letter-spacing: 1.5px;
+
+  color: variables.$silver;
+  margin-bottom: 2rem;
+}
+
+.result-modal__btn-group {
+  display: flex;
+}
+
+.btn--modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  border: none;
+}
+
+.btn__text--modal {
+  font-family: variables.$font-main;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.25;
+  margin: 1rem 0;
+  display: inline-block;
+  color: variables.$black;
+}
+
+.btn__quit-game {
   background: variables.$silver;
   box-shadow: inset 0px -4px 0px #6b8997;
-
-  min-width: 76px;
-  max-width: 306px;
+  border-radius: 10px;
+  max-width: 76px;
+  margin-right: 1rem;
 }
 
-.modal__next-round {
+.btn__next-round {
   background: variables.$light-yellow;
   box-shadow: inset 0px -4px 0px #cc8b13;
-
-  min-width: 146px;
-  max-width: 151px;
+  border-radius: 10px;
+  flex: 1 1 auto;
+  width: 146px;
 }

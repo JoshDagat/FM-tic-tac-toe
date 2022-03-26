@@ -1,11 +1,4 @@
-import { playField, gameState } from "../../_global.js";
-import { updateScores } from "../2-round-handlers/_updateScores.js";
-import { enableFields, disableFields } from "./_fieldsHandler.js";
-import {
-  displayCircleWins,
-  displayCrossWins,
-  displayTied,
-} from "./../0-display-handlers/indexDisplay.js";
+import { playField } from "./_global.js";
 
 function checkWinner() {
   // These fields can have either of the ff "data-value":
@@ -26,7 +19,7 @@ function checkWinner() {
   const fields = [a1, a2, a3, b1, b2, b3, c1, c2, c3];
 
   // An array containing all the cross win conditions
-  const crossWins = [
+  const crossWinConditions = [
     // Horizontal cross wins
     a1 === "1" && a2 === "1" && a3 === "1", // row1Hx
     b1 === "1" && b2 === "1" && b3 === "1", // row2Hx
@@ -41,7 +34,7 @@ function checkWinner() {
   ];
 
   // An array containing all the circle win conditions
-  const circleWins = [
+  const circleWinConditions = [
     // Horizontal circle wins
     a1 === "2" && a2 === "2" && a3 === "2", // row1Ho
     b1 === "2" && b2 === "2" && b3 === "2", // row2Ho
@@ -57,36 +50,23 @@ function checkWinner() {
 
   // If even one of the crossWins condition returns true,
   // entire playField is disabled.
-  if (crossWins.some((cond) => cond)) {
-    disableFields();
-    gameState.roundWinner = "cross";
-    updateScores();
-    displayCrossWins();
-    console.log(gameState);
-
-    return true;
+  const isCrossWinner = crossWinConditions.some((cond) => cond);
+  if (isCrossWinner) {
+    return "cross";
   }
+
   // If even one of the circleWins condition returns true,
   // entire playField is disabled.
-  else if (circleWins.some((cond) => cond)) {
-    disableFields();
-    gameState.roundWinner = "circle";
-    updateScores();
-    displayCircleWins();
-    console.log(gameState);
-
-    return true;
+  const isCircleWinner = circleWinConditions.some((cond) => cond);
+  if (isCircleWinner) {
+    return "circle";
   }
 
-  // If all fields are marked, but no win conditions return true
-  // it is a tie.
-  else if (fields.every((val) => val > "0")) {
-    gameState.roundWinner = "tied";
-    updateScores();
-    displayTied();
-    console.log(gameState);
-
-    return true;
+  // If all fields are marked (data vale != 0),
+  // but no win conditions are arrived at,
+  // result is a tie.
+  if (fields.every((val) => val > "0")) {
+    return "tie";
   }
 
   return false;

@@ -1,0 +1,37 @@
+@use "../../0-helpers/variables" as variables;
+@use "../../0-helpers/mixins" as mix;
+
+.scoreboard {
+  @include mix.centered-flex;
+  flex-direction: column;
+
+  border-radius: 10px;
+  padding: 0.75rem 0;
+  width: 100%;
+}
+
+.scoreboard--cross {
+  grid-area: cross;
+  background: variables.$light-blue;
+}
+
+.scoreboard--ties {
+  grid-area: ties;
+  background: variables.$silver;
+}
+
+.scoreboard--circle {
+  grid-area: circle;
+  background: variables.$light-yellow;
+}
+
+.scoreboard__label {
+  font-size: 0.875rem;
+  line-height: 1.2857;
+}
+
+.scoreboard__counter {
+  font-size: 1.25rem;
+  line-height: 1.26;
+  display: block;
+}

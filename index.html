@@ -24,589 +24,481 @@
     />
   </head>
   <body class="body">
-    <div class="start-menu">
-      <div class="start-menu__logo">
-        <!-- start-menu svg logo-->
-        <svg viewBox="0 0 72 32" width="72px" height="32px">
-          <g fill="none" fill-rule="evenodd">
-            <path
-              d="M8.562 1.634 16 9.073l7.438-7.439a3 3 0 0 1 4.243 0l2.685 2.685a3 3 0 0 1 0 4.243L22.927 16l7.439 7.438a3 3 0 0 1 0 4.243l-2.685 2.685a3 3 0 0 1-4.243 0L16 22.927l-7.438 7.439a3 3 0 0 1-4.243 0L1.634 27.68a3 3 0 0 1 0-4.243L9.073 16 1.634 8.562a3 3 0 0 1 0-4.243L4.32 1.634a3 3 0 0 1 4.243 0Z"
-              fill="#31C3BD"
-            />
-            <path
-              d="M56.1 0c8.765 0 15.87 7.106 15.87 15.87 0 8.766-7.105 15.871-15.87 15.871-8.765 0-15.87-7.105-15.87-15.87C40.23 7.106 47.334 0 56.1 0Zm0 9.405a6.466 6.466 0 1 0 0 12.931 6.466 6.466 0 0 0 0-12.931Z"
-              fill="#F2B137"
-              fill-rule="nonzero"
-            />
-          </g>
+    <!-- ##### START of START MENU(sm) ##### -->
+    <div class="start-menu active">
+      <!-- sm-logo -->
+      <div class="logo">
+        <svg class="logo__svg--sm">
+          <use href="#logo"></use>
         </svg>
       </div>
-      <!--  -->
-      <div class="start-menu__token-select-container">
-        <span class="start-menu__prompt">PICK PLAYER 1's Token</span>
-        <div class="start-menu__token-choices">
-          <div class="start-menu__cross-token token">
-            <!-- start-menu choices -- cross svg -->
-            <svg viewBox="0 0 64 64" width="32px" height="32px">
-              <path
-                d="M15.002 1.147 32 18.145 48.998 1.147a3 3 0 0 1 4.243 0l9.612 9.612a3 3 0 0 1 0 4.243L45.855 32l16.998 16.998a3 3 0 0 1 0 4.243l-9.612 9.612a3 3 0 0 1-4.243 0L32 45.855 15.002 62.853a3 3 0 0 1-4.243 0L1.147 53.24a3 3 0 0 1 0-4.243L18.145 32 1.147 15.002a3 3 0 0 1 0-4.243l9.612-9.612a3 3 0 0 1 4.243 0Z"
-                fill-rule="evenodd"
-              />
+
+      <!-- sm player-tokens(pt)-->
+      <div class="player-tokens">
+        <span class="pt__prompt"> PICK PLAYER 1's Token </span>
+        <div class="pt__choices">
+          <div class="pt__cross token">
+            <svg class="pt__cross-svg">
+              <use href="#tokens--cross"></use>
             </svg>
           </div>
-          <div class="start-menu__circle-token token">
-            <!-- start-menu choices -- circle svg -->
-            <svg viewBox="0 0 64 64" width="32px" height="32px">
-              <path
-                d="M32 0c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32C14.327 64 0 49.673 0 32 0 14.327 14.327 0 32 0Zm0 18.963c-7.2 0-13.037 5.837-13.037 13.037 0 7.2 5.837 13.037 13.037 13.037 7.2 0 13.037-5.837 13.037-13.037 0-7.2-5.837-13.037-13.037-13.037Z"
-              />
+          <div class="pt__circle token">
+            <svg class="pt__circle-svg">
+              <use href="#tokens--circle"></use>
             </svg>
           </div>
         </div>
-        <span class="start-menu__reminder">REMEMBER: X GOES FIRST</span>
-        <span class="start-menu__reminder-token"
-          >Players need to choose tokens!</span
-        >
+        <span class="pt__reminder">REMEMBER: X GOES FIRST</span>
+        <span class="pt__alert">Players need to choose tokens!</span>
       </div>
       <!--  -->
-      <button class="btn btn--new-game-cpu">
+      <button class="btn btn--ng-pvc btn--sm">
         <span class="btn__text">NEW GAME (VS CPU)</span>
       </button>
 
-      <button class="btn btn--new-game-player">
+      <button class="btn btn--ng-pvp btn--sm">
         <span class="btn__text">NEW GAME (VS PLAYER)</span>
       </button>
     </div>
 
-    <div class="main-game hidden">
-      <!--  -->
-      <div class="main-game__logo">
-        <!-- main-game svg logo -->
-        <svg class="main-game__logo-svg" viewBox="0 0 72 32">
-          <g fill="none" fill-rule="evenodd">
-            <path
-              d="M8.562 1.634 16 9.073l7.438-7.439a3 3 0 0 1 4.243 0l2.685 2.685a3 3 0 0 1 0 4.243L22.927 16l7.439 7.438a3 3 0 0 1 0 4.243l-2.685 2.685a3 3 0 0 1-4.243 0L16 22.927l-7.438 7.439a3 3 0 0 1-4.243 0L1.634 27.68a3 3 0 0 1 0-4.243L9.073 16 1.634 8.562a3 3 0 0 1 0-4.243L4.32 1.634a3 3 0 0 1 4.243 0Z"
-              fill="#31C3BD"
-            />
-            <path
-              d="M56.1 0c8.765 0 15.87 7.106 15.87 15.87 0 8.766-7.105 15.871-15.87 15.871-8.765 0-15.87-7.105-15.87-15.87C40.23 7.106 47.334 0 56.1 0Zm0 9.405a6.466 6.466 0 1 0 0 12.931 6.466 6.466 0 0 0 0-12.931Z"
-              fill="#F2B137"
-              fill-rule="nonzero"
-            />
-          </g>
+    <!-- ##### END OF START MENU ##### -->
+
+    <!-- ##### START of MAIN GAME(mg) ##### -->
+    <div class="main-game mg--cross-turn">
+      <div class="logo">
+        <svg class="logo-svg--mg" viewBox="0 0 72 32">
+          <use href="#logo"></use>
         </svg>
       </div>
-      <!--  -->
-      <div class="main-game__turn-indicator">
+      <!-- start of turn indicator -->
+      <div class="turn-indicator">
         <div class="turn-indicator__svg-wrapper">
-          <!-- turn-indicator -- circle svg -->
-
-          <svg
-            class="main-game__indicator-svg indicator--circle"
-            viewBox="0 0 66 66 "
-          >
-            <path
-              d="M32 0c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32C14.327 64 0 49.673 0 32 0 14.327 14.327 0 32 0Zm0 18.963c-7.2 0-13.037 5.837-13.037 13.037 0 7.2 5.837 13.037 13.037 13.037 7.2 0 13.037-5.837 13.037-13.037 0-7.2-5.837-13.037-13.037-13.037Z"
-            />
+          <svg class="turn-indicator__svg indicator--circle">
+            <use href="#ti--circle"></use>
           </svg>
-          <!-- turn-indicator -- cross svg -->
 
-          <svg
-            class="main-game__indicator-svg active indicator--cross"
-            viewBox="0 0 64 64"
-          >
-            <path
-              d="M15.002 1.147 32 18.145 48.998 1.147a3 3 0 0 1 4.243 0l9.612 9.612a3 3 0 0 1 0 4.243L45.855 32l16.998 16.998a3 3 0 0 1 0 4.243l-9.612 9.612a3 3 0 0 1-4.243 0L32 45.855 15.002 62.853a3 3 0 0 1-4.243 0L1.147 53.24a3 3 0 0 1 0-4.243L18.145 32 1.147 15.002a3 3 0 0 1 0-4.243l9.612-9.612a3 3 0 0 1 4.243 0Z"
-              fill-rule="evenodd"
-            />
+          <svg class="turn-indicator__svg indicator--cross">
+            <use href="#ti--cross"></use>
           </svg>
-          <span class="main-game__indicator-text">TURN</span>
+
+          <span class="turn-indicator__text">TURN</span>
         </div>
       </div>
-      <!--  -->
-      <div class="main-game__reset-btn">
+      <!-- end of turn indicator -->
+      <!-- start of reset button -->
+      <div class="reset-btn">
         <div class="reset-btn__svg-wrapper">
-          <svg class="main-game__reset-svg" viewBox="0 0 20 20">
-            <path
-              d="M19.524 0h-1.88a.476.476 0 0 0-.476.499l.159 3.284A9.81 9.81 0 0 0 9.835.317C4.415.317-.004 4.743 0 10.167.004 15.597 4.406 20 9.835 20a9.796 9.796 0 0 0 6.59-2.536.476.476 0 0 0 .019-.692l-1.348-1.349a.476.476 0 0 0-.65-.022 6.976 6.976 0 0 1-9.85-.63 6.987 6.987 0 0 1 .63-9.857 6.976 6.976 0 0 1 10.403 1.348l-4.027-.193a.476.476 0 0 0-.498.476v1.881c0 .263.213.476.476.476h7.944A.476.476 0 0 0 20 8.426V.476A.476.476 0 0 0 19.524 0Z"
-            />
+          <svg class="reset-btn__svg">
+            <use href="#reset--svg"></use>
           </svg>
         </div>
       </div>
-      <!-- play field -->
-      <div
-        id="a1"
-        class="main-game__play-cell"
-        data-turn-flag="1"
-        data-value="0"
-      >
+      <!-- end of reset button -->
+      <!-- start of playing field -->
+      <!-- a1 cell -->
+      <div id="a1" class="play-cell" data-value="0">
         <div class="cross">
-          <svg width="64" height="64">
-            <path
-              d="M15.002 1.147 32 18.145 48.998 1.147a3 3 0 0 1 4.243 0l9.612 9.612a3 3 0 0 1 0 4.243L45.855 32l16.998 16.998a3 3 0 0 1 0 4.243l-9.612 9.612a3 3 0 0 1-4.243 0L32 45.855 15.002 62.853a3 3 0 0 1-4.243 0L1.147 53.24a3 3 0 0 1 0-4.243L18.145 32 1.147 15.002a3 3 0 0 1 0-4.243l9.612-9.612a3 3 0 0 1 4.243 0Z"
-              fill="#31C3BD"
-              fill-rule="evenodd"
-            />
+          <svg>
+            <use href="#cross"></use>
           </svg>
         </div>
-        <!--  -->
         <div class="circle">
-          <svg width="64" height="64" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M32 0c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32C14.327 64 0 49.673 0 32 0 14.327 14.327 0 32 0Zm0 18.963c-7.2 0-13.037 5.837-13.037 13.037 0 7.2 5.837 13.037 13.037 13.037 7.2 0 13.037-5.837 13.037-13.037 0-7.2-5.837-13.037-13.037-13.037Z"
-              fill="#F2B137"
-            />
+          <svg>
+            <use href="#circle"></use>
           </svg>
         </div>
-        <!--  -->
         <div class="cross--outline">
-          <svg width="64" height="64" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M51.12 1.269c.511 0 1.023.195 1.414.586l9.611 9.611c.391.391.586.903.586 1.415s-.195 1.023-.586 1.414L44.441 32l17.704 17.705c.391.39.586.902.586 1.414 0 .512-.195 1.024-.586 1.415l-9.611 9.611c-.391.391-.903.586-1.415.586a1.994 1.994 0 0 1-1.414-.586L32 44.441 14.295 62.145c-.39.391-.902.586-1.414.586a1.994 1.994 0 0 1-1.415-.586l-9.611-9.611a1.994 1.994 0 0 1-.586-1.415c0-.512.195-1.023.586-1.414L19.559 32 1.855 14.295a1.994 1.994 0 0 1-.586-1.414c0-.512.195-1.024.586-1.415l9.611-9.611c.391-.391.903-.586 1.415-.586s1.023.195 1.414.586L32 19.559 49.705 1.855c.39-.391.902-.586 1.414-.586Z"
-              stroke="#31C3BD"
-              stroke-width="2"
-              fill="none"
-            />
+          <svg>
+            <use href="#cross--outline"></use>
           </svg>
         </div>
-        <!--  -->
         <div class="circle--outline">
-          <svg width="66" height="66" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M33 1c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32C15.327 65 1 50.673 1 33 1 15.327 15.327 1 33 1Zm0 18.963c-7.2 0-13.037 5.837-13.037 13.037 0 7.2 5.837 13.037 13.037 13.037 7.2 0 13.037-5.837 13.037-13.037 0-7.2-5.837-13.037-13.037-13.037Z"
-              stroke="#F2B137"
-              stroke-width="2"
-              fill="none"
-            />
+          <svg>
+            <use href="#circle--outline"></use>
           </svg>
         </div>
       </div>
-      <div
-        id="a2"
-        class="main-game__play-cell"
-        data-turn-flag="1"
-        data-value="0"
-      >
+      <!-- end a1 cell -->
+      <!-- a2 cell -->
+      <div id="a2" class="play-cell" data-value="0">
         <div class="cross">
-          <svg width="64" height="64">
-            <path
-              d="M15.002 1.147 32 18.145 48.998 1.147a3 3 0 0 1 4.243 0l9.612 9.612a3 3 0 0 1 0 4.243L45.855 32l16.998 16.998a3 3 0 0 1 0 4.243l-9.612 9.612a3 3 0 0 1-4.243 0L32 45.855 15.002 62.853a3 3 0 0 1-4.243 0L1.147 53.24a3 3 0 0 1 0-4.243L18.145 32 1.147 15.002a3 3 0 0 1 0-4.243l9.612-9.612a3 3 0 0 1 4.243 0Z"
-              fill="#31C3BD"
-              fill-rule="evenodd"
-            />
+          <svg>
+            <use href="#cross"></use>
           </svg>
         </div>
-        <!--  -->
         <div class="circle">
-          <svg width="64" height="64" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M32 0c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32C14.327 64 0 49.673 0 32 0 14.327 14.327 0 32 0Zm0 18.963c-7.2 0-13.037 5.837-13.037 13.037 0 7.2 5.837 13.037 13.037 13.037 7.2 0 13.037-5.837 13.037-13.037 0-7.2-5.837-13.037-13.037-13.037Z"
-              fill="#F2B137"
-            />
+          <svg>
+            <use href="#circle"></use>
           </svg>
         </div>
-        <!--  -->
         <div class="cross--outline">
-          <svg width="64" height="64" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M51.12 1.269c.511 0 1.023.195 1.414.586l9.611 9.611c.391.391.586.903.586 1.415s-.195 1.023-.586 1.414L44.441 32l17.704 17.705c.391.39.586.902.586 1.414 0 .512-.195 1.024-.586 1.415l-9.611 9.611c-.391.391-.903.586-1.415.586a1.994 1.994 0 0 1-1.414-.586L32 44.441 14.295 62.145c-.39.391-.902.586-1.414.586a1.994 1.994 0 0 1-1.415-.586l-9.611-9.611a1.994 1.994 0 0 1-.586-1.415c0-.512.195-1.023.586-1.414L19.559 32 1.855 14.295a1.994 1.994 0 0 1-.586-1.414c0-.512.195-1.024.586-1.415l9.611-9.611c.391-.391.903-.586 1.415-.586s1.023.195 1.414.586L32 19.559 49.705 1.855c.39-.391.902-.586 1.414-.586Z"
-              stroke="#31C3BD"
-              stroke-width="2"
-              fill="none"
-            />
+          <svg>
+            <use href="#cross--outline"></use>
           </svg>
         </div>
-        <!--  -->
         <div class="circle--outline">
-          <svg width="66" height="66" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M33 1c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32C15.327 65 1 50.673 1 33 1 15.327 15.327 1 33 1Zm0 18.963c-7.2 0-13.037 5.837-13.037 13.037 0 7.2 5.837 13.037 13.037 13.037 7.2 0 13.037-5.837 13.037-13.037 0-7.2-5.837-13.037-13.037-13.037Z"
-              stroke="#F2B137"
-              stroke-width="2"
-              fill="none"
-            />
+          <svg>
+            <use href="#circle--outline"></use>
           </svg>
         </div>
       </div>
-      <div
-        id="a3"
-        class="main-game__play-cell"
-        data-turn-flag="1"
-        data-value="0"
-      >
+      <!-- end a2 cell -->
+      <!-- a3 cell-->
+      <div id="a3" class="play-cell" data-value="0">
         <div class="cross">
-          <svg width="64" height="64">
-            <path
-              d="M15.002 1.147 32 18.145 48.998 1.147a3 3 0 0 1 4.243 0l9.612 9.612a3 3 0 0 1 0 4.243L45.855 32l16.998 16.998a3 3 0 0 1 0 4.243l-9.612 9.612a3 3 0 0 1-4.243 0L32 45.855 15.002 62.853a3 3 0 0 1-4.243 0L1.147 53.24a3 3 0 0 1 0-4.243L18.145 32 1.147 15.002a3 3 0 0 1 0-4.243l9.612-9.612a3 3 0 0 1 4.243 0Z"
-              fill="#31C3BD"
-              fill-rule="evenodd"
-            />
+          <svg>
+            <use href="#cross"></use>
           </svg>
         </div>
-        <!--  -->
         <div class="circle">
-          <svg width="64" height="64" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M32 0c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32C14.327 64 0 49.673 0 32 0 14.327 14.327 0 32 0Zm0 18.963c-7.2 0-13.037 5.837-13.037 13.037 0 7.2 5.837 13.037 13.037 13.037 7.2 0 13.037-5.837 13.037-13.037 0-7.2-5.837-13.037-13.037-13.037Z"
-              fill="#F2B137"
-            />
+          <svg>
+            <use href="#circle"></use>
           </svg>
         </div>
-        <!--  -->
         <div class="cross--outline">
-          <svg width="64" height="64" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M51.12 1.269c.511 0 1.023.195 1.414.586l9.611 9.611c.391.391.586.903.586 1.415s-.195 1.023-.586 1.414L44.441 32l17.704 17.705c.391.39.586.902.586 1.414 0 .512-.195 1.024-.586 1.415l-9.611 9.611c-.391.391-.903.586-1.415.586a1.994 1.994 0 0 1-1.414-.586L32 44.441 14.295 62.145c-.39.391-.902.586-1.414.586a1.994 1.994 0 0 1-1.415-.586l-9.611-9.611a1.994 1.994 0 0 1-.586-1.415c0-.512.195-1.023.586-1.414L19.559 32 1.855 14.295a1.994 1.994 0 0 1-.586-1.414c0-.512.195-1.024.586-1.415l9.611-9.611c.391-.391.903-.586 1.415-.586s1.023.195 1.414.586L32 19.559 49.705 1.855c.39-.391.902-.586 1.414-.586Z"
-              stroke="#31C3BD"
-              stroke-width="2"
-              fill="none"
-            />
+          <svg>
+            <use href="#cross--outline"></use>
           </svg>
         </div>
-        <!--  -->
         <div class="circle--outline">
-          <svg width="66" height="66" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M33 1c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32C15.327 65 1 50.673 1 33 1 15.327 15.327 1 33 1Zm0 18.963c-7.2 0-13.037 5.837-13.037 13.037 0 7.2 5.837 13.037 13.037 13.037 7.2 0 13.037-5.837 13.037-13.037 0-7.2-5.837-13.037-13.037-13.037Z"
-              stroke="#F2B137"
-              stroke-width="2"
-              fill="none"
-            />
+          <svg>
+            <use href="#circle--outline"></use>
           </svg>
         </div>
       </div>
-      <div
-        id="b1"
-        class="main-game__play-cell"
-        data-turn-flag="1"
-        data-value="0"
-      >
+      <!-- end a3 cell -->
+      <!-- b1 cell -->
+      <div id="b1" class="play-cell" data-value="0">
         <div class="cross">
-          <svg width="64" height="64">
-            <path
-              d="M15.002 1.147 32 18.145 48.998 1.147a3 3 0 0 1 4.243 0l9.612 9.612a3 3 0 0 1 0 4.243L45.855 32l16.998 16.998a3 3 0 0 1 0 4.243l-9.612 9.612a3 3 0 0 1-4.243 0L32 45.855 15.002 62.853a3 3 0 0 1-4.243 0L1.147 53.24a3 3 0 0 1 0-4.243L18.145 32 1.147 15.002a3 3 0 0 1 0-4.243l9.612-9.612a3 3 0 0 1 4.243 0Z"
-              fill="#31C3BD"
-              fill-rule="evenodd"
-            />
+          <svg>
+            <use href="#cross"></use>
           </svg>
         </div>
-        <!--  -->
         <div class="circle">
-          <svg width="64" height="64" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M32 0c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32C14.327 64 0 49.673 0 32 0 14.327 14.327 0 32 0Zm0 18.963c-7.2 0-13.037 5.837-13.037 13.037 0 7.2 5.837 13.037 13.037 13.037 7.2 0 13.037-5.837 13.037-13.037 0-7.2-5.837-13.037-13.037-13.037Z"
-              fill="#F2B137"
-            />
+          <svg>
+            <use href="#circle"></use>
           </svg>
         </div>
-        <!--  -->
         <div class="cross--outline">
-          <svg width="64" height="64" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M51.12 1.269c.511 0 1.023.195 1.414.586l9.611 9.611c.391.391.586.903.586 1.415s-.195 1.023-.586 1.414L44.441 32l17.704 17.705c.391.39.586.902.586 1.414 0 .512-.195 1.024-.586 1.415l-9.611 9.611c-.391.391-.903.586-1.415.586a1.994 1.994 0 0 1-1.414-.586L32 44.441 14.295 62.145c-.39.391-.902.586-1.414.586a1.994 1.994 0 0 1-1.415-.586l-9.611-9.611a1.994 1.994 0 0 1-.586-1.415c0-.512.195-1.023.586-1.414L19.559 32 1.855 14.295a1.994 1.994 0 0 1-.586-1.414c0-.512.195-1.024.586-1.415l9.611-9.611c.391-.391.903-.586 1.415-.586s1.023.195 1.414.586L32 19.559 49.705 1.855c.39-.391.902-.586 1.414-.586Z"
-              stroke="#31C3BD"
-              stroke-width="2"
-              fill="none"
-            />
+          <svg>
+            <use href="#cross--outline"></use>
           </svg>
         </div>
-        <!--  -->
         <div class="circle--outline">
-          <svg width="66" height="66" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M33 1c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32C15.327 65 1 50.673 1 33 1 15.327 15.327 1 33 1Zm0 18.963c-7.2 0-13.037 5.837-13.037 13.037 0 7.2 5.837 13.037 13.037 13.037 7.2 0 13.037-5.837 13.037-13.037 0-7.2-5.837-13.037-13.037-13.037Z"
-              stroke="#F2B137"
-              stroke-width="2"
-              fill="none"
-            />
+          <svg>
+            <use href="#circle--outline"></use>
           </svg>
         </div>
       </div>
-      <div
-        id="b2"
-        class="main-game__play-cell"
-        data-turn-flag="1"
-        data-value="0"
-      >
+      <!-- end b1 cell -->
+      <!-- b2 cell -->
+      <div id="b2" class="play-cell" data-value="0">
         <div class="cross">
-          <svg width="64" height="64">
-            <path
-              d="M15.002 1.147 32 18.145 48.998 1.147a3 3 0 0 1 4.243 0l9.612 9.612a3 3 0 0 1 0 4.243L45.855 32l16.998 16.998a3 3 0 0 1 0 4.243l-9.612 9.612a3 3 0 0 1-4.243 0L32 45.855 15.002 62.853a3 3 0 0 1-4.243 0L1.147 53.24a3 3 0 0 1 0-4.243L18.145 32 1.147 15.002a3 3 0 0 1 0-4.243l9.612-9.612a3 3 0 0 1 4.243 0Z"
-              fill="#31C3BD"
-              fill-rule="evenodd"
-            />
+          <svg>
+            <use href="#cross"></use>
           </svg>
         </div>
-        <!--  -->
         <div class="circle">
-          <svg width="64" height="64" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M32 0c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32C14.327 64 0 49.673 0 32 0 14.327 14.327 0 32 0Zm0 18.963c-7.2 0-13.037 5.837-13.037 13.037 0 7.2 5.837 13.037 13.037 13.037 7.2 0 13.037-5.837 13.037-13.037 0-7.2-5.837-13.037-13.037-13.037Z"
-              fill="#F2B137"
-            />
+          <svg>
+            <use href="#circle"></use>
           </svg>
         </div>
-        <!--  -->
         <div class="cross--outline">
-          <svg width="64" height="64" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M51.12 1.269c.511 0 1.023.195 1.414.586l9.611 9.611c.391.391.586.903.586 1.415s-.195 1.023-.586 1.414L44.441 32l17.704 17.705c.391.39.586.902.586 1.414 0 .512-.195 1.024-.586 1.415l-9.611 9.611c-.391.391-.903.586-1.415.586a1.994 1.994 0 0 1-1.414-.586L32 44.441 14.295 62.145c-.39.391-.902.586-1.414.586a1.994 1.994 0 0 1-1.415-.586l-9.611-9.611a1.994 1.994 0 0 1-.586-1.415c0-.512.195-1.023.586-1.414L19.559 32 1.855 14.295a1.994 1.994 0 0 1-.586-1.414c0-.512.195-1.024.586-1.415l9.611-9.611c.391-.391.903-.586 1.415-.586s1.023.195 1.414.586L32 19.559 49.705 1.855c.39-.391.902-.586 1.414-.586Z"
-              stroke="#31C3BD"
-              stroke-width="2"
-              fill="none"
-            />
+          <svg>
+            <use href="#cross--outline"></use>
           </svg>
         </div>
-        <!--  -->
         <div class="circle--outline">
-          <svg width="66" height="66" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M33 1c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32C15.327 65 1 50.673 1 33 1 15.327 15.327 1 33 1Zm0 18.963c-7.2 0-13.037 5.837-13.037 13.037 0 7.2 5.837 13.037 13.037 13.037 7.2 0 13.037-5.837 13.037-13.037 0-7.2-5.837-13.037-13.037-13.037Z"
-              stroke="#F2B137"
-              stroke-width="2"
-              fill="none"
-            />
+          <svg>
+            <use href="#circle--outline"></use>
           </svg>
         </div>
       </div>
-      <div
-        id="b3"
-        class="main-game__play-cell"
-        data-turn-flag="1"
-        data-value="0"
-      >
+      <!-- end b2 cell -->
+      <!-- b3 cell -->
+      <div id="b3" class="play-cell" data-value="0">
         <div class="cross">
-          <svg width="64" height="64">
-            <path
-              d="M15.002 1.147 32 18.145 48.998 1.147a3 3 0 0 1 4.243 0l9.612 9.612a3 3 0 0 1 0 4.243L45.855 32l16.998 16.998a3 3 0 0 1 0 4.243l-9.612 9.612a3 3 0 0 1-4.243 0L32 45.855 15.002 62.853a3 3 0 0 1-4.243 0L1.147 53.24a3 3 0 0 1 0-4.243L18.145 32 1.147 15.002a3 3 0 0 1 0-4.243l9.612-9.612a3 3 0 0 1 4.243 0Z"
-              fill="#31C3BD"
-              fill-rule="evenodd"
-            />
+          <svg>
+            <use href="#cross"></use>
           </svg>
         </div>
-        <!--  -->
         <div class="circle">
-          <svg width="64" height="64" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M32 0c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32C14.327 64 0 49.673 0 32 0 14.327 14.327 0 32 0Zm0 18.963c-7.2 0-13.037 5.837-13.037 13.037 0 7.2 5.837 13.037 13.037 13.037 7.2 0 13.037-5.837 13.037-13.037 0-7.2-5.837-13.037-13.037-13.037Z"
-              fill="#F2B137"
-            />
+          <svg>
+            <use href="#circle"></use>
           </svg>
         </div>
-        <!--  -->
         <div class="cross--outline">
-          <svg width="64" height="64" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M51.12 1.269c.511 0 1.023.195 1.414.586l9.611 9.611c.391.391.586.903.586 1.415s-.195 1.023-.586 1.414L44.441 32l17.704 17.705c.391.39.586.902.586 1.414 0 .512-.195 1.024-.586 1.415l-9.611 9.611c-.391.391-.903.586-1.415.586a1.994 1.994 0 0 1-1.414-.586L32 44.441 14.295 62.145c-.39.391-.902.586-1.414.586a1.994 1.994 0 0 1-1.415-.586l-9.611-9.611a1.994 1.994 0 0 1-.586-1.415c0-.512.195-1.023.586-1.414L19.559 32 1.855 14.295a1.994 1.994 0 0 1-.586-1.414c0-.512.195-1.024.586-1.415l9.611-9.611c.391-.391.903-.586 1.415-.586s1.023.195 1.414.586L32 19.559 49.705 1.855c.39-.391.902-.586 1.414-.586Z"
-              stroke="#31C3BD"
-              stroke-width="2"
-              fill="none"
-            />
+          <svg>
+            <use href="#cross--outline"></use>
           </svg>
         </div>
-        <!--  -->
         <div class="circle--outline">
-          <svg width="66" height="66" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M33 1c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32C15.327 65 1 50.673 1 33 1 15.327 15.327 1 33 1Zm0 18.963c-7.2 0-13.037 5.837-13.037 13.037 0 7.2 5.837 13.037 13.037 13.037 7.2 0 13.037-5.837 13.037-13.037 0-7.2-5.837-13.037-13.037-13.037Z"
-              stroke="#F2B137"
-              stroke-width="2"
-              fill="none"
-            />
+          <svg>
+            <use href="#circle--outline"></use>
           </svg>
         </div>
       </div>
-      <div
-        id="c1"
-        class="main-game__play-cell"
-        data-turn-flag="1"
-        data-value="0"
-      >
+      <!-- end b3 cell -->
+      <!-- c1 cell -->
+      <div id="c1" class="play-cell" data-value="0">
         <div class="cross">
-          <svg width="64" height="64">
-            <path
-              d="M15.002 1.147 32 18.145 48.998 1.147a3 3 0 0 1 4.243 0l9.612 9.612a3 3 0 0 1 0 4.243L45.855 32l16.998 16.998a3 3 0 0 1 0 4.243l-9.612 9.612a3 3 0 0 1-4.243 0L32 45.855 15.002 62.853a3 3 0 0 1-4.243 0L1.147 53.24a3 3 0 0 1 0-4.243L18.145 32 1.147 15.002a3 3 0 0 1 0-4.243l9.612-9.612a3 3 0 0 1 4.243 0Z"
-              fill="#31C3BD"
-              fill-rule="evenodd"
-            />
+          <svg>
+            <use href="#cross"></use>
           </svg>
         </div>
-        <!--  -->
         <div class="circle">
-          <svg width="64" height="64" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M32 0c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32C14.327 64 0 49.673 0 32 0 14.327 14.327 0 32 0Zm0 18.963c-7.2 0-13.037 5.837-13.037 13.037 0 7.2 5.837 13.037 13.037 13.037 7.2 0 13.037-5.837 13.037-13.037 0-7.2-5.837-13.037-13.037-13.037Z"
-              fill="#F2B137"
-            />
+          <svg>
+            <use href="#circle"></use>
           </svg>
         </div>
-        <!--  -->
         <div class="cross--outline">
-          <svg width="64" height="64" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M51.12 1.269c.511 0 1.023.195 1.414.586l9.611 9.611c.391.391.586.903.586 1.415s-.195 1.023-.586 1.414L44.441 32l17.704 17.705c.391.39.586.902.586 1.414 0 .512-.195 1.024-.586 1.415l-9.611 9.611c-.391.391-.903.586-1.415.586a1.994 1.994 0 0 1-1.414-.586L32 44.441 14.295 62.145c-.39.391-.902.586-1.414.586a1.994 1.994 0 0 1-1.415-.586l-9.611-9.611a1.994 1.994 0 0 1-.586-1.415c0-.512.195-1.023.586-1.414L19.559 32 1.855 14.295a1.994 1.994 0 0 1-.586-1.414c0-.512.195-1.024.586-1.415l9.611-9.611c.391-.391.903-.586 1.415-.586s1.023.195 1.414.586L32 19.559 49.705 1.855c.39-.391.902-.586 1.414-.586Z"
-              stroke="#31C3BD"
-              stroke-width="2"
-              fill="none"
-            />
+          <svg>
+            <use href="#cross--outline"></use>
           </svg>
         </div>
-        <!--  -->
         <div class="circle--outline">
-          <svg width="66" height="66" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M33 1c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32C15.327 65 1 50.673 1 33 1 15.327 15.327 1 33 1Zm0 18.963c-7.2 0-13.037 5.837-13.037 13.037 0 7.2 5.837 13.037 13.037 13.037 7.2 0 13.037-5.837 13.037-13.037 0-7.2-5.837-13.037-13.037-13.037Z"
-              stroke="#F2B137"
-              stroke-width="2"
-              fill="none"
-            />
+          <svg>
+            <use href="#circle--outline"></use>
           </svg>
         </div>
       </div>
-      <div
-        id="c2"
-        class="main-game__play-cell"
-        data-turn-flag="1"
-        data-value="0"
-      >
+      <!-- end c1 cell -->
+      <!-- c2 cell -->
+      <div id="c2" class="play-cell" data-value="0">
         <div class="cross">
-          <svg width="64" height="64">
-            <path
-              d="M15.002 1.147 32 18.145 48.998 1.147a3 3 0 0 1 4.243 0l9.612 9.612a3 3 0 0 1 0 4.243L45.855 32l16.998 16.998a3 3 0 0 1 0 4.243l-9.612 9.612a3 3 0 0 1-4.243 0L32 45.855 15.002 62.853a3 3 0 0 1-4.243 0L1.147 53.24a3 3 0 0 1 0-4.243L18.145 32 1.147 15.002a3 3 0 0 1 0-4.243l9.612-9.612a3 3 0 0 1 4.243 0Z"
-              fill="#31C3BD"
-              fill-rule="evenodd"
-            />
+          <svg>
+            <use href="#cross"></use>
           </svg>
         </div>
-        <!--  -->
         <div class="circle">
-          <svg width="64" height="64" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M32 0c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32C14.327 64 0 49.673 0 32 0 14.327 14.327 0 32 0Zm0 18.963c-7.2 0-13.037 5.837-13.037 13.037 0 7.2 5.837 13.037 13.037 13.037 7.2 0 13.037-5.837 13.037-13.037 0-7.2-5.837-13.037-13.037-13.037Z"
-              fill="#F2B137"
-            />
+          <svg>
+            <use href="#circle"></use>
           </svg>
         </div>
-        <!--  -->
         <div class="cross--outline">
-          <svg width="64" height="64" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M51.12 1.269c.511 0 1.023.195 1.414.586l9.611 9.611c.391.391.586.903.586 1.415s-.195 1.023-.586 1.414L44.441 32l17.704 17.705c.391.39.586.902.586 1.414 0 .512-.195 1.024-.586 1.415l-9.611 9.611c-.391.391-.903.586-1.415.586a1.994 1.994 0 0 1-1.414-.586L32 44.441 14.295 62.145c-.39.391-.902.586-1.414.586a1.994 1.994 0 0 1-1.415-.586l-9.611-9.611a1.994 1.994 0 0 1-.586-1.415c0-.512.195-1.023.586-1.414L19.559 32 1.855 14.295a1.994 1.994 0 0 1-.586-1.414c0-.512.195-1.024.586-1.415l9.611-9.611c.391-.391.903-.586 1.415-.586s1.023.195 1.414.586L32 19.559 49.705 1.855c.39-.391.902-.586 1.414-.586Z"
-              stroke="#31C3BD"
-              stroke-width="2"
-              fill="none"
-            />
+          <svg>
+            <use href="#cross--outline"></use>
           </svg>
         </div>
-        <!--  -->
         <div class="circle--outline">
-          <svg width="66" height="66" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M33 1c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32C15.327 65 1 50.673 1 33 1 15.327 15.327 1 33 1Zm0 18.963c-7.2 0-13.037 5.837-13.037 13.037 0 7.2 5.837 13.037 13.037 13.037 7.2 0 13.037-5.837 13.037-13.037 0-7.2-5.837-13.037-13.037-13.037Z"
-              stroke="#F2B137"
-              stroke-width="2"
-              fill="none"
-            />
+          <svg>
+            <use href="#circle--outline"></use>
           </svg>
         </div>
       </div>
-      <div
-        id="c3"
-        class="main-game__play-cell"
-        data-turn-flag="1"
-        data-value="0"
-      >
+      <!-- end c2 cell -->\
+      <!-- c3 cell -->
+      <div id="c3" class="play-cell" data-value="0">
         <div class="cross">
-          <svg width="64" height="64">
-            <path
-              d="M15.002 1.147 32 18.145 48.998 1.147a3 3 0 0 1 4.243 0l9.612 9.612a3 3 0 0 1 0 4.243L45.855 32l16.998 16.998a3 3 0 0 1 0 4.243l-9.612 9.612a3 3 0 0 1-4.243 0L32 45.855 15.002 62.853a3 3 0 0 1-4.243 0L1.147 53.24a3 3 0 0 1 0-4.243L18.145 32 1.147 15.002a3 3 0 0 1 0-4.243l9.612-9.612a3 3 0 0 1 4.243 0Z"
-              fill="#31C3BD"
-              fill-rule="evenodd"
-            />
+          <svg>
+            <use href="#cross"></use>
           </svg>
         </div>
-        <!--  -->
         <div class="circle">
-          <svg width="64" height="64" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M32 0c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32C14.327 64 0 49.673 0 32 0 14.327 14.327 0 32 0Zm0 18.963c-7.2 0-13.037 5.837-13.037 13.037 0 7.2 5.837 13.037 13.037 13.037 7.2 0 13.037-5.837 13.037-13.037 0-7.2-5.837-13.037-13.037-13.037Z"
-              fill="#F2B137"
-            />
+          <svg>
+            <use href="#circle"></use>
           </svg>
         </div>
-        <!--  -->
         <div class="cross--outline">
-          <svg width="64" height="64" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M51.12 1.269c.511 0 1.023.195 1.414.586l9.611 9.611c.391.391.586.903.586 1.415s-.195 1.023-.586 1.414L44.441 32l17.704 17.705c.391.39.586.902.586 1.414 0 .512-.195 1.024-.586 1.415l-9.611 9.611c-.391.391-.903.586-1.415.586a1.994 1.994 0 0 1-1.414-.586L32 44.441 14.295 62.145c-.39.391-.902.586-1.414.586a1.994 1.994 0 0 1-1.415-.586l-9.611-9.611a1.994 1.994 0 0 1-.586-1.415c0-.512.195-1.023.586-1.414L19.559 32 1.855 14.295a1.994 1.994 0 0 1-.586-1.414c0-.512.195-1.024.586-1.415l9.611-9.611c.391-.391.903-.586 1.415-.586s1.023.195 1.414.586L32 19.559 49.705 1.855c.39-.391.902-.586 1.414-.586Z"
-              stroke="#31C3BD"
-              stroke-width="2"
-              fill="none"
-            />
+          <svg>
+            <use href="#cross--outline"></use>
           </svg>
         </div>
-        <!--  -->
         <div class="circle--outline">
-          <svg width="66" height="66" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M33 1c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32C15.327 65 1 50.673 1 33 1 15.327 15.327 1 33 1Zm0 18.963c-7.2 0-13.037 5.837-13.037 13.037 0 7.2 5.837 13.037 13.037 13.037 7.2 0 13.037-5.837 13.037-13.037 0-7.2-5.837-13.037-13.037-13.037Z"
-              stroke="#F2B137"
-              stroke-width="2"
-              fill="none"
-            />
+          <svg>
+            <use href="#circle--outline"></use>
           </svg>
         </div>
       </div>
-      <!--  -->
-      <div class="main-game__cross-scoreboard">
-        <span class="main-game__cross-text">
-          X <span id="cross-player">(YOU)</span>
+      <!-- end c3 cell -->
+      <!-- end of playing field -->
+      <!-- start of scoreboard -->
+      <!-- cross sb -->
+      <div class="scoreboard scoreboard--cross">
+        <span class="scoreboard__label">
+          X <span id="scoreboard__cross-owner">(YOU)</span>
         </span>
-        <span class="main-game__cross-counter">0</span>
+        <span id="counter--cross" class="scoreboard__counter">0</span>
       </div>
-      <!--  -->
-      <div class="main-game__ties-scoreboard">
-        <span class="main-game__ties-text">TIES</span>
-        <span class="main-game__ties-counter">0</span>
+      <!-- end cross sb -->
+      <!-- ties sb -->
+      <div class="scoreboard scoreboard--ties">
+        <span class="scoreboard__label">TIES</span>
+        <span id="counter--ties" class="scoreboard__counter">0</span>
       </div>
-      <!--  -->
-      <div class="main-game__circle-scoreboard">
-        <span class="main-game__circle-text">
-          O <span id="circle-player">(CPU)</span>
+      <!-- end ties sb -->
+      <!-- circle sb -->
+      <div class="scoreboard scoreboard--circle">
+        <span class="scoreboard__label">
+          O <span id="scoreboard__circle-owner">(CPU)</span>
         </span>
-        <span class="main-game__circle-counter">0</span>
+        <span id="counter--circle" class="scoreboard__counter">0</span>
       </div>
-      <!--  -->
+      <!-- end circle sb -->
     </div>
+    <!-- end of scoreboard -->
 
-    <div class="modals__round-result">
-      <div class="round-result__announcement-box">
-        <p class="announcement-box__message">OH NO, YOU LOST...</p>
-        <p class="announcement-box__winner-announcement">
-          <svg class="announcement-box__svg modal--cross" viewBox="0 0 64 64">
-            <path
-              d="M15.002 1.147 32 18.145 48.998 1.147a3 3 0 0 1 4.243 0l9.612 9.612a3 3 0 0 1 0 4.243L45.855 32l16.998 16.998a3 3 0 0 1 0 4.243l-9.612 9.612a3 3 0 0 1-4.243 0L32 45.855 15.002 62.853a3 3 0 0 1-4.243 0L1.147 53.24a3 3 0 0 1 0-4.243L18.145 32 1.147 15.002a3 3 0 0 1 0-4.243l9.612-9.612a3 3 0 0 1 4.243 0Z"
-              fill="#31C3BD"
-            />
-          </svg>
-          <svg
-            class="announcement-box__svg active modal--circle"
-            viewBox="0 0 66 66"
-          >
-            <path
-              d="M32 0c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32C14.327 64 0 49.673 0 32 0 14.327 14.327 0 32 0Zm0 18.963c-7.2 0-13.037 5.837-13.037 13.037 0 7.2 5.837 13.037 13.037 13.037 7.2 0 13.037-5.837 13.037-13.037 0-7.2-5.837-13.037-13.037-13.037Z"
-              fill="#F2B137"
-            />
-          </svg>
-          <span class="announcement-box__winner-text"> TAKES THE ROUND </span>
+    <!-- ##### END of MAIN GAME ###### -->
+    <!-- ##### START of MODALS ##### -->
+    <!-- result-modal__result -->
+    <div class="modal-container">
+      <div class="result-modal">
+        <p id="variable-message" class="result-modal__variable-message">
+          YOU WON!
         </p>
-        <div class="modal__btn-group">
-          <button class="modal__quit-game">QUIT</button>
-          <button class="modal__next-round">NEXT ROUND</button>
+        <p class="result-modal__announcement">
+          <svg class="result-modal__svg" viewBox="0 0 66 66">
+            <use href="#cross"></use>
+          </svg>
+          <span class="result-modal__constant-text">TAKES THE ROUND</span>
+        </p>
+        <div class="result-modal__btn-group">
+          <button class="btn--modal btn__quit-game">
+            <span class="btn__text--modal">QUIT</span>
+          </button>
+          <button class="btn--modal btn__next-round">
+            <span class="btn__text--modal">NEXT ROUND</span>
+          </button>
         </div>
       </div>
     </div>
 
+    <!-- result-modal--tied  -->
+    <div class="modal-container">
+      <div class="result-modal result-modal--tied">
+        <p
+          class="result-modal__constant-text result-modal__constant-text--tied"
+        >
+          ROUND TIED
+        </p>
+        <div class="result-modal__btn-group">
+          <button class="btn--modal btn__quit-game">
+            <span class="btn__text--modal">QUIT</span>
+          </button>
+          <button class="btn--modal btn__next-round">
+            <span class="btn__text--modal">NEXT ROUND</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ##### END of MODALS #####  -->
+    <!-- sm-logo -->
+    <svg style="display: none">
+      <symbol id="logo" viewBox="0 0 72 32">
+        <g fill="none" fill-rule="evenodd">
+          <path
+            d="M8.562 1.634 16 9.073l7.438-7.439a3 3 0 0 1 4.243 0l2.685 2.685a3 3 0 0 1 0 4.243L22.927 16l7.439 7.438a3 3 0 0 1 0 4.243l-2.685 2.685a3 3 0 0 1-4.243 0L16 22.927l-7.438 7.439a3 3 0 0 1-4.243 0L1.634 27.68a3 3 0 0 1 0-4.243L9.073 16 1.634 8.562a3 3 0 0 1 0-4.243L4.32 1.634a3 3 0 0 1 4.243 0Z"
+            fill="#31C3BD"
+          />
+          <path
+            d="M56.1 0c8.765 0 15.87 7.106 15.87 15.87 0 8.766-7.105 15.871-15.87 15.871-8.765 0-15.87-7.105-15.87-15.87C40.23 7.106 47.334 0 56.1 0Zm0 9.405a6.466 6.466 0 1 0 0 12.931 6.466 6.466 0 0 0 0-12.931Z"
+            fill="#F2B137"
+            fill-rule="nonzero"
+          />
+        </g>
+      </symbol>
+    </svg>
+    <!-- sm__tokens--cross -->
+    <svg style="display: none">
+      <symbol id="tokens--cross" viewBox="0 0 64 64">
+        <path
+          d="M15.002 1.147 32 18.145 48.998 1.147a3 3 0 0 1 4.243 0l9.612 9.612a3 3 0 0 1 0 4.243L45.855 32l16.998 16.998a3 3 0 0 1 0 4.243l-9.612 9.612a3 3 0 0 1-4.243 0L32 45.855 15.002 62.853a3 3 0 0 1-4.243 0L1.147 53.24a3 3 0 0 1 0-4.243L18.145 32 1.147 15.002a3 3 0 0 1 0-4.243l9.612-9.612a3 3 0 0 1 4.243 0Z"
+          fill-rule="evenodd"
+        />
+      </symbol>
+    </svg>
+
+    <!-- sm__tokens--circle -->
+    <svg style="display: none">
+      <symbol id="tokens--circle" viewBox="0 0 64 64">
+        <path
+          d="M32 0c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32C14.327 64 0 49.673 0 32 0 14.327 14.327 0 32 0Zm0 18.963c-7.2 0-13.037 5.837-13.037 13.037 0 7.2 5.837 13.037 13.037 13.037 7.2 0 13.037-5.837 13.037-13.037 0-7.2-5.837-13.037-13.037-13.037Z"
+        />
+      </symbol>
+    </svg>
+    <!--cross  -->
+    <svg style="display: none">
+      <symbol id="cross">
+        <path
+          d="M15.002 1.147 32 18.145 48.998 1.147a3 3 0 0 1 4.243 0l9.612 9.612a3 3 0 0 1 0 4.243L45.855 32l16.998 16.998a3 3 0 0 1 0 4.243l-9.612 9.612a3 3 0 0 1-4.243 0L32 45.855 15.002 62.853a3 3 0 0 1-4.243 0L1.147 53.24a3 3 0 0 1 0-4.243L18.145 32 1.147 15.002a3 3 0 0 1 0-4.243l9.612-9.612a3 3 0 0 1 4.243 0Z"
+          fill="#31C3BD"
+          fill-rule="evenodd"
+        />
+      </symbol>
+    </svg>
+    <!-- circle  -->
+    <svg style="display: none">
+      <symbol id="circle">
+        <path
+          d="M32 0c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32C14.327 64 0 49.673 0 32 0 14.327 14.327 0 32 0Zm0 18.963c-7.2 0-13.037 5.837-13.037 13.037 0 7.2 5.837 13.037 13.037 13.037 7.2 0 13.037-5.837 13.037-13.037 0-7.2-5.837-13.037-13.037-13.037Z"
+          fill="#F2B137"
+        />
+      </symbol>
+    </svg>
+    <!--  -->
+    <svg style="display: none">
+      <symbol id="cross--outline">
+        <path
+          d="M51.12 1.269c.511 0 1.023.195 1.414.586l9.611 9.611c.391.391.586.903.586 1.415s-.195 1.023-.586 1.414L44.441 32l17.704 17.705c.391.39.586.902.586 1.414 0 .512-.195 1.024-.586 1.415l-9.611 9.611c-.391.391-.903.586-1.415.586a1.994 1.994 0 0 1-1.414-.586L32 44.441 14.295 62.145c-.39.391-.902.586-1.414.586a1.994 1.994 0 0 1-1.415-.586l-9.611-9.611a1.994 1.994 0 0 1-.586-1.415c0-.512.195-1.023.586-1.414L19.559 32 1.855 14.295a1.994 1.994 0 0 1-.586-1.414c0-.512.195-1.024.586-1.415l9.611-9.611c.391-.391.903-.586 1.415-.586s1.023.195 1.414.586L32 19.559 49.705 1.855c.39-.391.902-.586 1.414-.586Z"
+          stroke="#31C3BD"
+          stroke-width="2"
+          fill="none"
+        />
+      </symbol>
+    </svg>
+    <!--  -->
+    <svg style="display: none">
+      <symbol id="circle--outline">
+        <path
+          d="M33 1c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32C15.327 65 1 50.673 1 33 1 15.327 15.327 1 33 1Zm0 18.963c-7.2 0-13.037 5.837-13.037 13.037 0 7.2 5.837 13.037 13.037 13.037 7.2 0 13.037-5.837 13.037-13.037 0-7.2-5.837-13.037-13.037-13.037Z"
+          stroke="#F2B137"
+          stroke-width="2"
+          fill="none"
+        />
+      </symbol>
+    </svg>
+    <!--  -->
+    <!-- <svg class="logo__svg logo__svg--sm" viewBox="0 0 72 32"> -->
+    <svg style="display: none">
+      <symbol viewBox="0 0 72 32">
+        <g fill="none" fill-rule="evenodd">
+          <path
+            d="M8.562 1.634 16 9.073l7.438-7.439a3 3 0 0 1 4.243 0l2.685 2.685a3 3 0 0 1 0 4.243L22.927 16l7.439 7.438a3 3 0 0 1 0 4.243l-2.685 2.685a3 3 0 0 1-4.243 0L16 22.927l-7.438 7.439a3 3 0 0 1-4.243 0L1.634 27.68a3 3 0 0 1 0-4.243L9.073 16 1.634 8.562a3 3 0 0 1 0-4.243L4.32 1.634a3 3 0 0 1 4.243 0Z"
+            fill="#31C3BD"
+          />
+          <path
+            d="M56.1 0c8.765 0 15.87 7.106 15.87 15.87 0 8.766-7.105 15.871-15.87 15.871-8.765 0-15.87-7.105-15.87-15.87C40.23 7.106 47.334 0 56.1 0Zm0 9.405a6.466 6.466 0 1 0 0 12.931 6.466 6.466 0 0 0 0-12.931Z"
+            fill="#F2B137"
+            fill-rule="nonzero"
+          />
+        </g>
+      </symbol>
+    </svg>
+
+    <svg style="display: none">
+      <symbol id="ti--circle" viewBox="0 0 66 66">
+        <path
+          d="M32 0c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32C14.327 64 0 49.673 0 32 0 14.327 14.327 0 32 0Zm0 18.963c-7.2 0-13.037 5.837-13.037 13.037 0 7.2 5.837 13.037 13.037 13.037 7.2 0 13.037-5.837 13.037-13.037 0-7.2-5.837-13.037-13.037-13.037Z"
+        />
+      </symbol>
+    </svg>
+
+    <svg style="display: none">
+      <symbol id="reset--svg" viewBox="0 0 20 20">
+        <path
+          d="M19.524 0h-1.88a.476.476 0 0 0-.476.499l.159 3.284A9.81 9.81 0 0 0 9.835.317C4.415.317-.004 4.743 0 10.167.004 15.597 4.406 20 9.835 20a9.796 9.796 0 0 0 6.59-2.536.476.476 0 0 0 .019-.692l-1.348-1.349a.476.476 0 0 0-.65-.022 6.976 6.976 0 0 1-9.85-.63 6.987 6.987 0 0 1 .63-9.857 6.976 6.976 0 0 1 10.403 1.348l-4.027-.193a.476.476 0 0 0-.498.476v1.881c0 .263.213.476.476.476h7.944A.476.476 0 0 0 20 8.426V.476A.476.476 0 0 0 19.524 0Z"
+        />
+      </symbol>
+    </svg>
+
+    <svg style="display: none">
+      <symbol id="ti--cross" viewBox="0 0 66 66">
+        <path
+          d="M15.002 1.147 32 18.145 48.998 1.147a3 3 0 0 1 4.243 0l9.612 9.612a3 3 0 0 1 0 4.243L45.855 32l16.998 16.998a3 3 0 0 1 0 4.243l-9.612 9.612a3 3 0 0 1-4.243 0L32 45.855 15.002 62.853a3 3 0 0 1-4.243 0L1.147 53.24a3 3 0 0 1 0-4.243L18.145 32 1.147 15.002a3 3 0 0 1 0-4.243l9.612-9.612a3 3 0 0 1 4.243 0Z"
+        />
+      </symbol>
+    </svg>
     <script src="./assets/js/app.js" type="module"></script>
   </body>
 </html>

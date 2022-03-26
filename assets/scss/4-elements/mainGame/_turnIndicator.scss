@@ -1,0 +1,44 @@
+@use "../../0-helpers/variables" as variables;
+@use "../../0-helpers/mixins" as mix;
+
+.turn-indicator {
+  grid-area: turn;
+
+  display: flex;
+  justify-content: center;
+}
+
+.turn-indicator__svg-wrapper {
+  @include mix.centered-flex;
+  flex: 1 1 auto;
+  gap: 0.5625em;
+
+  background: variables.$semi-dark-navy;
+  box-shadow: inset 0px -4px 0px #10212a;
+  border-radius: 5px;
+
+  max-width: 96px;
+  padding: 0.5625rem 0 0.8125rem 0;
+}
+
+.turn-indicator__svg {
+  display: none;
+  width: 16px;
+  height: 16px;
+
+  fill: variables.$silver;
+}
+
+.main-game.mg--cross-turn .indicator--cross {
+  display: block;
+}
+
+.main-game.mg--circle-turn .indicator--circle {
+  display: block;
+}
+
+.turn-indicator__text {
+  color: variables.$silver;
+  font-size: 0.875rem;
+  line-height: 1.26;
+}

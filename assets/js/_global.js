@@ -1,16 +1,8 @@
 const gameState = {
   turn: 1,
-  gameType: "",
+  gameType: "PvP",
   roundWinner: "",
-  player1Token: "",
-};
-
-const buttons = {
-  startBtnCPU: document.querySelector(".btn--new-game-cpu"),
-  startBtnPlayer: document.querySelector(".btn--new-game-player"),
-  resetBtn: document.querySelector(".main-game__reset-btn"),
-  quitGameBtn: document.querySelector(".modal__quit-game"),
-  nextRoundBtn: document.querySelector(".modal__next-round"),
+  player1Token: "circle",
 };
 
 const containersUI = {
@@ -30,12 +22,6 @@ const playField = {
   c1: document.querySelector("#c1"),
   c2: document.querySelector("#c2"),
   c3: document.querySelector("#c3"),
-};
-
-const tokens = {
-  tokenArr: document.querySelectorAll(".token"),
-  circle: document.querySelector(".start-menu__circle-token"),
-  cross: document.querySelector(".start-menu__cross-token"),
 };
 
 const sideEffects = {
@@ -61,10 +47,8 @@ const modalComponents = {
 
 export {
   gameState,
-  buttons,
   containersUI,
   playField,
-  tokens,
   sideEffects,
   scoreBoard,
   modalComponents,
