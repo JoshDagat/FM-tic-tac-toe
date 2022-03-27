@@ -1,5 +1,5 @@
-import { gameState } from "./global.js";
-import { markComputerCell } from "./markComputerCell.js";
+import { gameState } from "./global.mjs";
+import { markComputerCell } from "./markComputerCell.mjs";
 
 function newGame(e) {
   // Containers for token choices and it's modifiers:

@@ -1,6 +1,6 @@
-import { highlightSelectedToken } from "../highlightSelectedToken.js";
-import { markPlayerCell } from "../markPlayerCell.js";
-import { newGame } from "../newGame.js";
+import { highlightSelectedToken } from "../highlightSelectedToken.mjs";
+import { markPlayerCell } from "../markPlayerCell.mjs";
+import { newGame } from "../newGame.mjs";
 
 const tokens = document.querySelectorAll(".token");
 

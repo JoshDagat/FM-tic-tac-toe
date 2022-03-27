@@ -1,4 +1,4 @@
-import { gameState } from "./global.js";
+import { gameState } from "./global.mjs";
 
 function changeTurn() {
   const mainGame = document.querySelector(".main-game");
