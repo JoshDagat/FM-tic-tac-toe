@@ -16,10 +16,7 @@
   cursor: pointer;
 }
 
-.cross,
-.circle,
-.cross--outline,
-.circle--outline {
+.play-cell__svg {
   display: none;
   position: absolute;
   margin: 0 auto;
@@ -34,35 +31,7 @@
 
   // circle-outline: 66px
 }
-
-.main-game.mg--cross-turn > .play-cell:hover > .cross--outline {
+.play-cell__svg {
   display: block;
 }
 
-.main-game.mg--circle-turn > .play-cell:hover > .circle--outline {
-  display: block;
-}
-
-.play-cell[data-value="1"] > .cross {
-  display: block;
-}
-.play-cell[data-value="2"] > .circle {
-  display: block;
-}
-
-// .play-cell[data-turn-flag="1"]:hover > .cross--outline {
-//   display: block;
-// }
-
-// .play-cell[data-turn-flag="2"]:hover > .circle--outline {
-//   display: block;
-// }
-
-/* Experimental */
-.play-cell.active--cross > .cross--outline {
-  display: block;
-}
-
-.play-cell.active--circle > .circle--outline {
-  display: block;
-}

@@ -84,36 +84,4 @@
   display: flex;
 }
 
-.btn--modal {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  border: none;
-}
 
-.btn__text--modal {
-  font-family: variables.$font-main;
-  font-weight: 700;
-  font-size: 1rem;
-  line-height: 1.25;
-  margin: 1rem 0;
-  display: inline-block;
-  color: variables.$black;
-}
-
-.btn__quit-game {
-  background: variables.$silver;
-  box-shadow: inset 0px -4px 0px #6b8997;
-  border-radius: 10px;
-  max-width: 76px;
-  margin-right: 1rem;
-}
-
-.btn__next-round {
-  background: variables.$light-yellow;
-  box-shadow: inset 0px -4px 0px #cc8b13;
-  border-radius: 10px;
-  flex: 1 1 auto;
-  width: 146px;
-}

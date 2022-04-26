@@ -64,7 +64,7 @@
     <!-- ##### END OF START MENU ##### -->
 
     <!-- ##### START of MAIN GAME(mg) ##### -->
-    <div class="main-game mg--cross-turn">
+    <div class="main-game active">
       <div class="logo">
         <svg class="logo-svg--mg" viewBox="0 0 72 32">
           <use href="#logo"></use>
@@ -73,12 +73,8 @@
       <!-- start of turn indicator -->
       <div class="turn-indicator">
         <div class="turn-indicator__svg-wrapper">
-          <svg class="turn-indicator__svg indicator--circle">
-            <use href="#ti--circle"></use>
-          </svg>
-
-          <svg class="turn-indicator__svg indicator--cross">
-            <use href="#ti--cross"></use>
+          <svg class="turn-indicator__svg">
+            <use class="ti-svg" href="#ti--cross"></use>
           </svg>
 
           <span class="turn-indicator__text">TURN</span>
@@ -95,222 +91,77 @@
       </div>
       <!-- end of reset button -->
       <!-- start of playing field -->
-      <!-- a1 cell -->
-      <div id="a1" class="play-cell" data-value="0">
-        <div class="cross">
-          <svg>
-            <use href="#cross"></use>
-          </svg>
-        </div>
-        <div class="circle">
-          <svg>
-            <use href="#circle"></use>
-          </svg>
-        </div>
-        <div class="cross--outline">
-          <svg>
-            <use href="#cross--outline"></use>
-          </svg>
-        </div>
-        <div class="circle--outline">
-          <svg>
-            <use href="#circle--outline"></use>
+      <div id="0" class="play-cell test">
+        <div class="play-cell__svg">
+          <svg > 
+            <use class="play-cell__link" href=""></use>
           </svg>
         </div>
       </div>
-      <!-- end a1 cell -->
-      <!-- a2 cell -->
-      <div id="a2" class="play-cell" data-value="0">
-        <div class="cross">
-          <svg>
-            <use href="#cross"></use>
-          </svg>
-        </div>
-        <div class="circle">
-          <svg>
-            <use href="#circle"></use>
-          </svg>
-        </div>
-        <div class="cross--outline">
-          <svg>
-            <use href="#cross--outline"></use>
-          </svg>
-        </div>
-        <div class="circle--outline">
-          <svg>
-            <use href="#circle--outline"></use>
+  
+      <div id="1" class="play-cell test">
+        <div class="play-cell__svg">
+          <svg > 
+            <use class="play-cell__link" href=""></use>
           </svg>
         </div>
       </div>
-      <!-- end a2 cell -->
-      <!-- a3 cell-->
-      <div id="a3" class="play-cell" data-value="0">
-        <div class="cross">
-          <svg>
-            <use href="#cross"></use>
-          </svg>
-        </div>
-        <div class="circle">
-          <svg>
-            <use href="#circle"></use>
-          </svg>
-        </div>
-        <div class="cross--outline">
-          <svg>
-            <use href="#cross--outline"></use>
-          </svg>
-        </div>
-        <div class="circle--outline">
-          <svg>
-            <use href="#circle--outline"></use>
+
+      <div id="2" class="play-cell test">
+        <div class="play-cell__svg">
+          <svg > 
+            <use class="play-cell__link" href=""></use>
           </svg>
         </div>
       </div>
-      <!-- end a3 cell -->
-      <!-- b1 cell -->
-      <div id="b1" class="play-cell" data-value="0">
-        <div class="cross">
-          <svg>
-            <use href="#cross"></use>
-          </svg>
-        </div>
-        <div class="circle">
-          <svg>
-            <use href="#circle"></use>
-          </svg>
-        </div>
-        <div class="cross--outline">
-          <svg>
-            <use href="#cross--outline"></use>
-          </svg>
-        </div>
-        <div class="circle--outline">
-          <svg>
-            <use href="#circle--outline"></use>
+
+      <div id="3" class="play-cell test">
+        <div class="play-cell__svg">
+          <svg > 
+            <use class="play-cell__link" href=""></use>
           </svg>
         </div>
       </div>
-      <!-- end b1 cell -->
-      <!-- b2 cell -->
-      <div id="b2" class="play-cell" data-value="0">
-        <div class="cross">
-          <svg>
-            <use href="#cross"></use>
-          </svg>
-        </div>
-        <div class="circle">
-          <svg>
-            <use href="#circle"></use>
-          </svg>
-        </div>
-        <div class="cross--outline">
-          <svg>
-            <use href="#cross--outline"></use>
-          </svg>
-        </div>
-        <div class="circle--outline">
-          <svg>
-            <use href="#circle--outline"></use>
+
+      <div id="4" class="play-cell test">
+        <div class="play-cell__svg">
+          <svg > 
+            <use class="play-cell__link" href=""></use>
           </svg>
         </div>
       </div>
-      <!-- end b2 cell -->
-      <!-- b3 cell -->
-      <div id="b3" class="play-cell" data-value="0">
-        <div class="cross">
-          <svg>
-            <use href="#cross"></use>
-          </svg>
-        </div>
-        <div class="circle">
-          <svg>
-            <use href="#circle"></use>
-          </svg>
-        </div>
-        <div class="cross--outline">
-          <svg>
-            <use href="#cross--outline"></use>
-          </svg>
-        </div>
-        <div class="circle--outline">
-          <svg>
-            <use href="#circle--outline"></use>
+
+      <div id="5" class="play-cell test">
+        <div class="play-cell__svg">
+          <svg > 
+            <use class="play-cell__link" href=""></use>
           </svg>
         </div>
       </div>
-      <!-- end b3 cell -->
-      <!-- c1 cell -->
-      <div id="c1" class="play-cell" data-value="0">
-        <div class="cross">
-          <svg>
-            <use href="#cross"></use>
-          </svg>
-        </div>
-        <div class="circle">
-          <svg>
-            <use href="#circle"></use>
-          </svg>
-        </div>
-        <div class="cross--outline">
-          <svg>
-            <use href="#cross--outline"></use>
-          </svg>
-        </div>
-        <div class="circle--outline">
-          <svg>
-            <use href="#circle--outline"></use>
+
+      <div id="6" class="play-cell test">
+        <div class="play-cell__svg">
+          <svg > 
+            <use class="play-cell__link" href=""></use>
           </svg>
         </div>
       </div>
-      <!-- end c1 cell -->
-      <!-- c2 cell -->
-      <div id="c2" class="play-cell" data-value="0">
-        <div class="cross">
-          <svg>
-            <use href="#cross"></use>
-          </svg>
-        </div>
-        <div class="circle">
-          <svg>
-            <use href="#circle"></use>
-          </svg>
-        </div>
-        <div class="cross--outline">
-          <svg>
-            <use href="#cross--outline"></use>
-          </svg>
-        </div>
-        <div class="circle--outline">
-          <svg>
-            <use href="#circle--outline"></use>
+
+      <div id="7" class="play-cell test">
+        <div class="play-cell__svg">
+          <svg > 
+            <use class="play-cell__link" href=""></use>
           </svg>
         </div>
       </div>
-      <!-- end c2 cell -->\
-      <!-- c3 cell -->
-      <div id="c3" class="play-cell" data-value="0">
-        <div class="cross">
-          <svg>
-            <use href="#cross"></use>
-          </svg>
-        </div>
-        <div class="circle">
-          <svg>
-            <use href="#circle"></use>
-          </svg>
-        </div>
-        <div class="cross--outline">
-          <svg>
-            <use href="#cross--outline"></use>
-          </svg>
-        </div>
-        <div class="circle--outline">
-          <svg>
-            <use href="#circle--outline"></use>
+
+      <div id="8" class="play-cell test">
+        <div class="play-cell__svg">
+          <svg > 
+            <use class="play-cell__link" href=""></use>
           </svg>
         </div>
       </div>
-      <!-- end c3 cell -->
       <!-- end of playing field -->
       <!-- start of scoreboard -->
       <!-- cross sb -->
@@ -341,14 +192,14 @@
     <!-- ##### END of MAIN GAME ###### -->
     <!-- ##### START of MODALS ##### -->
     <!-- result-modal__result -->
-    <div class="modal-container">
+    <div class="modal-container modal-container--base">
       <div class="result-modal">
         <p id="variable-message" class="result-modal__variable-message">
           YOU WON!
         </p>
         <p class="result-modal__announcement">
           <svg class="result-modal__svg" viewBox="0 0 66 66">
-            <use href="#cross"></use>
+            <use id="base-svg" href="#cross"></use>
           </svg>
           <span class="result-modal__constant-text">TAKES THE ROUND</span>
         </p>
@@ -364,7 +215,7 @@
     </div>
 
     <!-- result-modal--tied  -->
-    <div class="modal-container">
+    <div class="modal-container modal-container--tied ">
       <div class="result-modal result-modal--tied">
         <p
           class="result-modal__constant-text result-modal__constant-text--tied"
@@ -502,3 +353,4 @@
     <script type="module" src="./assets/js/app.mjs"></script>
   </body>
 </html>
+ 

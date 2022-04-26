@@ -278,6 +278,10 @@ html {
   padding: 1rem 0;
 }
 
+.btn__text {
+  pointer-events: none;
+}
+
 .main-game {
   display: none;
   grid-template-areas: "logo turn reset" "a1 a2 a3" "b1 b2 b3" "c1 c2 c3" "cross ties circle";
@@ -428,40 +432,6 @@ html {
   display: flex;
 }
 
-.btn--modal {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  border: none;
-}
-
-.btn__text--modal {
-  font-family: "Outfit", sans-serif;
-  font-weight: 700;
-  font-size: 1rem;
-  line-height: 1.25;
-  margin: 1rem 0;
-  display: inline-block;
-  color: #1a2a33;
-}
-
-.btn__quit-game {
-  background: #a8bfc9;
-  box-shadow: inset 0px -4px 0px #6b8997;
-  border-radius: 10px;
-  max-width: 76px;
-  margin-right: 1rem;
-}
-
-.btn__next-round {
-  background: #f2b137;
-  box-shadow: inset 0px -4px 0px #cc8b13;
-  border-radius: 10px;
-  flex: 1 1 auto;
-  width: 146px;
-}
-
 .play-cell {
   display: flex;
   justify-content: center;
@@ -477,10 +447,7 @@ html {
   cursor: pointer;
 }
 
-.cross,
-.circle,
-.cross--outline,
-.circle--outline {
+.play-cell__svg {
   display: none;
   position: absolute;
   margin: 0 auto;
@@ -493,28 +460,7 @@ html {
   height: 64px;
 }
 
-.main-game.mg--cross-turn > .play-cell:hover > .cross--outline {
-  display: block;
-}
-
-.main-game.mg--circle-turn > .play-cell:hover > .circle--outline {
-  display: block;
-}
-
-.play-cell[data-value="1"] > .cross {
-  display: block;
-}
-
-.play-cell[data-value="2"] > .circle {
-  display: block;
-}
-
-/* Experimental */
-.play-cell.active--cross > .cross--outline {
-  display: block;
-}
-
-.play-cell.active--circle > .circle--outline {
+.play-cell__svg {
   display: block;
 }
 
@@ -574,7 +520,6 @@ html {
 }
 
 .turn-indicator__svg {
-  display: none;
   width: 16px;
   height: 16px;
   fill: #a8bfc9;
@@ -651,6 +596,52 @@ html {
 .btn--ng-pvp:hover {
   background-color: #65e9e4;
   transform: scale(1.01);
+}
+
+.btn--modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  border: none;
+}
+
+.btn__text--modal {
+  font-family: "Outfit", sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.25;
+  margin: 1rem 0;
+  display: inline-block;
+  color: #1a2a33;
+}
+
+.btn__quit-game {
+  background: #a8bfc9;
+  box-shadow: inset 0px -4px 0px #6b8997;
+  border-radius: 10px;
+  max-width: 76px;
+  margin-right: 1rem;
+  transition: transform 0.2s ease-in-out;
+}
+
+.btn__next-round {
+  background: #f2b137;
+  box-shadow: inset 0px -4px 0px #cc8b13;
+  border-radius: 10px;
+  flex: 1 1 auto;
+  width: 146px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.btn__quit-game:hover {
+  background: #dbe8ed;
+  transform: scale(1.03);
+}
+
+.btn__next-round:hover {
+  background: #f3ab27;
+  transform: scale(1.03);
 }
 
 .btn {
