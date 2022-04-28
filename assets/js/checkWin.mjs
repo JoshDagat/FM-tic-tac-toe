@@ -13,7 +13,7 @@ function checkWin(board) {
   let result;
 
   let O_PLAYS = [],
-      X_PLAYS = [];
+      X_PLAYS = [],
   
   board.forEach((cell, index) => {
     if (cell == "X") {
@@ -22,6 +22,10 @@ function checkWin(board) {
 
     if (cell == "O") {
       O_PLAYS.push(index)
+    }
+
+    if (typeof cell == 'number') {
+      availSpots.push(cell)
     }
   })
 

@@ -6,7 +6,7 @@ function selectToken(e) {
         TOKEN_CONTAINER = document.querySelector(".pt__choices"),
         ALERT = document.querySelector(".pt__alert");
 
-  TOKEN_CONTAINER.classList.remove(X_MODIFIER, O_MODIFIER);
+  TOKEN_CONTAINER.classList = "pt__choices"
   ALERT.classList.remove("active");
 
   if (e.target.classList.contains("pt__cross")) {

@@ -8,6 +8,8 @@ import { playerClick } from "./playerClick.mjs";
 
 function markCell(cell, player) {
   // 1) Show appropriate SVG
+  if (cell == null) return
+
   let target = cell.querySelector(".play-cell__link");
 
   if (player == "X") {
@@ -20,8 +22,8 @@ function markCell(cell, player) {
     GS.turn = "X"
   }
 
-  // 2) Update the board
-  GS.MAIN_BOARD[cell.id] = player
+  // 2) Update the board || Note: cell.id[5] -> returns the number at the end of cell id.
+  GS.MAIN_BOARD[cell.id[5]] = player
 
   // 3) Prevent events on the cell
   cell.removeEventListener("mouseleave", removeOutline)
@@ -50,6 +52,8 @@ function markCell(cell, player) {
   const turnIndicator = document.querySelector(".ti-svg");
   let turnSVG = (GS.turn == "X") ? "#ti--cross" : "#ti--circle" 
   turnIndicator.setAttribute("href", turnSVG)
+
+  return winner
 }
 
 export {markCell}

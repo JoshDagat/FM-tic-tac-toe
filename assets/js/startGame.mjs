@@ -32,6 +32,9 @@ function startGame(e) {
   // 4) Attach Event Listeners to the cells
   const CELLS = document.querySelectorAll(".play-cell")
   CELLS.forEach(cell => {
+    let target = cell.querySelector(".play-cell__link");
+
+    target.setAttribute("href", null)
     cell.addEventListener("click", playerClick)
     cell.addEventListener("mouseenter", showOutline)
     cell.addEventListener("mouseleave", removeOutline)
@@ -49,6 +52,8 @@ function startGame(e) {
     crossOwner.textContent = (GS.player1Token == "X") ? "(P1)" : "(P2)";
     circleOwner.textContent = (GS.player1Token == "X") ? "(P2)" : "(P1)"; 
   }
+
+  
         
 }
 

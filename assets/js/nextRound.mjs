@@ -20,6 +20,11 @@ function nextRound() {
   const modals = document.querySelectorAll(".modal-container")
   modals.forEach(modal => modal.classList.remove("active"))
 
+  // 6) Reset turn indicator
+  const turnIndicator = document.querySelector(".ti-svg");
+  turnIndicator.setAttribute("href", "#ti--cross")
+
+  GS.turn = "X"
 }
 
 export {nextRound}

@@ -2,6 +2,7 @@ import { selectToken } from "./selectToken.mjs";
 import { startGame } from "./startGame.mjs";
 import { quitGame } from "./quitGame.mjs";
 import { nextRound } from "./nextRound.mjs";
+import { reset } from "./reset.mjs";
 
 
 const TOKEN_CONTAINER = document.querySelector(".pt__choices")
@@ -17,3 +18,6 @@ quitBtns.forEach(button => button.addEventListener("click", quitGame))
 
 const nextRoundBtns = document.querySelectorAll(".btn__next-round");
 nextRoundBtns.forEach(button => button.addEventListener("click", nextRound))
+
+const resetBtn = document.querySelector(".reset-btn");
+resetBtn.addEventListener("click", reset)
