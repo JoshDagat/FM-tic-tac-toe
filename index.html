@@ -25,7 +25,7 @@
   </head>
   <body class="body">
     <!-- ##### START of START MENU(sm) ##### -->
-    <div class="start-menu active">
+    <div class="start-menu">
       <!-- sm-logo -->
       <div class="logo">
         <svg class="logo__svg--sm">
@@ -64,7 +64,7 @@
     <!-- ##### END OF START MENU ##### -->
 
     <!-- ##### START of MAIN GAME(mg) ##### -->
-    <div class="main-game active">
+    <div class="main-game">
       <div class="logo">
         <svg class="logo-svg--mg" viewBox="0 0 72 32">
           <use href="#logo"></use>
@@ -186,8 +186,14 @@
         <span id="counter--circle" class="scoreboard__counter">0</span>
       </div>
       <!-- end circle sb -->
+      <div id="settings">
+        <button class="btn-settings">
+          <span>Settings</span>
+        </button>
+      </div>
     </div>
     <!-- end of scoreboard -->
+   
 
     <!-- ##### END of MAIN GAME ###### -->
     <!-- ##### START of MODALS ##### -->
@@ -203,7 +209,7 @@
           </svg>
           <span class="result-modal__constant-text">TAKES THE ROUND</span>
         </p>
-        <div class="result-modal__btn-group">
+        <div class="modal-button-group">
           <button class="btn--modal btn__quit-game">
             <span class="btn__text--modal">QUIT</span>
           </button>
@@ -222,7 +228,7 @@
         >
           ROUND TIED
         </p>
-        <div class="result-modal__btn-group">
+        <div class="modal-button-group">
           <button class="btn--modal btn__quit-game">
             <span class="btn__text--modal">QUIT</span>
           </button>
@@ -231,6 +237,59 @@
           </button>
         </div>
       </div>
+    </div>
+
+    <!-- audio-modal  -->
+    <div class="modal-container modal-container--sounds  active ">
+      <div class="modal-sounds">
+        <span class="modal-sounds__question">ENABLE SOUNDS?</span>
+        <div class="modal-button-group">
+          <button class="btn--modal btn--affirmative">
+            <span class="btn__text--modal">Enable</span>
+          </button>
+          <button class="btn--modal btn--denied">
+            <span class="btn__text--modal">Disable</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- settings modal -->
+    <div class="modal-container modal-container--settings">
+      <div class="modal-settings">
+        <span class="modal-settings__header">Settings</span>
+        <div class="modal-settings__slider">
+          <div id="label-fx-slider" class="modal-settings-label">
+            <span>Sound Fx:</span>
+            <span class="fx-slider-value">20</span>
+          </div>
+        </div>
+        <input autocomplete='off' type="range" min="1" max="100" value="20" id="sound-fx-slider" class="volume-slider">
+        <!--  -->
+        <div class="modal-settings__slider">
+          <div id="label-music-slider" class="modal-settings__slider-label">
+            <span>Music:</span>
+            <span class="music-slider-value">20</span>
+          </div>
+          
+        </div>
+        <input autocomplete='off' type="range" min="1" max="100" value="20" id="music-slider" class="volume-slider">
+        <!--  -->
+        <div class="checkboxes">
+          <div class="checkbox-group">
+            <label for="sound-fx-checkbox">Sound-Fx
+              <input autocomplete='off' class ='checkbox' type="checkbox" checked id="sound-fx-checkbox">
+            </label>
+          </div>
+        <!--  -->
+          <div class="checkbox-group">
+            <label for="music-checkbox">Music
+              <input autocomplete='off' class='checkbox' type="checkbox" checked id="music-checkbox">
+            </label>
+          </div>
+        </div>
+        <button class="modal-settings__save-btn">
+          <span>Save</span>
+        </button>
     </div>
 
     <!-- ##### END of MODALS #####  -->
@@ -351,6 +410,15 @@
       </symbol>
     </svg>
     <script type="module" src="./assets/js/app.mjs"></script>
+    
+    <audio src="./assets/bgm.wav" id="audio-bgm" class="music"></audio>
+    <audio src="./assets/hover.wav" id="audio-hover" class="sound-fx"></audio>
+    <audio src="./assets/generic-click.wav" id="audio-generic-click" class="sound-fx"></audio>
+    <audio src="./assets/roll.wav" id="audio-roll" class="sound-fx"></audio>
+    <audio src="./assets/selectToken.wav" id="audio-select" class="sound-fx"></audio>
+    <audio src="./assets/win.wav" id="audio-win" class="sound-fx"></audio>
+    <audio src="./assets/lose.wav" id="audio-lose" class="sound-fx"></audio>
+    <audio src="./assets/tie.wav" id="audio-tie" class="sound-fx"></audio>
   </body>
 </html>
  

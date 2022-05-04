@@ -1,7 +1,7 @@
 import {GAME_STATE as GS} from "./gameState.mjs";
 import { showOutline, removeOutline } from "./toggleOutline.mjs";
-import { markCell } from "./markCell.mjs";
 import { playerClick } from "./playerClick.mjs";
+import { computerTurn } from "./computerTurn.mjs";
 
 function startGame(e) {
   const btnPressed = e.target.classList,
@@ -53,8 +53,17 @@ function startGame(e) {
     circleOwner.textContent = (GS.player1Token == "X") ? "(P2)" : "(P1)"; 
   }
 
+  // 6) If game is PvC and Computer is X, make computer take turn:
+  if (GS.type == "PvC" && GS.computerToken == "X") {
+    computerTurn();
+  }
+
+  // 7) Add sounds:
+  const audioSelect = document.querySelector('#audio-select');
   
-        
+  audioSelect.volume = 0.2;
+  audioSelect.currentTime = 0;
+  audioSelect.play()
 }
 
 export {startGame}

@@ -1,3 +1,4 @@
+import { GAME_STATE as GS } from "./gameState.mjs";
 import { playerClick } from "./playerClick.mjs";
 import { showOutline } from "./toggleOutline.mjs";
 
@@ -21,6 +22,16 @@ function reset() {
   // 5) Reset scoreboards
   const counters = document.querySelectorAll(".scoreboard__counter");
   counters.forEach(counter => counter.textContent = 0);
+
+  GS.turn = "X"
+
+  const audioRoll = document.querySelector('#audio-roll');
+  audioRoll.pause();
+  audioRoll.currentTime = 0;
+
+  const audioBeep = document.querySelector("#audio-hover");
+  audioBeep.currentTime = 0;
+  audioBeep.play()
 }
 
 export {reset}

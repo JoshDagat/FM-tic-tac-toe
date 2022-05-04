@@ -1,10 +1,14 @@
+import { computerTurn } from "./computerTurn.mjs";
 import { GAME_STATE as GS } from "./gameState.mjs";
-import { markCell } from "./markCell.mjs";
 import { playerClick } from "./playerClick.mjs";
 import { removeOutline, showOutline } from "./toggleOutline.mjs";
 
 function nextRound() {
   GS.MAIN_BOARD = Array.from(Array(9).keys())
+
+  if (GS.type === "PvC" && GS.computerToken === "X") {
+    computerTurn()
+  }
 
   let cells = document.querySelectorAll(".play-cell");
   cells.forEach(cell => {
@@ -25,6 +29,10 @@ function nextRound() {
   turnIndicator.setAttribute("href", "#ti--cross")
 
   GS.turn = "X"
+
+  const audioBeep = document.querySelector("#audio-hover");
+  audioBeep.currentTime = 0;
+  audioBeep.play()
 }
 
 export {nextRound}

@@ -1,3 +1,5 @@
+import { GAME_STATE as GS } from "./gameState.mjs";
+
 const WIN_CONDITIONS = [
   [0,1,2],
   [3,4,5],
@@ -14,6 +16,7 @@ function checkWin(board) {
 
   let O_PLAYS = [],
       X_PLAYS = [],
+      availableSpots = GS.MAIN_BOARD.filter(cell => typeof cell === 'number');
   
   board.forEach((cell, index) => {
     if (cell == "X") {
@@ -23,10 +26,6 @@ function checkWin(board) {
     if (cell == "O") {
       O_PLAYS.push(index)
     }
-
-    if (typeof cell == 'number') {
-      availSpots.push(cell)
-    }
   })
 
   WIN_CONDITIONS.forEach(condition => {
@@ -34,6 +33,8 @@ function checkWin(board) {
       result = "X"
     } else if (condition.every(elem => O_PLAYS.indexOf(elem) > -1)) {
       result = "O"
+    } else if (availableSpots.length === 0) {
+      result = 'tie'
     }
   })
 

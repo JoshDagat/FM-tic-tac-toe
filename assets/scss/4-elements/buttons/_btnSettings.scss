@@ -1,0 +1,19 @@
+@use "../../0-helpers/variables" as variables;
+
+.btn-settings {
+  flex: 1 1 auto;
+  padding: 0.25rem;
+  background-color: variables.$silver;
+  border-radius: 5px;
+  border-style: none;
+
+  font-family: variables.$font-main;
+
+  transition: transform 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.btn-settings:hover {
+  transform: scale(1.05);
+  background-color: variables.$silver-hover;
+}

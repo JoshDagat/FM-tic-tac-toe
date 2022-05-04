@@ -284,7 +284,7 @@ html {
 
 .main-game {
   display: none;
-  grid-template-areas: "logo turn reset" "a1 a2 a3" "b1 b2 b3" "c1 c2 c3" "cross ties circle";
+  grid-template-areas: "logo turn reset" "a1 a2 a3" "b1 b2 b3" "c1 c2 c3" "cross ties circle" "spacer settings spacer2";
   gap: 20px;
   padding: 1.5em;
 }
@@ -302,52 +302,59 @@ html {
   height: 32px;
 }
 
-#a1 {
+#cell-0 {
   grid-area: a1;
 }
 
-#a2 {
+#cell-1 {
   grid-area: a2;
 }
 
-#a3 {
+#cell-2 {
   grid-area: a3;
 }
 
-#b1 {
+#cell-3 {
   grid-area: b1;
 }
 
-#b2 {
+#cell-4 {
   grid-area: b2;
 }
 
-#b3 {
+#cell-5 {
   grid-area: b3;
 }
 
-#c1 {
+#cell-6 {
   grid-area: c1;
 }
 
-#c2 {
+#cell-7 {
   grid-area: c2;
 }
 
-#c3 {
+#cell-8 {
   grid-area: c3;
 }
 
-#a2,
-#b2,
-#c2 {
+#cell-0, #cell-1, #cell-2 {
+  justify-self: right;
+}
+
+#cell-3, #cell-4, #cell-5 {
   justify-self: center;
 }
 
-#a3,
-#b3,
-#c3 {
-  justify-self: flex-end;
+#cell-6, #cell-7, #cell-8 {
+  justify-self: left;
+}
+
+#settings {
+  grid-area: settings;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .main-game.visible {
@@ -374,7 +381,8 @@ html {
   opacity: 1;
 }
 
-.result-modal {
+.result-modal,
+.modal-sounds, .modal-settings {
   background-color: #1f3641;
   width: 100%;
   display: flex;
@@ -385,6 +393,10 @@ html {
 
 .result-modal--tied {
   padding: 6rem 0;
+}
+
+.modal-sounds, .modal-settings {
+  padding: 5rem 0;
 }
 
 .result-modal__variable-message {
@@ -411,7 +423,8 @@ html {
   aspect-ratio: 1/1;
 }
 
-.result-modal__constant-text {
+.result-modal__constant-text,
+.modal-sounds__question, .modal-settings__header {
   flex: 0 1 auto;
   font-family: "Outfit", sans-serif;
   font-weight: 700;
@@ -421,15 +434,35 @@ html {
   color: #31c3bd;
 }
 
-.result-modal__constant-text--tied {
+.result-modal__constant-text--tied .modal-sounds__question {
   line-height: 30px;
   letter-spacing: 1.5px;
   color: #a8bfc9;
   margin-bottom: 2rem;
 }
 
-.result-modal__btn-group {
+.modal-sounds__question,
+.modal-settings__header {
+  font-size: clamp(18px, 5.2vw, 30px);
+  margin-bottom: 2rem;
+}
+
+.modal-button-group {
   display: flex;
+}
+
+.modal-settings__slider {
+  display: flex;
+  flex-direction: row;
+}
+
+.modal-settings__save-btn {
+  border: none;
+  font-family: "Outfit", sans-serif;
+  margin-top: 2em;
+  border-radius: 2px;
+  padding: 0.25em;
+  cursor: pointer;
 }
 
 .play-cell {
@@ -616,32 +649,56 @@ html {
   color: #1a2a33;
 }
 
-.btn__quit-game {
+.btn__quit-game, .btn--denied {
   background: #a8bfc9;
   box-shadow: inset 0px -4px 0px #6b8997;
   border-radius: 10px;
   max-width: 76px;
   margin-right: 1rem;
   transition: transform 0.2s ease-in-out;
+  cursor: pointer;
 }
 
-.btn__next-round {
+.btn__next-round, .btn--affirmative {
   background: #f2b137;
   box-shadow: inset 0px -4px 0px #cc8b13;
   border-radius: 10px;
   flex: 1 1 auto;
   width: 146px;
   transition: transform 0.2s ease-in-out;
+  cursor: pointer;
 }
 
-.btn__quit-game:hover {
+.btn--affirmative {
+  margin-right: 1rem;
+}
+
+.btn__quit-game:hover,
+.btn--denied:hover {
   background: #dbe8ed;
   transform: scale(1.03);
 }
 
-.btn__next-round:hover {
+.btn__next-round:hover,
+.btn--affirmative:hover {
   background: #f3ab27;
   transform: scale(1.03);
+}
+
+.btn-settings {
+  flex: 1 1 auto;
+  padding: 0.25rem;
+  background-color: #a8bfc9;
+  border-radius: 5px;
+  border-style: none;
+  font-family: "Outfit", sans-serif;
+  transition: transform 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.btn-settings:hover {
+  transform: scale(1.05);
+  background-color: #dbe8ed;
 }
 
 .btn {

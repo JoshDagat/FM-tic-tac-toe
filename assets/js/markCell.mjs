@@ -30,30 +30,10 @@ function markCell(cell, player) {
   cell.removeEventListener("mouseenter", showOutline)
   cell.removeEventListener("click", playerClick)
 
-  
-
-  // 4) Check for a winner / a tie
-  let winner = checkWin(GS.MAIN_BOARD);
-  let availSpots = GS.MAIN_BOARD.filter(cell => typeof cell == 'number')
-  
-  if (winner) {
-    showModal(winner)
-    updateScores(winner)
-    endRound()
-  } 
-  
-  else if (availSpots.length == 0) {
-    showModal("tie")
-    updateScores("tie")
-    endRound()
-  }
-
-  // 5) Change turn indicator
+  // 4) Change turn indicator
   const turnIndicator = document.querySelector(".ti-svg");
   let turnSVG = (GS.turn == "X") ? "#ti--cross" : "#ti--circle" 
   turnIndicator.setAttribute("href", turnSVG)
-
-  return winner
 }
 
 export {markCell}

@@ -7,6 +7,8 @@ function quitGame() {
 
   // 2) reset
   reset()
+
+  
 }
 
 export {quitGame} 
