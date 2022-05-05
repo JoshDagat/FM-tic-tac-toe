@@ -1,9 +1,5 @@
-import { showModal } from "./showModal.mjs";
 import { GAME_STATE as GS} from "./gameState.mjs";
 import { showOutline, removeOutline } from "./toggleOutline.mjs";
-import { checkWin } from "./checkWin.mjs";
-import { endRound } from "./endRound.mjs";
-import { updateScores } from "./updateScores.mjs";
 import { playerClick } from "./playerClick.mjs";
 
 function markCell(cell, player) {

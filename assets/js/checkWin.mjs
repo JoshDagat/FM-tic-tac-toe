@@ -16,7 +16,7 @@ function checkWin(board) {
 
   let O_PLAYS = [],
       X_PLAYS = [],
-      availableSpots = GS.MAIN_BOARD.filter(cell => typeof cell === 'number');
+      availableSpots = board.filter(cell => typeof cell === 'number');
   
   board.forEach((cell, index) => {
     if (cell == "X") {
@@ -28,17 +28,23 @@ function checkWin(board) {
     }
   })
 
-  WIN_CONDITIONS.forEach(condition => {
-    if (condition.every(elem => X_PLAYS.indexOf(elem) > -1)) {
-      result = "X"
-    } else if (condition.every(elem => O_PLAYS.indexOf(elem) > -1)) {
-      result = "O"
-    } else if (availableSpots.length === 0) {
-      result = 'tie'
-    }
-  })
+  for (let condition of WIN_CONDITIONS) {
+    let didCrossWin = condition.every(elem => X_PLAYS.indexOf(elem) > -1),
+        didCircleWin = condition.every(elem => O_PLAYS.indexOf(elem) > -1);
 
-  return result
+    if (didCrossWin) {
+      result = "X";
+      return result
+    } else if (didCircleWin) {
+      result = "O"
+      return result
+    }
+  }
+
+  if (availableSpots.length === 0) {
+    result = 'tie'
+    return result
+  }
 }
 
 export {checkWin}

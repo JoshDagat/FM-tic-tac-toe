@@ -3,11 +3,8 @@ import { computerTurn } from "./computerTurn.mjs";
 import { disableCells } from "./disableCells.mjs";
 import { GAME_STATE as GS } from "./gameState.mjs";
 import { markCell } from "./markCell.mjs";
-import { minimax } from "./minimax.mjs";
 import { reEnableCells } from "./reEnableCells.mjs";
-import { showModal } from "./showModal.mjs";
 import { showWinner } from "./showWinner.mjs";
-import { updateScores } from "./updateScores.mjs";
 
 function playerClick(e) {
   const audioPositive = document.querySelector('#audio-generic-click');
@@ -19,6 +16,7 @@ function playerClick(e) {
 
   // 2) Check for a winner:
   let result = checkWin(GS.MAIN_BOARD)
+  console.log(result)
   
   if (result) {
     setTimeout(()=>showWinner(result), 750)
