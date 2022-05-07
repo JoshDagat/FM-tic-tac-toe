@@ -18,6 +18,7 @@ function nextRound() {
     let target = cell.querySelector(".cell__svg-link")
     target.setAttribute("href", null)
 
+    cell.style.backgroundColor = "#1F3641"
     cell.addEventListener("click", playerClick)
     cell.addEventListener("mouseenter", showOutline)
     cell.addEventListener("mouseleave", removeOutline)
@@ -30,7 +31,7 @@ function nextRound() {
 
   // Reset turn indicator
   const turnIndicator = document.querySelector(".turn-indicator__svg-link");
-  turnIndicator.setAttribute("href", "#ti--cross")
+  turnIndicator.setAttribute("href", "#svg-indicator--cross")
   GS.turn = "X"
 
   const audioBeep = document.querySelector("#audio-hover");

@@ -46,6 +46,8 @@ function startGame(e) {
     let target = cell.querySelector(".cell__svg-link");
 
     target.setAttribute("href", null)
+
+    cell.style.backgroundColor = "#1f3641"
     cell.addEventListener("click", playerClick)
     cell.addEventListener("mouseenter", showOutline)
     cell.addEventListener("mouseleave", removeOutline)

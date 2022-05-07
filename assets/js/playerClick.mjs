@@ -26,7 +26,7 @@ function playerClick(e) {
 
   // 4) If result is null and game is "PvC" make computer take turn:
   if (GS.type == "PvC" && result !== 'tie') {
-    computerTurn()
+    computerTurn(GS.mainBoard)
   }
 
   // 5) Temporary disable cells to avoid overlap:

@@ -12,18 +12,18 @@ const WIN_CONDITIONS = [
 ]
 
 function checkWin(board) {
-  let result;
+  let outcome = {};
 
   let O_PLAYS = [],
       X_PLAYS = [],
       availableSpots = board.filter(cell => typeof cell === 'number');
   
   board.forEach((cell, index) => {
-    if (cell == "X") {
+    if (cell === "X") {
       X_PLAYS.push(index)
     }
 
-    if (cell == "O") {
+    if (cell === "O") {
       O_PLAYS.push(index)
     }
   })
@@ -33,17 +33,19 @@ function checkWin(board) {
         didCircleWin = condition.every(elem => O_PLAYS.indexOf(elem) > -1);
 
     if (didCrossWin) {
-      result = "X";
-      return result
+      outcome.winner = "X";
+      outcome.combo = condition;
+      return outcome
     } else if (didCircleWin) {
-      result = "O"
-      return result
+      outcome.winner = "O"
+      outcome.combo = condition;
+      return outcome
     }
   }
 
   if (availableSpots.length === 0) {
-    result = 'tie'
-    return result
+    outcome.winner = 'tie'
+    return outcome
   }
 }
 

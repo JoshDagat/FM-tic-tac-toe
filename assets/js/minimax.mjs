@@ -4,10 +4,10 @@ import { GAME_STATE as GS } from "./gameState.mjs";
 function minimax(newBoard, player) {
   const availSpots = newBoard.filter(cell => typeof cell == "number");
 
-  let winner = checkWin(newBoard)
-  if (winner == GS.player1Token) {
+  let outcome = checkWin(newBoard)
+  if (outcome?.winner == GS.player1Token) {
     return {score: -10}
-  } else if (winner == GS.computerToken) {
+  } else if (outcome?.winner == GS.computerToken) {
     return {score: 10}
   } else if (availSpots.length === 0) {
     return {score: 0}

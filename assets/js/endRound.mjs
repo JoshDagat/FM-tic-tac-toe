@@ -1,7 +1,7 @@
 import { showOutline, removeOutline } from "./toggleOutline.mjs";
 import { playerClick } from "./playerClick.mjs";
 
-function endRound(winner) {
+function endRound() {
   const cells = document.querySelectorAll(".play-cell");
 
   cells.forEach(cell => {

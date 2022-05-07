@@ -7,17 +7,13 @@ import { randomize } from "./randomize.mjs";
 import { reEnableCells } from "./reEnableCells.mjs";
 import { showWinner } from "./showWinner.mjs";
 
-function computerTurn() {
-
+function computerTurn(board) {
   const audioRoll = document.querySelector('#audio-roll');
-
-  
-
   // 1) Temporarily disable the cells:
   disableCells()
 
   // 1) Pretend to choose a cell:
-  let availableSpots = GS.mainBoard.filter(cell => typeof cell == 'number');
+  let availableSpots = board.filter(cell => typeof cell == 'number');
 
   if (availableSpots.length > 1) {
       let choose = setInterval( () => randomize(availableSpots), 200)
@@ -38,12 +34,14 @@ function computerTurn() {
       element,
       index;
   
+  console.log('c:',chance)
   if (chance > 8) {
+    console.log(index)
     index = Math.floor( Math.random() * availableSpots.length);
     bestCell = availableSpots[index];
     element = document.querySelector(`#cell-${bestCell}`);
   } else if (chance <= 8) {
-    bestCell = minimax(GS.mainBoard, GS.computerToken)
+    bestCell = minimax(board, GS.computerToken)
     element = document.querySelector(`#cell-${bestCell.index}`)
   }
 
