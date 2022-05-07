@@ -1,7 +1,7 @@
 function enableSounds() {
   const audioBGM = document.querySelector("#audio-bgm"),
         allSoundFx = document.querySelectorAll('.sound-fx'),
-        modalAudio = document.querySelector('.modal-container--sounds'),
+        modalAudio = document.querySelector('#modal-audio-toggle'),
         starMenu = document.querySelector('.start-menu');
 
   modalAudio.classList.remove('active');

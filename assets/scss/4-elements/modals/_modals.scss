@@ -1,0 +1,57 @@
+@use "../../0-helpers/variables" as variables;
+@use "../../0-helpers/mixins" as mix;
+@use "baseResult";
+@use "tiedResult";
+@use "settings";
+
+.modal-wrapper {
+  @include mix.centered-flex;
+  flex-direction: column;
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.25);
+
+  visibility: hidden;
+  opacity: 0;
+}
+
+.modal-wrapper.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal-body {
+  background-color: variables.$semi-dark-navy;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2.8125rem 0;
+}
+
+.modal__generic-text {
+  font-family: variables.$font-main;
+   flex: 0 1 auto;
+
+  font-family: variables.$font-main;
+  font-weight: 700;
+  font-size: clamp(24px, 5.2vw, 40px);
+  line-height: 1.25;
+  letter-spacing: 2.5px;
+
+  color: variables.$light-blue;
+  margin-bottom: 1em;
+}
+
+.modal__button-group {
+  display: flex;
+}
+
+// Only 1 css line for modal audio 
+.modal-audio__prompt {
+  font-size: clamp(24px, 5.2vw, 36px);
+}

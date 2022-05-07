@@ -1,7 +1,7 @@
 function toggleFx() {
   const allSoundFx = document.querySelectorAll('.sound-fx'),
-        soundFxSlider = document.querySelector('#sound-fx-slider'),
-        fxCheckBox = document.querySelector('#sound-fx-checkbox');
+        soundFxSlider = document.querySelector('#sfx-slider'),
+        fxCheckBox = document.querySelector('#sfx-checkbox');
   
   if (fxCheckBox.checked === true) {
     allSoundFx.forEach(sfx => {

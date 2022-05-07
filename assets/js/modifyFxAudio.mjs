@@ -1,11 +1,13 @@
 function modifyFxAudio() {
-  const allSoundFx = document.querySelectorAll('.sound-fx'),
-        volume = document.querySelector('#sound-fx-slider').value,
-        sliderLabel = document.querySelector('.fx-slider-value'),
-        audioBeep = document.querySelector('#audio-hover');
+  const volume = document.querySelector('#sfx-slider').value,
+        allSoundFx = document.querySelectorAll('.sound-fx');
 
-        allSoundFx.forEach(sfx =>sfx.volume = volume / 100)
-        sliderLabel.textContent = volume
+        allSoundFx.forEach(sfx => sfx.volume = volume / 100)
+
+  const sliderLabel = document.querySelector('#sfx-value');
+        sliderLabel.textContent = volume;
+
+  const audioBeep = document.querySelector('#audio-hover');
         audioBeep.currentTime = 0;
         audioBeep.play();
 } 

@@ -200,7 +200,7 @@
           <svg class="modal-base__svg" viewBox="0 0 66 66">
             <use id="base-svg" href="#cross"></use>
           </svg>
-          <span class="modal-base__winning-text">TAKES THE ROUND</span>
+          <span class="modal__generic-text modal-base__winning-text">TAKES THE ROUND</span>
         </p>
         <div class="modal__button-group">
           <button class="btn--modal btn__quit-game">
@@ -217,7 +217,7 @@
     <div class="modal-wrapper" id="modal-tied-result">
       <div class="modal-body modal-tied">
         <p
-          class="modal-tied__text"
+          class="modal__generic-text"
         >
           ROUND TIED
         </p>
@@ -235,7 +235,7 @@
     <!-- Mod-3 Modal Audio Toggle  -->
     <div class="modal-wrapper active " id="modal-audio-toggle">
       <div class="modal-body modal-audio">
-        <span class="modal-audio__prompt">ENABLE SOUNDS?</span>
+        <span class="modal__generic-text modal-audio__prompt">ENABLE SOUNDS?</span>
         <div class="modal__button-group">
           <button class="btn--modal btn--affirmative">
             <span class="btn__text--modal">Enable</span>
@@ -250,12 +250,12 @@
     <!-- Mod-4 Modal Settings -->
     <div class="modal-wrapper" id="modal-settings">
       <div class="modal-body modal-settings">
-        <span class="modal-settings__header">Settings</span>
+        <span class="modal__generic-text modal-settings__header">Settings</span>
         <!-- Mod-4-1 FX Slider -->
         <div class="slider__wrapper">
           <div id="label-fx-slider" class="slider__label">
             <span>Sound Fx:</span>
-            <span class="slider__value">20</span>
+            <span id="sfx-value" class="slider__value">20</span>
           </div>
         </div>
         <input autocomplete='off' type="range" min="1" max="100" value="20" id="sfx-slider" class="slider__input">
@@ -264,7 +264,7 @@
         <div class="slider__wrapper">
           <div id="label-music-slider" class="slider__label">
             <span>Music:</span>
-            <span class="slider__value">20</span>
+            <span id="music-value" class="slider__value">20</span>
           </div>
           
         </div>

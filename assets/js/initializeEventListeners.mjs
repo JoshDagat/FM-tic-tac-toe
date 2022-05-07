@@ -15,61 +15,72 @@ import { toggleFx } from "./toggleFx.mjs";
 
 
 function initializeEventListeners() {
-  // 1) Tokens
+  // Token Container
   const tokenContainer = document.querySelector('.game-tokens__choices');
   tokenContainer.addEventListener('click', selectToken)
 
+  // Tokens
   const tokens = document.querySelectorAll('.choice-token');
   tokens.forEach(token => token.addEventListener('mouseenter', hoverSound))
 
-  // 2) Buttons:
+  // New Game Buttons
   const newGameButtons = document.querySelectorAll('.btn--sm');
   newGameButtons.forEach(button => {
     button.addEventListener('click', startGame)
     button.addEventListener('mouseenter', hoverSound)
   })
 
+  // Quit Buttons
   const quitButtons = document.querySelectorAll(".btn__quit-game")
   quitButtons.forEach(button => {
     button.addEventListener('click', quitGame)
     button.addEventListener('mouseenter', hoverSound)
   })
 
+  // Next Round Buttons
   const nextRoundButtons = document.querySelectorAll('.btn__next-round');
   nextRoundButtons.forEach(button => {
     button.addEventListener('click', nextRound)
     button.addEventListener('mouseenter', hoverSound)
   })
 
+  // Reset Button
   const resetButton = document.querySelector('.btn-reset');
   resetButton.addEventListener('click', reset);
   resetButton.addEventListener('mouseenter', hoverSound)
 
+  // Enable Sounds Button
   const enableSoundsButton = document.querySelector('.btn--affirmative');
   enableSoundsButton.addEventListener('click', enableSounds)
 
+  // Disable SOunds Button
   const disableSoundsButton = document.querySelector('.btn--denied');
   disableSoundsButton.addEventListener('click', disableSounds);
 
+  // Settings Button
   const settingsButton = document.querySelector('.btn-settings')
   settingsButton.addEventListener('mouseenter', hoverSound)
   settingsButton.addEventListener('click', showSettings)
 
-  // 3) Settings:
-  const fxSlider = document.querySelector("#sound-fx-slider");
+  // SFX Slider
+  const fxSlider = document.querySelector("#sfx-slider");
   fxSlider.addEventListener('input', modifyFxAudio)
 
+  // Music Slider
   const musicSlider = document.querySelector('#music-slider');
   musicSlider.addEventListener('input', modifyMusic)
 
+  // Settings Save Button
   const settingsSave = document.querySelector('.modal-settings__save-btn');
   settingsSave.addEventListener('click', closeSettings)
   settingsSave.addEventListener('mouseenter', hoverSound) 
 
+  // Music Chxbox
   const musicCheckBox = document.querySelector('#music-checkbox');
   musicCheckBox.addEventListener('change', toggleMusic);
 
-  const fxCheckBox = document.querySelector('#sound-fx-checkbox');
+  // SFX Chkbox
+  const fxCheckBox = document.querySelector('#sfx-checkbox');
   fxCheckBox.addEventListener('change', toggleFx)
 } 
 

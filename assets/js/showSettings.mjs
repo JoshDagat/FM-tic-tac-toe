@@ -1,5 +1,5 @@
 function showSettings() {
-  const modalSettings = document.querySelector('.modal-container--settings'),
+  const modalSettings = document.querySelector('#modal-settings'),
         audioOpen = document.querySelector('#audio-hover');
 
   modalSettings.classList.add('active')
