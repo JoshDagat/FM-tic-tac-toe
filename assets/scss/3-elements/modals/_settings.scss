@@ -1,38 +1,6 @@
 @use "../../0-helpers/variables" as variables;
 @use "../../0-helpers/mixins" as mix;
 
-// .result-modal--tied {
-//   padding: 6rem 0;
-// }
-
-// .modal-sounds, .modal-settings{
-//   padding: 5rem 0;
-// }
-
-// .modal-base__winning-text,
-// .modal-sounds__question, .modal-settings__header {
-
-// .result-modal__constant-text--tied
-// .modal-sounds__question {
-//   line-height: 30px;
-//   letter-spacing: 1.5px;
-
-//   color: variables.$silver;
-//   margin-bottom: 2rem;
-// }
-
-
-// .modal-sounds__question,
-// .modal-settings__header {
-//   font-size: clamp(18px, 5.2vw, 30px);
-
-//   margin-bottom: 2rem;
-// }
-
-// .modal-button-group {
-//   display: flex;
-// }
-
 .modal-settings .modal__generic-text {
   margin-bottom: 0.5em;
 }
@@ -78,6 +46,10 @@
 
 .checkbox-wrapper label {
   color: variables.$silver-hover;
+}
+
+.checkbox__input {
+  cursor: pointer;
 }
 
 .modal-settings__save-btn {

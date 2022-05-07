@@ -1,5 +1,5 @@
-@use "../0-helpers/variables" as variables;
-@use "../0-helpers/mixins" as mix;
+@use "./../0-helpers/variables" as variables;
+@use "./../0-helpers/mixins" as mix;
 
 .main-game {
   display: none;
@@ -66,11 +66,4 @@
 
 #cell-6, #cell-7, #cell-8 {
   justify-self: left;
-}
-
-
-
-
-.main-game.visible {
-  display: grid;
 }

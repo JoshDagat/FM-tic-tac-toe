@@ -1,5 +1,5 @@
-@use "../../0-helpers/mixins" as mix;
-@use "../../0-helpers/variables" as variables;
+@use "./../../0-helpers/mixins" as mix;
+@use "./../../0-helpers/variables" as variables;
 
 .btn--modal {
   display: flex;

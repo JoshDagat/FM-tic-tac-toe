@@ -1,7 +1,7 @@
-@use "btnReset";
-@use "btnsNewGame";
-@use "btnModals";
-@use "btnSettings";
+@use "reset-btn";
+@use "new-game-btns";
+@use "modal-btns";
+@use "settings-btn";
 
 .btn {
   border: none;
@@ -24,3 +24,6 @@
   align-items: center;
 }
 
+.btn__text {
+  pointer-events: none;
+}

@@ -1,5 +1,5 @@
 function closeSettings() {
-  const modalSettings = document.querySelector('.modal-container--settings'),
+  const modalSettings = document.querySelector('#modal-settings'),
         audioSave = document.querySelector('#audio-hover')
 
   modalSettings.classList.remove('active')

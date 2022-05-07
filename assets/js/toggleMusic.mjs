@@ -6,8 +6,10 @@ function toggleMusic() {
   if (musicCheckBox.checked === true) {
     music.volume = musicSlider.value / 100
     music.muted = false
+    music.play()
   } else {
     music.muted = true
+    music.pause()
   }
 }
 export {toggleMusic}

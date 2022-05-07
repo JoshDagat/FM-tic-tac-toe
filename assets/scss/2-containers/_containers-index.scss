@@ -1,4 +1,7 @@
-@use "../0-helpers/variables" as variables;
+@use "./../0-helpers/variables" as variables;
+@use "./../3-elements/elements-index";
+@use "start-menu";
+@use "main-game";
 
 .body {
   background: variables.$dark-navy;

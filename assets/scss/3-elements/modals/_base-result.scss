@@ -1,0 +1,40 @@
+@use "../../0-helpers/variables" as variables;
+@use "../../0-helpers/mixins" as mix;
+
+.modal-base__winning-player {
+  font-family: variables.$font-main;
+  font-weight: 700;
+  font-size: clamp(14px, 1.5vw, 16px);
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: 1px;
+
+  /* Silver */
+
+  color: #a8bfc9;
+}
+
+.modal-base__winning-announcement {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.modal-base__svg {
+  flex: 0 0 auto;
+  margin-right: 1.5rem;
+  width: clamp(30px, 9.44vw, 64px);
+  aspect-ratio: 1/1;
+}
+
+.modal-base__winning-text  {
+  flex: 0 1 auto;
+
+  font-family: variables.$font-main;
+  font-weight: 700;
+  font-size: clamp(24px, 5.2vw, 40px);
+  line-height: 1.25;
+  letter-spacing: 2.5px;
+
+  color: variables.$light-blue;
+}

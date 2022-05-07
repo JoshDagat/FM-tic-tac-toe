@@ -4,15 +4,18 @@ import { playerClick } from "./playerClick.mjs";
 import { removeOutline, showOutline } from "./toggleOutline.mjs";
 
 function nextRound() {
-  GS.MAIN_BOARD = Array.from(Array(9).keys())
+  // Re-initialize main board:
+  GS.mainBoard = Array.from(Array(9).keys())
 
+  // Computer's Turn
   if (GS.type === "PvC" && GS.computerToken === "X") {
     computerTurn()
   }
 
-  let cells = document.querySelectorAll(".play-cell");
+  // Reset the cells and re-attach the listeners:
+  let cells = document.querySelectorAll(".cell");
   cells.forEach(cell => {
-    let target = cell.querySelector(".play-cell__link")
+    let target = cell.querySelector(".cell__svg-link")
     target.setAttribute("href", null)
 
     cell.addEventListener("click", playerClick)
@@ -21,13 +24,13 @@ function nextRound() {
     cell.style.cursor = "pointer"
   })
 
-  const modals = document.querySelectorAll(".modal-container")
+  // Close all modals:
+  const modals = document.querySelectorAll(".modal-wrapper")
   modals.forEach(modal => modal.classList.remove("active"))
 
-  // 6) Reset turn indicator
-  const turnIndicator = document.querySelector(".ti-svg");
+  // Reset turn indicator
+  const turnIndicator = document.querySelector(".turn-indicator__svg-link");
   turnIndicator.setAttribute("href", "#ti--cross")
-
   GS.turn = "X"
 
   const audioBeep = document.querySelector("#audio-hover");

@@ -1,6 +1,6 @@
 @use "../../0-helpers/variables" as variables;
 @use "../../0-helpers/mixins" as mix;
-@use "baseResult";
+@use "base-result";
 @use "settings";
 
 .modal-wrapper {
@@ -53,6 +53,7 @@
 // Only 1 css line for modal audio 
 .modal-audio__prompt {
   font-size: clamp(24px, 5.2vw, 36px);
+  margin-bottom: 0.5em;
 }
 
 // Only 1 css line modal result tied:

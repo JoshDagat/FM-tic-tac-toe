@@ -1,4 +1,4 @@
-@use "../0-helpers/variables" as variables;
+@use "./../../0-helpers/variables" as variables;
 
 .game-tokens {
   background-color: variables.$semi-dark-navy;
@@ -89,14 +89,4 @@
 
 .game-tokens__choices.circle-selected > .choice-token.circle:hover {
   background-color: variables.$light-yellow-hover;
-}
-
-.btn {
-  border: none;
-  border-radius: 15px;
-  padding: 1rem 0;
-}
-
-.btn__text {
-  pointer-events: none;
 }

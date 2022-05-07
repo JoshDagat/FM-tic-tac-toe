@@ -4,13 +4,16 @@ import { playerClick } from "./playerClick.mjs";
 import { computerTurn } from "./computerTurn.mjs";
 
 function startGame(e) {
-  console.log(e.target.classList)
   const tokenContainer = document.querySelector(".game-tokens__choices");
 
   // 1) Show alert message if no token is selected
-  const alertMsg = document.querySelector(".game-tokens__alert")
+  const alertMsg = document.querySelector(".game-tokens__alert"),
+        audioAlert = document.querySelector('#audio-lose');
   if (tokenContainer.classList.length == 1) {
     alertMsg.classList.add("active");
+    audioAlert.currentTime = 0;
+    audioAlert.volume = 0.5;
+    audioAlert.play();
     return
   }
 
