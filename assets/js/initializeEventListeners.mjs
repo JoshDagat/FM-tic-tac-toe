@@ -16,10 +16,10 @@ import { toggleFx } from "./toggleFx.mjs";
 
 function initializeEventListeners() {
   // 1) Tokens
-  const tokenContainer = document.querySelector('.pt__choices');
+  const tokenContainer = document.querySelector('.game-tokens__choices');
   tokenContainer.addEventListener('click', selectToken)
 
-  const tokens = document.querySelectorAll('.token');
+  const tokens = document.querySelectorAll('.choice-token');
   tokens.forEach(token => token.addEventListener('mouseenter', hoverSound))
 
   // 2) Buttons:
@@ -41,7 +41,7 @@ function initializeEventListeners() {
     button.addEventListener('mouseenter', hoverSound)
   })
 
-  const resetButton = document.querySelector('.reset-btn');
+  const resetButton = document.querySelector('.btn-reset');
   resetButton.addEventListener('click', reset);
   resetButton.addEventListener('mouseenter', hoverSound)
 

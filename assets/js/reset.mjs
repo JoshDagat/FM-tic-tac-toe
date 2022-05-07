@@ -1,11 +1,9 @@
 import { GAME_STATE as GS } from "./gameState.mjs";
-import { playerClick } from "./playerClick.mjs";
-import { showOutline } from "./toggleOutline.mjs";
 
 function reset() {
   // 1) Reset the token container:
-  const tokenContainer = document.querySelector(".pt__choices");
-  tokenContainer.classList = "pt__choices"
+  const tokenContainer = document.querySelector(".game-tokens__choices");
+  tokenContainer.classList = "game-tokens__choices"
 
   // 2) Hide main game:
   const mainGame = document.querySelector(".main-game");
@@ -16,8 +14,8 @@ function reset() {
   startMenu.classList.add("active");
 
   // 4) Reset turn-indicator:
-  const turnIndicator = document.querySelector(".ti-svg");
-  turnIndicator.setAttribute("href", "#ti--cross")
+  const turnIndicator = document.querySelector(".turn-indicator__svg-link");
+  turnIndicator.setAttribute("href", "#svg-indicator--cross")
 
   // 5) Reset scoreboards
   const counters = document.querySelectorAll(".scoreboard__counter");

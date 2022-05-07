@@ -4,13 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="./assets/favicon-32x32.png"
-    />
-
     <title>Frontend Mentor | Tic Tac Toe</title>
 
     <link rel="stylesheet" href="assets/css/main.css" />
@@ -24,32 +17,31 @@
     />
   </head>
   <body class="body">
-    <!-- ##### START of START MENU(sm) ##### -->
+    <!-- ##### START MENU ##### -->
     <div class="start-menu">
-      <!-- sm-logo -->
-      <div class="logo">
-        <svg class="logo__svg--sm">
-          <use href="#logo"></use>
+      <div class="start-menu__logo">
+        <svg class="start-menu__logo-svg">
+          <use href="#svg-logo"></use>
         </svg>
       </div>
 
       <!-- sm player-tokens(pt)-->
-      <div class="player-tokens">
-        <span class="pt__prompt"> PICK PLAYER 1's Token </span>
-        <div class="pt__choices">
-          <div class="pt__cross token">
-            <svg class="pt__cross-svg">
-              <use href="#tokens--cross"></use>
+      <div class="game-tokens">
+        <span class="game-tokens__prompt"> PICK PLAYER 1's Token </span>
+        <div class="game-tokens__choices">
+          <div class="choice-token cross">
+            <svg class="choice-token__svg">
+              <use href="#svg-tokens--cross"></use>
             </svg>
           </div>
-          <div class="pt__circle token">
-            <svg class="pt__circle-svg">
-              <use href="#tokens--circle"></use>
+          <div class="choice-token circle">
+            <svg class="choice-token__svg">
+              <use href="#svg-tokens--circle"></use>
             </svg>
           </div>
         </div>
-        <span class="pt__reminder">REMEMBER: X GOES FIRST</span>
-        <span class="pt__alert">Players need to choose tokens!</span>
+        <span class="game-tokens__reminder">REMEMBER: X GOES FIRST</span>
+        <span class="game-tokens__alert">Players need to choose tokens!</span>
       </div>
       <!--  -->
       <button class="btn btn--ng-pvc btn--sm">
@@ -63,153 +55,154 @@
 
     <!-- ##### END OF START MENU ##### -->
 
-    <!-- ##### START of MAIN GAME(mg) ##### -->
+    <!-- ##### MAIN GAME ##### -->
     <div class="main-game">
-      <div class="logo">
-        <svg class="logo-svg--mg" viewBox="0 0 72 32">
-          <use href="#logo"></use>
+      <div class="main-game__logo">
+        <svg class="main-game__logo-svg" viewBox="0 0 72 32">
+          <use href="#svg-logo"></use>
         </svg>
       </div>
-      <!-- start of turn indicator -->
+      <!-- # MG-1 Turn Indicator -->
       <div class="turn-indicator">
         <div class="turn-indicator__svg-wrapper">
           <svg class="turn-indicator__svg">
-            <use class="ti-svg" href="#ti--cross"></use>
+            <use class="turn-indicator__svg-link" href="#svg-indicator--cross"></use>
           </svg>
 
           <span class="turn-indicator__text">TURN</span>
         </div>
       </div>
-      <!-- end of turn indicator -->
-      <!-- start of reset button -->
-      <div class="reset-btn">
-        <div class="reset-btn__svg-wrapper">
-          <svg class="reset-btn__svg">
-            <use href="#reset--svg"></use>
+      <!-- # MG-1 End -->
+      <!-- # MG-2 Reset Button -->
+      <div class="btn-reset">
+        <div class="btn-reset__svg-wrapper">
+          <svg class="btn-reset__svg">
+            <use href="#svg-reset"></use>
           </svg>
         </div>
       </div>
-      <!-- end of reset button -->
-      <!-- start of playing field -->
-      <div id="cell-0" class="play-cell test">
-        <div class="play-cell__svg">
+      <!-- # MG-2 End -->
+      <!-- # MG-3 Play Field -->
+      <div id="cell-0" class="cell">
+        <div class="cell__svg">
           <svg > 
-            <use class="play-cell__link" href=""></use>
+            <use class="cell__svg-link" href=""></use>
           </svg>
         </div>
       </div>
   
-      <div id="cell-1" class="play-cell test">
-        <div class="play-cell__svg">
+      <div id="cell-1" class="cell">
+        <div class="cell__svg">
           <svg > 
-            <use class="play-cell__link" href=""></use>
+            <use class="cell__svg-link" href=""></use>
           </svg>
         </div>
       </div>
 
-      <div id="cell-2" class="play-cell test">
-        <div class="play-cell__svg">
+      <div id="cell-2" class="cell">
+        <div class="cell__svg">
           <svg > 
-            <use class="play-cell__link" href=""></use>
+            <use class="cell__svg-link" href=""></use>
           </svg>
         </div>
       </div>
 
-      <div id="cell-3" class="play-cell test">
-        <div class="play-cell__svg">
+      <div id="cell-3" class="cell">
+        <div class="cell__svg">
           <svg > 
-            <use class="play-cell__link" href=""></use>
+            <use class="cell__svg-link" href=""></use>
           </svg>
         </div>
       </div>
 
-      <div id="cell-4" class="play-cell test">
-        <div class="play-cell__svg">
+      <div id="cell-4" class="cell">
+        <div class="cell__svg">
           <svg > 
-            <use class="play-cell__link" href=""></use>
+            <use class="cell__svg-link" href=""></use>
           </svg>
         </div>
       </div>
 
-      <div id="cell-5" class="play-cell test">
-        <div class="play-cell__svg">
+      <div id="cell-5" class="cell">
+        <div class="cell__svg">
           <svg > 
-            <use class="play-cell__link" href=""></use>
+            <use class="cell__svg-link" href=""></use>
           </svg>
         </div>
       </div>
 
-      <div id="cell-6" class="play-cell test">
-        <div class="play-cell__svg">
+      <div id="cell-6" class="cell">
+        <div class="cell__svg">
           <svg > 
-            <use class="play-cell__link" href=""></use>
+            <use class="cell__svg-link" href=""></use>
           </svg>
         </div>
       </div>
 
-      <div id="cell-7" class="play-cell test">
-        <div class="play-cell__svg">
+      <div id="cell-7" class="cell">
+        <div class="cell__svg">
           <svg > 
-            <use class="play-cell__link" href=""></use>
+            <use class="cell__svg-link" href=""></use>
           </svg>
         </div>
       </div>
 
-      <div id="cell-8" class="play-cell test">
-        <div class="play-cell__svg">
+      <div id="cell-8" class="cell">
+        <div class="cell__svg">
           <svg > 
-            <use class="play-cell__link" href=""></use>
+            <use class="cell__svg-link" href=""></use>
           </svg>
         </div>
       </div>
-      <!-- end of playing field -->
-      <!-- start of scoreboard -->
-      <!-- cross sb -->
+      <!-- MG-3 End Play Field -->
+      <!-- MG-4 Scoreboards-->
+        <!-- MG-4-1 Cross -->
       <div class="scoreboard scoreboard--cross">
         <span class="scoreboard__label">
-          X <span id="scoreboard__cross-owner">(YOU)</span>
+          X <span id="owner-cross">(YOU)</span>
         </span>
         <span id="counter--cross" class="scoreboard__counter">0</span>
       </div>
-      <!-- end cross sb -->
-      <!-- ties sb -->
+        <!--  -->
+        <!-- MG-4-2 Ties -->
       <div class="scoreboard scoreboard--ties">
         <span class="scoreboard__label">TIES</span>
         <span id="counter--ties" class="scoreboard__counter">0</span>
       </div>
-      <!-- end ties sb -->
-      <!-- circle sb -->
+        <!--  -->
+        <!-- MG-4-3 Circle -->
       <div class="scoreboard scoreboard--circle">
         <span class="scoreboard__label">
-          O <span id="scoreboard__circle-owner">(CPU)</span>
+          O <span id="owner-circle">(CPU)</span>
         </span>
         <span id="counter--circle" class="scoreboard__counter">0</span>
       </div>
-      <!-- end circle sb -->
-      <div id="settings">
+        <!--  -->
+        <!-- MG-4-4 Settings -->
+      <div id="settings" class="btn-settings__wrapper">
         <button class="btn-settings">
           <span>Settings</span>
         </button>
       </div>
+        <!--  -->
     </div>
-    <!-- end of scoreboard -->
+    <!-- MG-4 End Scoreboards -->
+    <!-- END of MAIN GAME -->
    
-
-    <!-- ##### END of MAIN GAME ###### -->
     <!-- ##### START of MODALS ##### -->
-    <!-- result-modal__result -->
-    <div class="modal-container modal-container--base">
-      <div class="result-modal">
-        <p id="variable-message" class="result-modal__variable-message">
+    <!-- Mod-1 Modal Base Result -->
+    <div class="modal-wrapper" id="modal-base-result">
+      <div class="modal-body modal-base">
+        <p id="variable-message" class="modal-base__winning-player">
           YOU WON!
         </p>
-        <p class="result-modal__announcement">
-          <svg class="result-modal__svg" viewBox="0 0 66 66">
+        <p class="modal-base__winning-announcement">
+          <svg class="modal-base__svg" viewBox="0 0 66 66">
             <use id="base-svg" href="#cross"></use>
           </svg>
-          <span class="result-modal__constant-text">TAKES THE ROUND</span>
+          <span class="modal-base__winning-text">TAKES THE ROUND</span>
         </p>
-        <div class="modal-button-group">
+        <div class="modal__button-group">
           <button class="btn--modal btn__quit-game">
             <span class="btn__text--modal">QUIT</span>
           </button>
@@ -220,15 +213,15 @@
       </div>
     </div>
 
-    <!-- result-modal--tied  -->
-    <div class="modal-container modal-container--tied ">
-      <div class="result-modal result-modal--tied">
+    <!-- Mod-2 Modal Tied  -->
+    <div class="modal-wrapper" id="modal-tied-result">
+      <div class="modal-body modal-tied">
         <p
-          class="result-modal__constant-text result-modal__constant-text--tied"
+          class="modal-tied__text"
         >
           ROUND TIED
         </p>
-        <div class="modal-button-group">
+        <div class="modal__button-group">
           <button class="btn--modal btn__quit-game">
             <span class="btn__text--modal">QUIT</span>
           </button>
@@ -239,11 +232,11 @@
       </div>
     </div>
 
-    <!-- audio-modal  -->
-    <div class="modal-container modal-container--sounds  active ">
-      <div class="modal-sounds">
-        <span class="modal-sounds__question">ENABLE SOUNDS?</span>
-        <div class="modal-button-group">
+    <!-- Mod-3 Modal Audio Toggle  -->
+    <div class="modal-wrapper active " id="modal-audio-toggle">
+      <div class="modal-body modal-audio">
+        <span class="modal-audio__prompt">ENABLE SOUNDS?</span>
+        <div class="modal__button-group">
           <button class="btn--modal btn--affirmative">
             <span class="btn__text--modal">Enable</span>
           </button>
@@ -253,40 +246,45 @@
         </div>
       </div>
     </div>
-    <!-- settings modal -->
-    <div class="modal-container modal-container--settings">
-      <div class="modal-settings">
+
+    <!-- Mod-4 Modal Settings -->
+    <div class="modal-wrapper" id="modal-settings">
+      <div class="modal-body modal-settings">
         <span class="modal-settings__header">Settings</span>
-        <div class="modal-settings__slider">
-          <div id="label-fx-slider" class="modal-settings-label">
+        <!-- Mod-4-1 FX Slider -->
+        <div class="slider__wrapper">
+          <div id="label-fx-slider" class="slider__label">
             <span>Sound Fx:</span>
-            <span class="fx-slider-value">20</span>
+            <span class="slider__value">20</span>
           </div>
         </div>
-        <input autocomplete='off' type="range" min="1" max="100" value="20" id="sound-fx-slider" class="volume-slider">
+        <input autocomplete='off' type="range" min="1" max="100" value="20" id="sfx-slider" class="slider__input">
         <!--  -->
-        <div class="modal-settings__slider">
-          <div id="label-music-slider" class="modal-settings__slider-label">
+        <!-- Mod-4-2 Music Slider -->
+        <div class="slider__wrapper">
+          <div id="label-music-slider" class="slider__label">
             <span>Music:</span>
-            <span class="music-slider-value">20</span>
+            <span class="slider__value">20</span>
           </div>
           
         </div>
-        <input autocomplete='off' type="range" min="1" max="100" value="20" id="music-slider" class="volume-slider">
+        <input autocomplete='off' type="range" min="1" max="100" value="20" id="music-slider" class="slider__input">
         <!--  -->
-        <div class="checkboxes">
-          <div class="checkbox-group">
-            <label for="sound-fx-checkbox">Sound-Fx
-              <input autocomplete='off' class ='checkbox' type="checkbox" checked id="sound-fx-checkbox">
+        <!-- Mod-4-3 FX Checkboxes-->
+        <div class="checkbox-group">
+          <div class="checkbox-wrapper">
+            <label for="sfx-checkbox">Sound-Fx
+              <input autocomplete='off' class ='checkbox__input' type="checkbox" checked id="sfx-checkbox">
             </label>
           </div>
         <!--  -->
-          <div class="checkbox-group">
+          <div class="checkbox-wrapper">
             <label for="music-checkbox">Music
-              <input autocomplete='off' class='checkbox' type="checkbox" checked id="music-checkbox">
+              <input autocomplete='off' class='checkbox__input' type="checkbox" checked id="music-checkbox">
             </label>
           </div>
         </div>
+        <!-- Mod-4-4 Save Btn -->
         <button class="modal-settings__save-btn">
           <span>Save</span>
         </button>
@@ -295,7 +293,7 @@
     <!-- ##### END of MODALS #####  -->
     <!-- sm-logo -->
     <svg style="display: none">
-      <symbol id="logo" viewBox="0 0 72 32">
+      <symbol id="svg-logo" viewBox="0 0 72 32">
         <g fill="none" fill-rule="evenodd">
           <path
             d="M8.562 1.634 16 9.073l7.438-7.439a3 3 0 0 1 4.243 0l2.685 2.685a3 3 0 0 1 0 4.243L22.927 16l7.439 7.438a3 3 0 0 1 0 4.243l-2.685 2.685a3 3 0 0 1-4.243 0L16 22.927l-7.438 7.439a3 3 0 0 1-4.243 0L1.634 27.68a3 3 0 0 1 0-4.243L9.073 16 1.634 8.562a3 3 0 0 1 0-4.243L4.32 1.634a3 3 0 0 1 4.243 0Z"
@@ -311,7 +309,7 @@
     </svg>
     <!-- sm__tokens--cross -->
     <svg style="display: none">
-      <symbol id="tokens--cross" viewBox="0 0 64 64">
+      <symbol id="svg-tokens--cross" viewBox="0 0 64 64">
         <path
           d="M15.002 1.147 32 18.145 48.998 1.147a3 3 0 0 1 4.243 0l9.612 9.612a3 3 0 0 1 0 4.243L45.855 32l16.998 16.998a3 3 0 0 1 0 4.243l-9.612 9.612a3 3 0 0 1-4.243 0L32 45.855 15.002 62.853a3 3 0 0 1-4.243 0L1.147 53.24a3 3 0 0 1 0-4.243L18.145 32 1.147 15.002a3 3 0 0 1 0-4.243l9.612-9.612a3 3 0 0 1 4.243 0Z"
           fill-rule="evenodd"
@@ -321,7 +319,7 @@
 
     <!-- sm__tokens--circle -->
     <svg style="display: none">
-      <symbol id="tokens--circle" viewBox="0 0 64 64">
+      <symbol id="svg-tokens--circle" viewBox="0 0 64 64">
         <path
           d="M32 0c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32C14.327 64 0 49.673 0 32 0 14.327 14.327 0 32 0Zm0 18.963c-7.2 0-13.037 5.837-13.037 13.037 0 7.2 5.837 13.037 13.037 13.037 7.2 0 13.037-5.837 13.037-13.037 0-7.2-5.837-13.037-13.037-13.037Z"
         />
@@ -387,7 +385,7 @@
     </svg>
 
     <svg style="display: none">
-      <symbol id="ti--circle" viewBox="0 0 66 66">
+      <symbol id="svg-indicator--circle" viewBox="0 0 66 66">
         <path
           d="M32 0c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32C14.327 64 0 49.673 0 32 0 14.327 14.327 0 32 0Zm0 18.963c-7.2 0-13.037 5.837-13.037 13.037 0 7.2 5.837 13.037 13.037 13.037 7.2 0 13.037-5.837 13.037-13.037 0-7.2-5.837-13.037-13.037-13.037Z"
         />
@@ -395,7 +393,7 @@
     </svg>
 
     <svg style="display: none">
-      <symbol id="reset--svg" viewBox="0 0 20 20">
+      <symbol id="svg-reset" viewBox="0 0 20 20">
         <path
           d="M19.524 0h-1.88a.476.476 0 0 0-.476.499l.159 3.284A9.81 9.81 0 0 0 9.835.317C4.415.317-.004 4.743 0 10.167.004 15.597 4.406 20 9.835 20a9.796 9.796 0 0 0 6.59-2.536.476.476 0 0 0 .019-.692l-1.348-1.349a.476.476 0 0 0-.65-.022 6.976 6.976 0 0 1-9.85-.63 6.987 6.987 0 0 1 .63-9.857 6.976 6.976 0 0 1 10.403 1.348l-4.027-.193a.476.476 0 0 0-.498.476v1.881c0 .263.213.476.476.476h7.944A.476.476 0 0 0 20 8.426V.476A.476.476 0 0 0 19.524 0Z"
         />
@@ -403,7 +401,7 @@
     </svg>
 
     <svg style="display: none">
-      <symbol id="ti--cross" viewBox="0 0 66 66">
+      <symbol id="svg-indicator--cross" viewBox="0 0 66 66">
         <path
           d="M15.002 1.147 32 18.145 48.998 1.147a3 3 0 0 1 4.243 0l9.612 9.612a3 3 0 0 1 0 4.243L45.855 32l16.998 16.998a3 3 0 0 1 0 4.243l-9.612 9.612a3 3 0 0 1-4.243 0L32 45.855 15.002 62.853a3 3 0 0 1-4.243 0L1.147 53.24a3 3 0 0 1 0-4.243L18.145 32 1.147 15.002a3 3 0 0 1 0-4.243l9.612-9.612a3 3 0 0 1 4.243 0Z"
         />

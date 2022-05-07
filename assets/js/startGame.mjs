@@ -4,23 +4,31 @@ import { playerClick } from "./playerClick.mjs";
 import { computerTurn } from "./computerTurn.mjs";
 
 function startGame(e) {
-  const btnPressed = e.target.classList,
-        TOKEN_CONTAINER = document.querySelector(".pt__choices"),
-        ALERT = document.querySelector(".pt__alert"),
-        X_MODIFIER = "pt__choices--cross-selected";
+  console.log(e.target.classList)
+  const tokenContainer = document.querySelector(".game-tokens__choices");
 
-  
   // 1) Show alert message if no token is selected
-  if (TOKEN_CONTAINER.classList.length == 1) {
-    ALERT.classList.add("active");
+  const alertMsg = document.querySelector(".game-tokens__alert")
+  if (tokenContainer.classList.length == 1) {
+    alertMsg.classList.add("active");
     return
   }
 
   // 2) Set appropriate gameState properties:
-  GS.type = (btnPressed.contains("btn--ng-pvc")) ? "PvC" : "PvP";
-  GS.player1Token = (TOKEN_CONTAINER.classList.contains(X_MODIFIER)) ? "X" : "O";
-  GS.computerToken = (GS.player1Token == "X") ? "O" : "X";
-  GS.MAIN_BOARD = Array.from(Array(9).keys())
+  const btnPressed = e.target.classList,
+        crossModifier = "cross-selected";
+    
+    // Is the game player vs player?:
+    GS.type = (btnPressed.contains("btn--ng-pvc")) ? "PvC" : "PvP";
+  
+    // What is player 1's token?:
+    GS.player1Token = (tokenContainer.classList.contains(crossModifier)) ? "X" : "O";
+
+    // What is the computer's token?:
+    GS.computerToken = (GS.player1Token == "X") ? "O" : "X";
+
+    // Initialize the game-board array:
+    GS.mainBoard = Array.from(Array(9).keys())
 
   // 3) Hide start menu + Show main game:
   const startUI = document.querySelector(".start-menu"),
@@ -30,9 +38,9 @@ function startGame(e) {
   mainUI.classList.add("active")
 
   // 4) Attach Event Listeners to the cells
-  const CELLS = document.querySelectorAll(".play-cell")
+  const CELLS = document.querySelectorAll(".cell")
   CELLS.forEach(cell => {
-    let target = cell.querySelector(".play-cell__link");
+    let target = cell.querySelector(".cell__svg-link");
 
     target.setAttribute("href", null)
     cell.addEventListener("click", playerClick)
@@ -42,8 +50,8 @@ function startGame(e) {
   })
 
   // 5) Label Scoreboards
-  const crossOwner = document.querySelector("#scoreboard__cross-owner"),
-        circleOwner = document.querySelector("#scoreboard__circle-owner");
+  const crossOwner = document.querySelector("#owner-cross"),
+        circleOwner = document.querySelector("#owner-circle");
   
   if (GS.type == "PvC") {
     crossOwner.textContent = (GS.player1Token == "X") ? "(YOU)" : "(CPU)";

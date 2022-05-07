@@ -1,7 +1,7 @@
 @use "../../0-helpers/variables" as variables;
 @use "../../0-helpers/mixins" as mix;
 
-.play-cell {
+.cell {
   @include mix.centered-flex;
   background: variables.$semi-dark-navy;
   min-width: 96px;
@@ -16,8 +16,8 @@
   cursor: pointer;
 }
 
-.play-cell__svg {
-  display: none;
+.cell__svg {
+  display: block;
   position: absolute;
   margin: 0 auto;
   left: 0;
@@ -29,10 +29,6 @@
   width: 64px;
   height: 64px;
 
-  // circle-outline: 66px
-}
-.play-cell__svg {
-  display: block;
 }
 
 .play-cell__svg svg {

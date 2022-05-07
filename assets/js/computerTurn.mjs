@@ -17,7 +17,7 @@ function computerTurn() {
   disableCells()
 
   // 1) Pretend to choose a cell:
-  let availableSpots = GS.MAIN_BOARD.filter(cell => typeof cell == 'number');
+  let availableSpots = GS.mainBoard.filter(cell => typeof cell == 'number');
 
   if (availableSpots.length > 1) {
       let choose = setInterval( () => randomize(availableSpots), 200)
@@ -43,7 +43,7 @@ function computerTurn() {
     bestCell = availableSpots[index];
     element = document.querySelector(`#cell-${bestCell}`);
   } else if (chance <= 8) {
-    bestCell = minimax(GS.MAIN_BOARD, GS.computerToken)
+    bestCell = minimax(GS.mainBoard, GS.computerToken)
     element = document.querySelector(`#cell-${bestCell.index}`)
   }
 
@@ -61,7 +61,7 @@ function computerTurn() {
     
     setTimeout(() => {
     // 3) Check for a winner:
-      let result = checkWin(GS.MAIN_BOARD);
+      let result = checkWin(GS.mainBoard);
       if (result) {
         showWinner(result)
         return

@@ -2,7 +2,7 @@ import { GAME_STATE as GS } from "./gameState.mjs"
 import { hoverSound } from "./hoverSound.mjs"
 
 function showOutline(e) {
-  let cellSVG = e.target.querySelector(".play-cell__link")
+  let cellSVG = e.target.querySelector(".cell__svg-link")
 
   if (GS.turn == "X") {
     cellSVG.setAttribute("href", "#cross--outline")
@@ -14,7 +14,7 @@ function showOutline(e) {
 }
 
 function removeOutline(e) {
-  e.target.querySelector(".play-cell__link").setAttribute("href", null)
+  e.target.querySelector(".cell__svg-link").setAttribute("href", null)
 }
 
 

@@ -28,14 +28,6 @@
   fill: variables.$silver;
 }
 
-.main-game.mg--cross-turn .indicator--cross {
-  display: block;
-}
-
-.main-game.mg--circle-turn .indicator--circle {
-  display: block;
-}
-
 .turn-indicator__text {
   color: variables.$silver;
   font-size: 0.875rem;

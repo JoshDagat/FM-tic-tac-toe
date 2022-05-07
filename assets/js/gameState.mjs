@@ -4,7 +4,7 @@ const GAME_STATE = {
   turnCount: 0,
   player1Token: "X",
   computerToken: "O",
-  MAIN_BOARD: null
+  mainBoard: null
 }
 
 

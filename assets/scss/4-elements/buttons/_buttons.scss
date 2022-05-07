@@ -10,3 +10,17 @@
 
   cursor: pointer;
 }
+
+.btn__text {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+
+#settings {
+  grid-area: settings;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+

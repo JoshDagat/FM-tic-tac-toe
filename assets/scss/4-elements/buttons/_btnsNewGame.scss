@@ -1,9 +1,5 @@
 @use "../../0-helpers/variables.scss" as variables;
 
-.btn__text {
-  font-weight: bold;
-  font-size: 1rem;
-}
 
 .btn--ng-pvc {
   background-color: variables.$light-yellow;

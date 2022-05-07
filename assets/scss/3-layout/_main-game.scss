@@ -19,11 +19,11 @@
   display: grid;
 }
 
-.logo {
+.main-game__logo {
   grid-area: logo;
 }
 
-.logo-svg--mg {
+.main-game__logo-svg{
   width: 72px;
   height: 32px;
 }
@@ -68,14 +68,6 @@
   justify-self: left;
 }
 
-
-
-#settings {
-  grid-area: settings;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
 
 

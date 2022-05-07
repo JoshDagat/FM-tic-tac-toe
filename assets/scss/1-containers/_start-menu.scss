@@ -1,0 +1,26 @@
+@use "../0-helpers/variables" as variables;
+
+.start-menu {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.start-menu.active {
+  display: flex;
+}
+
+.start-menu__logo {
+  align-self: center;
+  width: 72px;
+  height: 32px;
+  grid-area: logo;
+  margin-bottom: 2.5rem;
+}
+
+.start-menu__logo-svg{
+  height: 32px;
+  width: 72px;
+  margin-bottom: 2rem;
+}

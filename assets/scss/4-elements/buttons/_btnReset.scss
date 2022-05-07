@@ -1,13 +1,14 @@
 @use "../../0-helpers/mixins" as mix;
 @use "../../0-helpers/variables" as variables;
 
-.reset-btn {
+.btn-reset{
   @include mix.centered-flex;
 
   transition: transform 0.2s ease-in-out;
+  cursor: pointer;
 }
 
-.reset-btn__svg-wrapper {
+.btn-reset__svg-wrapper {
   @include mix.centered-flex;
   background: variables.$silver;
   box-shadow: inset 0px -4px 0px #6b8997;
@@ -20,12 +21,12 @@
   transition: transform 0.2s ease-in-out;
 }
 
-.reset-btn__svg-wrapper:hover {
+.btn-reset__svg-wrapper:hover {
   transform: scale(1.05);
   background-color: variables.$silver-hover;
 }
 
-.reset-btn__svg {
+.btn-reset__svg {
   width: 16px;
   height: 16px;
 }

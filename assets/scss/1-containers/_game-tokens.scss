@@ -1,27 +1,6 @@
 @use "../0-helpers/variables" as variables;
 
-.start-menu {
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  padding: 1.5rem;
-}
-
-.start-menu.active {
-  display: flex;
-}
-
-.logo {
-  align-self: center;
-}
-
-.logo__svg--sm {
-  height: 32px;
-  width: 72px;
-  margin-bottom: 2rem;
-}
-
-.player-tokens {
+.game-tokens {
   background-color: variables.$semi-dark-navy;
   box-shadow: inset 0px -8px 0px #10212a;
   border-radius: 15px;
@@ -33,8 +12,8 @@
   margin-bottom: 2rem;
 }
 
-.pt__prompt,
-.pt__reminder {
+.game-tokens__prompt,
+.game-tokens__reminder {
   color: variables.$silver;
   font-weight: bold;
 
@@ -43,11 +22,11 @@
   margin-bottom: 1.5rem;
 }
 
-.pt__reminder {
+.game-tokens__reminder {
   margin-top: 1.5rem;
 }
 
-.pt__alert {
+.game-tokens__alert {
   display: none;
 
   color: variables.$red;
@@ -56,11 +35,11 @@
   letter-spacing: 1px;
 }
 
-.pt__alert.active {
+.game-tokens__alert.active {
   display: block;
 }
 
-.pt__choices {
+.game-tokens__choices {
   display: flex;
 
   padding: 9px;
@@ -71,8 +50,7 @@
   cursor: pointer;
 }
 
-.pt__cross,
-.pt__circle {
+.choice-token{
   display: flex;
   justify-content: center;
   flex: 1 1 auto;
@@ -85,33 +63,31 @@
   height: 32px;
 }
 
-.pt__cross-svg,
-.pt__circle-svg {
+.choice-token__svg {
   width: 32px;
   height: 32px;
   pointer-events: none;
 }
 
-.pt__cross:hover,
-.pt__circle:hover {
+.choice-token:hover {
   fill: variables.$dark-navy;
   background-color: variables.$silver;
 }
 
-.pt__choices.pt__choices--cross-selected > .pt__cross {
+.game-tokens__choices.cross-selected > .choice-token.cross {
   background-color: variables.$light-blue;
   fill: variables.$dark-navy;
 }
-.pt__choices.pt__choices--cross-selected > .pt__cross:hover {
+.game-tokens__choices.cross-selected > .choice-token.cross:hover {
   background-color: variables.$light-blue-hover;
 }
 
-.pt__choices.pt__choices--circle-selected > .pt__circle {
+.game-tokens__choices.circle-selected > .choice-token.circle {
   background-color: variables.$light-yellow;
   fill: variables.$dark-navy;
 }
 
-.pt__choices.pt__choices--circle-selected > .pt__circle:hover {
+.game-tokens__choices.circle-selected > .choice-token.circle:hover {
   background-color: variables.$light-yellow-hover;
 }
 

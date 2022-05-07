@@ -1,7 +1,7 @@
 @use "../0-helpers/variables" as variables;
 @use "../0-helpers/mixins" as mix;
 
-.modal-container {
+.modal-wrapper {
   @include mix.centered-flex;
   flex-direction: column;
   position: fixed;
@@ -15,13 +15,12 @@
   opacity: 0;
 }
 
-.modal-container.active {
+.modal-wrapper.active {
   visibility: visible;
   opacity: 1;
 }
 
-.result-modal,
-.modal-sounds, .modal-settings {
+.modal-body {
   background-color: variables.$semi-dark-navy;
   width: 100%;
 
@@ -39,7 +38,7 @@
   padding: 5rem 0;
 }
 
-.result-modal__variable-message {
+.modal-base__winning-player {
   font-family: variables.$font-main;
   font-weight: 700;
   font-size: clamp(14px, 1.5vw, 16px);
@@ -52,20 +51,20 @@
   color: #a8bfc9;
 }
 
-.result-modal__announcement {
+.modal-base__winning-announcement {
   display: flex;
   align-items: center;
   margin-bottom: 1rem;
 }
 
-.result-modal__svg {
+.modal-base__svg {
   flex: 0 0 auto;
   margin-right: 1.5rem;
   width: clamp(30px, 9.44vw, 64px);
   aspect-ratio: 1/1;
 }
 
-.result-modal__constant-text,
+.modal-base__winning-text,
 .modal-sounds__question, .modal-settings__header {
   flex: 0 1 auto;
 
