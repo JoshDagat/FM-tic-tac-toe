@@ -1,0 +1,101 @@
+@use "../../0-helpers/variables" as variables;
+@use "../../0-helpers/mixins" as mix;
+
+// .result-modal--tied {
+//   padding: 6rem 0;
+// }
+
+// .modal-sounds, .modal-settings{
+//   padding: 5rem 0;
+// }
+
+// .modal-base__winning-text,
+// .modal-sounds__question, .modal-settings__header {
+
+// .result-modal__constant-text--tied
+// .modal-sounds__question {
+//   line-height: 30px;
+//   letter-spacing: 1.5px;
+
+//   color: variables.$silver;
+//   margin-bottom: 2rem;
+// }
+
+
+// .modal-sounds__question,
+// .modal-settings__header {
+//   font-size: clamp(18px, 5.2vw, 30px);
+
+//   margin-bottom: 2rem;
+// }
+
+// .modal-button-group {
+//   display: flex;
+// }
+
+.modal-settings .modal__generic-text {
+  margin-bottom: 0.5em;
+}
+
+.slider__wrapper {
+  width: 100%;
+  max-width: 300px;
+}
+
+.slider__wrapper span:first-of-type {
+  color: variables.$light-blue;
+  font-weight: 700;
+}
+
+.slider__wrapper span:last-of-type {
+  font-weight: 700;
+  color: variables.$light-yellow
+}
+
+.slider__label span:first-of-type {
+  margin-right: 0.5rem
+}
+
+
+.slider__input {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 300px;
+  margin-bottom: 1rem;
+
+}
+
+.checkbox-group {
+  display: flex;
+  width: 100%;
+  max-width: 300px;
+}
+
+.checkbox-wrapper {
+  margin-right: 1rem;
+}
+
+.checkbox-wrapper label {
+  color: variables.$silver-hover;
+}
+
+.modal-settings__save-btn {
+  border: none;
+  font-family: variables.$font-main;
+  margin-top: 2em;
+  border-radius: 5px;
+  padding: 0.25em;
+  cursor: pointer;
+}
+
+.modal-settings__save-btn span{
+  display: inline-block;
+  padding: 0.5em
+}
+
+@media screen and (min-width: 500px) {
+  .slider__wrapper, .slider__input, .checkbox-group {
+    max-width: 350px;
+  }
+}

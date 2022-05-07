@@ -1,7 +1,6 @@
 @use "../../0-helpers/variables" as variables;
 @use "../../0-helpers/mixins" as mix;
 @use "baseResult";
-@use "tiedResult";
 @use "settings";
 
 .modal-wrapper {
@@ -44,7 +43,7 @@
   letter-spacing: 2.5px;
 
   color: variables.$light-blue;
-  margin-bottom: 1em;
+  // margin-bottom: 1em;
 }
 
 .modal__button-group {
@@ -54,4 +53,10 @@
 // Only 1 css line for modal audio 
 .modal-audio__prompt {
   font-size: clamp(24px, 5.2vw, 36px);
+}
+
+// Only 1 css line modal result tied:
+.modal-tied .modal__generic-text {
+  margin-bottom: 0.5em;
+  font-size: clamp(31px, 5.2vw, 40px)
 }
