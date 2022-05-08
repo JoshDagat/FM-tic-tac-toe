@@ -329,7 +329,7 @@ html {
   height: 64px;
 }
 
-.play-cell__svg svg {
+.cell__svg svg {
   width: 100%;
   height: 100%;
 }
