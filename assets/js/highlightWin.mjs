@@ -1,9 +1,6 @@
 function highlightWin(result) {
-  console.log(result)
-
   let{winner, combo} = result;
 
-  console.log(winner, combo)
   for (let i = 0; i < combo.length; i++) {
     let cell = document.querySelector(`#cell-${combo[i]}`),
         svg = cell.querySelector('.cell__svg-link'),

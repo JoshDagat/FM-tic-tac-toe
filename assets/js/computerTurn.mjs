@@ -34,9 +34,7 @@ function computerTurn(board) {
       element,
       index;
   
-  console.log('c:',chance)
   if (chance > 8) {
-    console.log(index)
     index = Math.floor( Math.random() * availableSpots.length);
     bestCell = availableSpots[index];
     element = document.querySelector(`#cell-${bestCell}`);
@@ -60,7 +58,7 @@ function computerTurn(board) {
     setTimeout(() => {
     // 3) Check for a winner:
       let result = checkWin(GS.mainBoard);
-      if (result) {
+      if (result === "X" || result === "O") {
         showWinner(result)
         return
       }

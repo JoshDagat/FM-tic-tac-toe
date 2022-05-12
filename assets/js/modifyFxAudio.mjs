@@ -12,4 +12,4 @@ function modifyFxAudio() {
         audioBeep.play();
 } 
 
-export {modifyFxAudio}
+export {modifyFxAudio}  
