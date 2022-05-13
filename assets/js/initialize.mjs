@@ -1,17 +1,17 @@
-import { hoverSound } from "./hoverSound.mjs";
+import { hoverSound } from "./bin/hoverSound.mjs";
 import { nextRound } from "./nextRound.mjs";
-import { quitGame } from "./quitGame.mjs";
-import { reset } from "./reset.mjs";
-import { selectToken } from "./selectToken.mjs";
-import { startGame } from "./startGame.mjs";
-import { enableSounds} from "./enableSounds.mjs"
-import { disableSounds} from "./disableSounds.mjs"
-import { modifyFxAudio } from "./modifyFxAudio.mjs";
-import { modifyMusic } from "./modifyMusic.mjs";
-import { showSettings } from "./showSettings.mjs";
-import { closeSettings } from "./closeSettings.mjs";
-import { toggleMusic } from "./toggleMusic.mjs";
-import { toggleFx } from "./toggleFx.mjs";
+import { quitGame } from "./bin/quitGame.mjs";
+import { reset } from "./bin/reset.mjs";
+import { selectToken } from "./bin/selectToken.mjs";
+import { startGame } from "./bin/startGame.mjs";
+import { enableSounds} from "./bin/enableSounds.mjs"
+import { disableSounds} from "./bin/disableSounds.mjs"
+import { modifyFxAudio } from "./bin/modifyFxAudio.mjs";
+import { modifyMusic } from "./bin/modifyMusic.mjs";
+import { showSettings } from "./bin/showSettings.mjs";
+import { closeSettings } from "./bin/closeSettings.mjs";
+import { toggleMusic } from "./bin/toggleMusic.mjs";
+import { toggleFx } from "./bin/toggleFx.mjs";
 import { restoreSession } from "./restoreSession.mjs";
 import { newSession } from "./newSession.mjs";
 import { showResetModal } from "./showResetModal.mjs";

@@ -1,22 +1,30 @@
 import { audio } from "./audio.mjs";
-import { GAME_STATE as GS } from "./gameState.mjs"
+import { Cells } from "./Cell.mjs";
+import { Game } from "./Game.mjs";
+import { GAME_STATE as GS } from "./bin/gameState.mjs";
 
-const Base = {
-  node : document.querySelector('#modal-base-result'),
-  varMsg : node.querySelector('#variable-message'),
-  SVG : node.querySelector('#base-svg'),
-  constMsg : node.querySelector('.modal-base__winning-text'),
+const Result = {
+  node_base : document.querySelector('#modal-base-result'),
+  node_tied : document.querySelector('#modal-tied-result'),
+  varMsg : document.querySelector('#variable-message'),
+  SVG : document.querySelector('#base-svg'),
+  constMsg : document.querySelector('.modal-base__winning-text'),
 
-  show : function() {
-    this.node.classList.add('active')
+  showWin : function() {
+    this.node_base.classList.add('active');
+  },
+
+  showTied : function() {
+    this.node_tied.classList.add('active');
   },
 
   hide : function() {
-    this.hide.classList.remove('active')
+    this.node_base.classList.remove('active');
+    this.node_tied.classList.remove('active');
   },
 
   setVarMsg : function(result) {
-    if (GS.type === 'PvC') {
+    if (Game.type === 'PvC') {
       if (result === GS.computerToken) {
         this.varMsg.textContent = 'OH NO, YOU LOST...';
         audio.play('#audio-lose');
@@ -28,7 +36,7 @@ const Base = {
       return;
     }
 
-    if (GS.type === 'PvP') {
+    if (Game.type === 'PvP') {
       if (result === GS.player1Token) {
         this.varMsg.textContent = "PLAYER 1 WINS!";
       } else {
@@ -50,6 +58,8 @@ const Base = {
       this.constMsg.style.color = '#F2B137';
     }
   },
+
+  
 }
 
-export {Base}
+export {Result}

@@ -1,4 +1,4 @@
-import { playerClick } from "./playerClick.mjs";
+import { playerClick } from "../playerClick.mjs";
 import { showOutline, removeOutline } from "./toggleOutline.mjs";
 
 function disableCells() {

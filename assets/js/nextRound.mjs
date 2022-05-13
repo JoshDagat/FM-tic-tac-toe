@@ -1,7 +1,7 @@
 import { computerTurn } from "./computerTurn.mjs";
-import { GAME_STATE as GS } from "./gameState.mjs";
+import { GAME_STATE as GS } from "./bin/gameState.mjs";
 import { playerClick } from "./playerClick.mjs";
-import { removeOutline, showOutline } from "./toggleOutline.mjs";
+import { removeOutline, showOutline } from "./bin/toggleOutline.mjs";
 
 function nextRound() {
   // Re-initialize main board:

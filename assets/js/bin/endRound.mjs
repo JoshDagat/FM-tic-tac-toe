@@ -1,5 +1,5 @@
 import { showOutline, removeOutline } from "./toggleOutline.mjs";
-import { playerClick } from "./playerClick.mjs";
+import { playerClick } from "../playerClick.mjs";
 
 function endRound() {
   const cells = document.querySelectorAll(".play-cell");

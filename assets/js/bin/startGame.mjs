@@ -1,7 +1,7 @@
 import {GAME_STATE as GS} from "./gameState.mjs";
 import { showOutline, removeOutline } from "./toggleOutline.mjs";
-import { playerClick } from "./playerClick.mjs";
-import { computerTurn } from "./computerTurn.mjs";
+import { playerClick } from "../playerClick.mjs";
+import { computerTurn } from "../computerTurn.mjs";
 
 function startGame(e) {
   const tokenContainer = document.querySelector(".game-tokens__choices");

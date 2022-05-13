@@ -1,6 +1,6 @@
 import { GAME_STATE as GS} from "./gameState.mjs";
 import { showOutline, removeOutline } from "./toggleOutline.mjs";
-import { playerClick } from "./playerClick.mjs";
+import { playerClick } from "../playerClick.mjs";
 
 function markCell(cell, player) {
   // 1) Handles minimax trying to take a turn with a full board:

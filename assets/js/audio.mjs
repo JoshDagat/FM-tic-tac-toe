@@ -31,6 +31,12 @@
             this.BGM.play();
     },
 
+    loop : function loop(id) {
+      let sound = document.querySelector(`${id}`);
+          sound.loop = true;
+          this.play(id)
+    },
+
     modifySFX : function modifySFX() {
       const volume = this.sfxSlider.value;
             this.allSFX.forEach(sfx => sfx.volume = volume / 100);

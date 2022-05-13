@@ -1,4 +1,3 @@
-import { GAME_STATE as GS } from "./gameState.mjs";
 
 const WIN_CONDITIONS = [
   [0,1,2],

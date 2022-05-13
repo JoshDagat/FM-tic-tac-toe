@@ -19,7 +19,7 @@
   </head>
   <body class="body">
     <!-- ##### START MENU ##### -->
-    <div class="start-menu">
+    <div class="start-menu active">
       <div class="start-menu__logo">
         <svg class="start-menu__logo-svg">
           <use href="#svg-logo"></use>
@@ -162,13 +162,13 @@
         <span class="scoreboard__label">
           X <span id="owner-cross">(YOU)</span>
         </span>
-        <span id="counter--cross" class="scoreboard__counter">0</span>
+        <span id="counter--cross" class="scoreboard__counter X">0</span>
       </div>
         <!--  -->
         <!-- MG-4-2 Ties -->
       <div class="scoreboard scoreboard--ties">
         <span class="scoreboard__label">TIES</span>
-        <span id="counter--ties" class="scoreboard__counter">0</span>
+        <span id="counter--ties" class="scoreboard__counter tie">0</span>
       </div>
         <!--  -->
         <!-- MG-4-3 Circle -->
@@ -176,7 +176,7 @@
         <span class="scoreboard__label">
           O <span id="owner-circle">(CPU)</span>
         </span>
-        <span id="counter--circle" class="scoreboard__counter">0</span>
+        <span id="counter--circle" class="scoreboard__counter O">0</span>
       </div>
         <!--  -->
         <!-- MG-4-4 Settings -->
@@ -207,7 +207,7 @@
           <button class="btn--modal btn__quit-game">
             <span class="btn__text--modal">QUIT</span>
           </button>
-          <button class="btn--modal btn__next-round">
+          <button class="btn--modal btn__next-round base">
             <span class="btn__text--modal">NEXT ROUND</span>
           </button>
         </div>
@@ -226,7 +226,7 @@
           <button class="btn--modal btn__quit-game">
             <span class="btn__text--modal">QUIT</span>
           </button>
-          <button class="btn--modal btn__next-round">
+          <button class="btn--modal btn__next-round tied">
             <span class="btn__text--modal">NEXT ROUND</span>
           </button>
         </div>
@@ -234,7 +234,7 @@
     </div>
 
     <!-- Mod-3 Modal Settings -->
-    <div class="modal-wrapper active" id="modal-settings">
+    <div class="modal-wrapper" id="modal-settings">
       <div class="modal-body modal-settings">
         <span class="modal__generic-text modal-settings__header">Settings</span>
         <!-- Mod-4-1 FX Slider -->

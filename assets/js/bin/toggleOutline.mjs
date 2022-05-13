@@ -1,12 +1,12 @@
-import { GAME_STATE as GS } from "./gameState.mjs"
-import { hoverSound } from "./hoverSound.mjs"
+import { Game } from "../Game.mjs";
+import { hoverSound } from "./hoverSound.mjs";
 
 function showOutline(e) {
   let cellSVG = e.target.querySelector(".cell__svg-link")
 
-  if (GS.turn == "X") {
+  if (Game.turn === "X") {
     cellSVG.setAttribute("href", "#cross--outline")
-  } else if (GS.turn == "O") {
+  } else if (Game.turn === "O") {
     cellSVG.setAttribute("href", "#circle--outline")
   }
 
