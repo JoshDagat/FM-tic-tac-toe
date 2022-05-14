@@ -1,41 +1,63 @@
 import { Game } from "./Game.mjs";
-import { hoverSound } from "./bin/hoverSound.mjs";
 import { playerClick } from "./playerClick.mjs";
-import { removeOutline, showOutline } from "./bin/toggleOutline.mjs";
+import { Sound } from "./Sound.mjs";
 
 const Cells = {
   allCells: document.querySelectorAll('.cell'),
-  cellEvents: {
-    "click" : [playerClick],
-    "mouseenter" : [showOutline, hoverSound],
-    "mouseleave" : [removeOutline],
+
+  showOutline: function showOutline(e) {
+    let svg = e.target.querySelector('.cell__svg-link');
+    if (Game.turn === 'X') {
+      svg.setAttribute('href', '#cross--outline');
+    };
+
+    if (Game.turn === "O") {
+      svg.setAttribute('href', '#circle--outline');
+    };
   },
 
+  hideOutline : function hideOutline(e) {
+    let target = e.target.querySelector('.cell__svg-link');
+    target.setAttribute('href', null)
+  },
+
+  hover : function hover() {
+    Sound.play('#audio-hover');
+  },
   
-  
-  init : function init() {
-    for (let cell of this.allCells) { 
-      for (let [event, fn] of Object.entries(this.cellEvents)) {
-        for (let i = 0; i < fn.length; i++) {
-          cell.addEventListener(event, fn[i])
-        }
-      }
+  attachAll : function attach() {
+    for (let cell of this.allCells) {
+      cell.addEventListener('click', playerClick);
+      cell.addEventListener('mouseenter', Cells.hover);
+      cell.addEventListener('mouseenter', Cells.showOutline);
+      cell.addEventListener('mouseleave', Cells.hideOutline);
+      cell.style.pointerEvents = 'auto';
+      cell.style.cursor = 'pointer';
     }
   },
 
-  clear : function clear(cell) {
-    this.setSVG(cell, null)
+  detachAll : function detachAll() {
+    for (let cell of this.allCells) {
+      cell.removeEventListener('click', playerClick);
+      cell.removeEventListener('mouseenter', Cells.hover);
+      cell.removeEventListener('mouseenter', Cells.showOutline);
+      cell.removeEventListener('mouseleave', Cells.hideOutline);
+      cell.style.pointerEvents = 'none';
+      cell.style.cursor = 'auto';
+
+    }
   },
 
   detach : function detach(cell) {
-      for (let [event, fn] of Object.entries(this.cellEvents)) {
-        for (let i = 0; i < fn.length; i++) {
-          cell.removeEventListener(event, fn[i])
-        }
-      }
+    cell.removeEventListener('click', playerClick);
+    cell.removeEventListener('mouseenter', Cells.hover);
+    cell.removeEventListener('mouseenter', Cells.showOutline);
+    cell.removeEventListener('mouseleave', Cells.hideOutline);
+    cell.style.pointerEvents = 'none';
+    cell.style.cursor = 'none';
   },
 
-  disable : function disable() {
+  disableEmpty : function disable() {
     let emptyCells = this.emptyCells();
         
         for (let index of emptyCells) {   
@@ -49,7 +71,7 @@ const Cells = {
     return board.filter(cell => typeof cell === 'number')
   },
 
-  enable : function enable() {
+  enableEmpty : function enable() {
     let emptyCells = this.emptyCells();
 
         for (let index  of emptyCells) {
@@ -70,22 +92,12 @@ const Cells = {
   },
 
   reset : function reset() {
-    for (let cell of this.allCells) {
-      cell.setAttribute('href', null);
-      cell.style.backgroundColor = '#1f3641';
-      cell.style.cursor = "pointer"
+    Cells.detachAll();
+    Cells.attachAll();
 
-      this.detach(cell)
-    }
-  },
-
-  showOutline: function showOutline(e) {
-    if (Game.turn === "X") {
-      let cell = e.target;
-    }
-
-    if (Game.turn === "O") {
-      let cell = e.target;
+    for (let cell of Cells.allCells) {
+      cell.querySelector('.cell__svg-link').setAttribute('href', null);
+      cell.style.backgroundColor = "#1F3641";
     }
   },
 }

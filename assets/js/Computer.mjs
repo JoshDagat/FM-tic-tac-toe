@@ -8,6 +8,7 @@ const Computer = {
         id,
         index,
         element;
+        
         if (chance > 8) {
           index = Math.floor(Math.random() * cells.length);
           id = cells[index],

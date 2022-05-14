@@ -1,4 +1,4 @@
-import { audio } from "./audio.mjs";
+import { Sound } from "./Sound.mjs";
 import { Cells } from "./Cell.mjs";
 import { Game } from "./Game.mjs";
 import { GAME_STATE as GS } from "./bin/gameState.mjs";
@@ -24,25 +24,26 @@ const Result = {
   },
 
   setVarMsg : function(result) {
+    console.log(result)
     if (Game.type === 'PvC') {
-      if (result === GS.computerToken) {
-        this.varMsg.textContent = 'OH NO, YOU LOST...';
-        audio.play('#audio-lose');
+      if (result === Game.tokenComputer) {
+       this.varMsg.textContent = 'OH NO, YOU LOST...';
+        Sound.play('#audio-lose');
         return;
       }
 
       this.varMsg.textContent = "YOU WON!";
-      audio.play('#audio-win');
+      Sound.play('#audio-win');
       return;
     }
 
     if (Game.type === 'PvP') {
-      if (result === GS.player1Token) {
+      if (result === Game.tokenPlayer1) {
         this.varMsg.textContent = "PLAYER 1 WINS!";
       } else {
         this.varMsg.textContent = "PLAYER 2 WINS!";
       }
-      audio.play('#audio-win');
+      Sound.play('#audio-win');
       return;
     }
   },

@@ -1,6 +1,5 @@
-import { audio } from "./audio.mjs";
+import { Sound } from "./Sound.mjs";
 import { Cells } from "./Cell.mjs";
-import { computerTurn } from "./computerTurn.mjs";
 import { Result } from "./Result.mjs";
 
 const Game = {
@@ -25,56 +24,17 @@ const Game = {
   ],
 
   // Useful DOMS
-  cancelResetBtn : document.querySelector('.modal-reset .btn--denied'),
-  confirmResetBtn : document.querySelector('.modal-reset .btn--affirmative'),
-  newGameBtns : document.querySelectorAll('.btn--sm'),
-  nextRndBtns : document.querySelectorAll('.btn__next-round'),
-  quitBtns : document.querySelectorAll('.btn__quit-game'),
-  resetBtn : document.querySelector('.btn-reset'),
-  saveSettingsBtn : document.querySelector('.modal-settings__save-btn'),
-  settingsBtn : document.querySelector('.btn-settings'),
   tokenContainer : document.querySelector('.game-tokens__choices'),
   tokens : document.querySelectorAll('.choice-token'),
 
   // Game methods:
   init : function(e) {  
-    this.origBoard = Array.from(Array(9).keys());
+    Game.origBoard = Array.from(Array(9).keys());
 
-    this.setType(e.target.classList);
-    this.setTokens();
-    this.show('.main-game');
-    this.hide('.start-menu');
-  },
-
-  attachListeners : function attachListeners() {
-    this.cancelResetBtn.addEventListener('click', () => {
-      this.hide(`#modal-reset`);
-    });
-
-    this.confirmResetBtn.addEventListener('click', () => {
-      this.reset();
-    });
-
-    for (let btn of this.newGameBtns) {
-      btn.addEventListener('click', (e) => {
-        Game.start(e);
-
-        if (Game.type === 'PvC' && Game.tokenComputer === "X") {
-          computerTurn();
-        };
-      });
-    };
-
-    for (let btn of this.nextRndBtns) {
-      btn.addEventListener('click', (e) => {
-        let id = (e.target.classList.contains(tied)) ? '#modal-tied-result' : 'modal-base-result'
-        
-        Game.hide(id);
-        Cells.reset();
-      });
-    };
-
-    this.tokenContainer.addEventListener('click', (e) => this.selectToken(e.target.classList));
+    Game.setType(e.target.classList);
+    Game.setTokens();
+    Game.show('.main-game');
+    Game.hide('.start-menu');
 
   },
 
@@ -91,15 +51,14 @@ const Game = {
 
   start : function(e) {
     if (this.tokenContainer.classList.length === 1) {
-      this.show('.game-tokens__alert')
-      audio.play('#audio-lose');
+      Game.show('.game-tokens__alert')
+      Sound.play('#audio-lose');
       return;
     }
 
-    this.init(e);
-    Cells.init();
-    audio.play('#audio-select');
-    this.storeSession();
+    Game.init(e);
+    Sound.play('#audio-select');
+    Game.storeSession();
   },
 
   show : function(id) {
@@ -114,14 +73,14 @@ const Game = {
 
   setType : function(btn) {
     if (btn.contains('btn--ng-pvc')) {
-      this.type = 'PvC'
+      Game.type = 'PvC'
     }
   },
 
   setTokens : function() {
-    if (this.tokenContainer.classList.contains('circle-selected')) {
-      this.tokenPlayer1 = "O";
-      this.tokenComputer = "X"
+    if (Game.tokenContainer.classList.contains('circle-selected')) {
+      Game.tokenPlayer1 = "O";
+      Game.tokenComputer = "X"
     }
   },
 
@@ -137,7 +96,7 @@ const Game = {
       this.tokenContainer.classList.add('circle-selected');
     }
 
-    audio.play('#audio-generic-click')
+    Sound.play('#audio-generic-click')
   },
   
   storeSession : function() {
@@ -174,8 +133,8 @@ const Game = {
     let boards = document.querySelectorAll('.scoreboard__counter');
 
         for (let board of boards) {
-          if (board.classList.contains(result)) {
-            board.textContent = +boards.textContent + 1;
+          if (board.classList.contains(result.winner)) {
+            board.textContent = +board.textContent + 1;
           };
         }
   },
@@ -199,7 +158,13 @@ const Game = {
               svg.setAttribute('href', '#circle--win')
             }
 
-            audio.play('#audio-select')
+            console.log(winner, Game.tokenComputer, Game.type)
+
+            if (Game.type === 'PvC' && Game.tokenComputer === winner) {
+              Sound.play('#audio-lose');
+            } else {
+              Sound.play('#audio-win')
+            }
           }, time)
     }
   },
@@ -216,12 +181,16 @@ const Game = {
         this.hide('#modal-reset');
         this.hide('.main-game');
         this.show('.start-menu');
+
+        this.origBoard = Array.from(Array(9).keys())
   },
 
   showWinner : function(result) {
+    console.log(result)
     setTimeout(() => {
-      if (result === 'tie') {
+      if (result.winner === 'tie') {
         Result.showTied();
+        Sound.play('#audio-tie')
       } else {
         Result.setVarMsg(result.winner);
         Result.setSVG(result.winner);
@@ -233,10 +202,26 @@ const Game = {
     }, 750)
   },
 
-  nextRound : function() {},
-
-  quit : function() {
+  nextRound : function nextRound(e) {
+    let target = e.target.classList,
+        id = (target.contains('tied')) ? '#modal-tied-result' : '#modal-base-result';
+    
+        Game.hide(id);
+        Cells.reset();
+        Game.origBoard = Array.from(Array(9).keys());
+        Sound.play('#audio-win')
+        Cells.detachAll();
+        Cells.attachAll();
   },
+
+  quit : function quit(e) {
+    let target = e.target.classList,
+        id = (target.contains('tied')) ? '#modal-tied-result' : "#modal-base-result";
+    
+    Game.hide(id);
+    Cells.reset();
+    Sound.play('#udio-tie');
+  }
 }
 
 export {Game}

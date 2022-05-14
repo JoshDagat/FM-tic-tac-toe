@@ -1,5 +1,5 @@
 import { Cells } from "./Cell.mjs";
-import { audio } from "./audio.mjs";
+import { Sound } from "./Sound.mjs";
 import { Game} from "./Game.mjs";
 import { Computer } from "./Computer.mjs";
 
@@ -12,7 +12,7 @@ function computerTurn() {
 
   
   // 2) Temporarily disable the cells:
-      Cells.disable();
+      Cells.disableEmpty();
 
   // 3) Raffle trough empty cells:
       if (emptyCells.length > 1) {
@@ -20,11 +20,11 @@ function computerTurn() {
             Computer.randomize(emptyCells)
           }, 200);
         
-          audio.loop('#audio-roll');
+          Sound.loop('#audio-roll');
 
           setTimeout(() => {
             clearInterval(choose)
-            audio.stop('#audio-roll');
+            Sound.stop('#audio-roll');
           }, 5000)
       }
 
@@ -36,7 +36,7 @@ function computerTurn() {
 
       setTimeout(()=> {
         Cells.mark(element.querySelector(`.cell__svg-link`), Game.tokenComputer);
-        audio.play('#audio-generic-click');
+        Sound.play('#audio-generic-click');
 
         Game.origBoard[element.id[5]] = Game.tokenComputer;
     
@@ -49,21 +49,20 @@ function computerTurn() {
               }
 
               if (!Cells.emptyCells().length) {
-                result = 'tie';
+                result = {winner:'tie', combo: null};
                 Game.showWinner(result);
                 return;
               }
         }, 750)
+
+      Game.changeTurn();
+
     }, markTime)
   
-  // 7) 
-  Game.changeTurn();
-  
-  // 8) Re-enable cells
+  // 7) Re-enable cells
   setTimeout(() => {
-    Cells.enable();
+    Cells.enableEmpty();
   }, (markTime + 250))
-  console.log(Game.turn)
 }
 
 export {computerTurn}

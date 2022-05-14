@@ -1,4 +1,4 @@
-  const audio = {
+  const Sound = {
 
     BGM : document.querySelector('.music'),
     allSFX : document.querySelectorAll('.sound-fx'),
@@ -24,24 +24,24 @@
     },
     
     init : function init() {
-            this.allSFX.forEach(sfx => sfx.volume = 0.2 );
+            this.allSFX.forEach(sfx => sfx.volume = this.sfxSlider.value / 100 );
       
             this.BGM.loop = true;
-            this.BGM.volume = 0.1;
+            this.BGM.volume = this.bgmSlider.value / 100;
             this.BGM.play();
     },
 
     loop : function loop(id) {
       let sound = document.querySelector(`${id}`);
           sound.loop = true;
-          this.play(id)
+          Sound.play(id)
     },
 
     modifySFX : function modifySFX() {
       const volume = this.sfxSlider.value;
             this.allSFX.forEach(sfx => sfx.volume = volume / 100);
             this.sfxLabel.textContent = volume;
-            audio.play('#audio-hover')
+            Sound.play('#audio-hover')
     },
 
     modifyBGM : function modifyBGM() {
@@ -59,7 +59,7 @@
                   sfx.muted = false;
                 })
               
-                audio.play('#audio-generic-click');
+                Sound.play('#audio-generic-click');
 
             } else {
                 this.allSFX.forEach(sfx => sfx.muted = true);
@@ -70,12 +70,12 @@
             if (this.bgmCheckBox.checked === true) {
               this.BGM.volume = this.bgmSlider.value / 100;
               this.BGM.muted = false;
-              audio.play(`.music`);
+              Sound.play(`.music`);
             } else {
               this.BGM.muted = true;
-              audio.stop(`.music`);
+              Sound.stop(`.music`);
             }
     }
   }
 
-  export {audio}
+  export {Sound}
