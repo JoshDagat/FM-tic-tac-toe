@@ -17,6 +17,7 @@
   margin: 1rem 0;
   display: inline-block;
   color: variables.$black;
+  pointer-events: none;
 }
 
 .btn__quit-game, .btn--denied {

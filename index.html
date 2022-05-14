@@ -19,7 +19,7 @@
   </head>
   <body class="body">
     <!-- ##### START MENU ##### -->
-    <div class="start-menu">
+    <div class="start-menu active">
       <div class="start-menu__logo">
         <svg class="start-menu__logo-svg">
           <use href="#svg-logo"></use>
@@ -162,13 +162,13 @@
         <span class="scoreboard__label">
           X <span id="owner-cross">(YOU)</span>
         </span>
-        <span id="counter--cross" class="scoreboard__counter">0</span>
+        <span id="counter--cross" class="scoreboard__counter X">0</span>
       </div>
         <!--  -->
         <!-- MG-4-2 Ties -->
       <div class="scoreboard scoreboard--ties">
         <span class="scoreboard__label">TIES</span>
-        <span id="counter--ties" class="scoreboard__counter">0</span>
+        <span id="counter--ties" class="scoreboard__counter tie">0</span>
       </div>
         <!--  -->
         <!-- MG-4-3 Circle -->
@@ -176,7 +176,7 @@
         <span class="scoreboard__label">
           O <span id="owner-circle">(CPU)</span>
         </span>
-        <span id="counter--circle" class="scoreboard__counter">0</span>
+        <span id="counter--circle" class="scoreboard__counter O">0</span>
       </div>
         <!--  -->
         <!-- MG-4-4 Settings -->
@@ -207,14 +207,14 @@
           <button class="btn--modal btn__quit-game">
             <span class="btn__text--modal">QUIT</span>
           </button>
-          <button class="btn--modal btn__next-round">
+          <button class="btn--modal btn__next-round base">
             <span class="btn__text--modal">NEXT ROUND</span>
           </button>
         </div>
       </div>
     </div>
 
-    <!-- Mod-2 Modal Tied  -->
+    <!-- Mod-2 Modal Tied Result -->
     <div class="modal-wrapper" id="modal-tied-result">
       <div class="modal-body modal-tied">
         <p
@@ -226,29 +226,14 @@
           <button class="btn--modal btn__quit-game">
             <span class="btn__text--modal">QUIT</span>
           </button>
-          <button class="btn--modal btn__next-round">
+          <button class="btn--modal btn__next-round tied">
             <span class="btn__text--modal">NEXT ROUND</span>
           </button>
         </div>
       </div>
     </div>
 
-    <!-- Mod-3 Modal Audio Toggle  -->
-    <div class="modal-wrapper active" id="modal-audio-toggle">
-      <div class="modal-body modal-audio">
-        <span class="modal__generic-text modal-audio__prompt">ENABLE SOUNDS?</span>
-        <div class="modal__button-group">
-          <button class="btn--modal btn--affirmative">
-            <span class="btn__text--modal">Enable</span>
-          </button>
-          <button class="btn--modal btn--denied">
-            <span class="btn__text--modal">Disable</span>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Mod-4 Modal Settings -->
+    <!-- Mod-3 Modal Settings -->
     <div class="modal-wrapper" id="modal-settings">
       <div class="modal-body modal-settings">
         <span class="modal__generic-text modal-settings__header">Settings</span>
@@ -259,29 +244,28 @@
             <span id="sfx-value" class="slider__value">20</span>
           </div>
         </div>
-        <input autocomplete='off' type="range" min="1" max="100" value="20" id="sfx-slider" class="slider__input">
-        <!--  -->
+        <input type="range" id="sfx-slider" class="slider__input" min="1" max="100" value="20" autocomplete="off">
         <!-- Mod-4-2 Music Slider -->
         <div class="slider__wrapper">
           <div id="label-music-slider" class="slider__label">
             <span>Music:</span>
-            <span id="music-value" class="slider__value">20</span>
+            <span id="music-value" class="slider__value">5</span>
           </div>
-          
         </div>
-        <input autocomplete='off' type="range" min="1" max="100" value="20" id="music-slider" class="slider__input">
-        <!--  -->
-        <!-- Mod-4-3 FX Checkboxes-->
+        <input type="range" id="music-slider" class="slider__input" min="1" max="100" value="5" autocomplete="off">
+        <!-- Mod-4-3 FX Checkboxes -->
         <div class="checkbox-group">
           <div class="checkbox-wrapper">
-            <label for="sfx-checkbox">Sound-Fx
-              <input autocomplete='off' class ='checkbox__input' type="checkbox" checked id="sfx-checkbox">
+            <label for="sfx-checkbox">
+              Sound-Fx
+              <input type="checkbox" id="sfx-checkbox" class="checkbox__input" checked autocomplete="off">
             </label>
           </div>
-        <!--  -->
+          <!--  -->
           <div class="checkbox-wrapper">
-            <label for="music-checkbox">Music
-              <input autocomplete='off' class='checkbox__input' type="checkbox" checked id="music-checkbox">
+            <label for="music-checkbox">
+              Music
+              <input type="checkbox" id="music-checkbox" class="checkbox__input" checked autocomplete="off">
             </label>
           </div>
         </div>
@@ -289,6 +273,37 @@
         <button class="modal-settings__save-btn">
           <span>Save</span>
         </button>
+      </div>
+    </div>
+
+    <!-- Mod-4 Modal Reset -->
+    <div class="modal-wrapper" id="modal-reset">
+      <div class="modal-body modal-reset">
+        <span class="modal__generic-text modal-reset__prompt">Restart Game?</span>
+        <div class="modal__button-group">
+          <button class="btn--modal btn--affirmative">
+            <span class="btn__text--modal">Restart</span>
+          </button>
+          <button class="btn--modal btn--denied">
+            <span class="btn__text--modal">Continue</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mod-6 Modal Restore -->
+    <div class="modal-wrapper" id="modal-restore-session">
+      <div class="modal-body modal-restore">
+        <span class="modal__generic-text modal-restore__prompt">Restore previous session?</span>
+        <div class="modal__button-group">
+          <button class="btn--modal btn--affirmative">
+            <span class="btn__text--modal">Restore</span>
+          </button>
+          <button class="btn--modal btn--denied">
+            <span class="btn__text--modal">New Session</span>            
+          </button>
+        </div>
+      </div>
     </div>
 
     <!-- ##### END of MODALS #####  -->
@@ -387,23 +402,6 @@
       </symbol>
     </svg>
     <!--  -->
-    <!-- <svg class="logo__svg logo__svg--sm" viewBox="0 0 72 32"> -->
-    <!-- <svg style="display: none">
-      <symbol viewBox="0 0 72 32">
-        <g fill="none" fill-rule="evenodd">
-          <path
-            d="M8.562 1.634 16 9.073l7.438-7.439a3 3 0 0 1 4.243 0l2.685 2.685a3 3 0 0 1 0 4.243L22.927 16l7.439 7.438a3 3 0 0 1 0 4.243l-2.685 2.685a3 3 0 0 1-4.243 0L16 22.927l-7.438 7.439a3 3 0 0 1-4.243 0L1.634 27.68a3 3 0 0 1 0-4.243L9.073 16 1.634 8.562a3 3 0 0 1 0-4.243L4.32 1.634a3 3 0 0 1 4.243 0Z"
-            fill="#31C3BD"
-          />
-          <path
-            d="M56.1 0c8.765 0 15.87 7.106 15.87 15.87 0 8.766-7.105 15.871-15.87 15.871-8.765 0-15.87-7.105-15.87-15.87C40.23 7.106 47.334 0 56.1 0Zm0 9.405a6.466 6.466 0 1 0 0 12.931 6.466 6.466 0 0 0 0-12.931Z"
-            fill="#F2B137"
-            fill-rule="nonzero"
-          />
-        </g>
-      </symbol>
-    </svg> -->
-
     <svg style="display: none">
       <symbol id="svg-indicator--circle" viewBox="0 0 66 66">
         <path
@@ -411,7 +409,7 @@
         />
       </symbol>
     </svg>
-
+    <!--  -->
     <svg style="display: none">
       <symbol id="svg-reset" viewBox="0 0 20 20">
         <path
@@ -419,7 +417,7 @@
         />
       </symbol>
     </svg>
-
+    <!--  -->
     <svg style="display: none">
       <symbol id="svg-indicator--cross" viewBox="0 0 66 66">
         <path
@@ -427,8 +425,7 @@
         />
       </symbol>
     </svg>
-    <script type="module" src="./assets/js/app.mjs"></script>
-    
+    <!--  -->
     <audio id="audio-bgm" class="music"src="./assets/audio/bgm.wav" ></audio>
     <audio id="audio-generic-click" class="sound-fx" src="./assets/audio/generic-click.wav"></audio>
     <audio id="audio-hover" class="sound-fx" src="./assets/audio/hover.wav"></audio>
@@ -437,6 +434,8 @@
     <audio id="audio-select" class="sound-fx" src="./assets/audio/select.wav"></audio>
     <audio id="audio-tie" class="sound-fx" src="./assets/audio/tie.wav"></audio>
     <audio id="audio-win" class="sound-fx" src="./assets/audio/win.wav"></audio>
+
+    <script type="module" src="./assets/js/app.mjs"></script>
   </body>
 </html>
  

@@ -1,3 +1,4 @@
-import { initializeEventListeners } from "./initializeEventListeners.mjs";
+import { Attachments } from "./Attachments.mjs";
 
-initializeEventListeners();
+Attachments.init();
+

@@ -15,6 +15,7 @@
 .DS_Store
 .prettierignore
 
+README-FM.md
 README-template.md
 README.md
 node_modules
