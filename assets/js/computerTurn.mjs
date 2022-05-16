@@ -2,6 +2,7 @@ import { Cells } from "./Cell.mjs";
 import { Sound } from "./Sound.mjs";
 import { Game} from "./Game.mjs";
 import { Computer } from "./Computer.mjs";
+import { Memory } from "./Memory.mjs";
 
 function computerTurn() {
   // 1) Choose cell to mark from empty cells:
@@ -56,6 +57,9 @@ function computerTurn() {
         }, 750)
 
       Game.changeTurn();
+
+      sessionStorage.setItem('board', JSON.stringify(Game.origBoard));
+      sessionStorage.setItem('turn', Game.turn);
 
     }, markTime)
   

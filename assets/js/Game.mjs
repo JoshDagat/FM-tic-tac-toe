@@ -1,15 +1,17 @@
 import { Sound } from "./Sound.mjs";
 import { Cells } from "./Cell.mjs";
 import { Result } from "./Result.mjs";
+import { Memory} from "./Memory.mjs";
+import { computerTurn } from "./computerTurn.mjs";
 
 const Game = {
   // Game parameters:
   origBoard : [],
-  prevSession : false,
   tokenComputer : "O",
   tokenPlayer1 : "X",
   turn: "X",
   type: "PvP",
+  status: 'idle',
 
   // Win Conditions
   combos: [
@@ -26,6 +28,8 @@ const Game = {
   // Useful DOMS
   tokenContainer : document.querySelector('.game-tokens__choices'),
   tokens : document.querySelectorAll('.choice-token'),
+  crossOwner : document.querySelector('#owner-cross'),
+  circleOwner : document.querySelector('#owner-circle'),
 
   // Game methods:
   init : function(e) {  
@@ -33,6 +37,8 @@ const Game = {
 
     Game.setType(e.target.classList);
     Game.setTokens();
+    Game.setLabel();
+    Game.status = 'ongoing';
     Game.show('.main-game');
     Game.hide('.start-menu');
 
@@ -58,7 +64,7 @@ const Game = {
 
     Game.init(e);
     Sound.play('#audio-select');
-    Game.storeSession();
+    Memory.store();
   },
 
   show : function(id) {
@@ -99,10 +105,7 @@ const Game = {
     Sound.play('#audio-generic-click')
   },
   
-  storeSession : function() {
-    sessionStorage.setItem('board', JSON.stringify(this.origBoard));
-    sessionStorage.setItem('turn', this.turn);
-  },
+ 
 
   checkWin : function(board, player) {
     let outcome = {};
@@ -137,6 +140,14 @@ const Game = {
             board.textContent = +board.textContent + 1;
           };
         }
+    
+    let crossScore = document.querySelector('#counter--cross').textContent,
+        circleScore = document.querySelector('#counter--circle').textContent,
+        tiesScore = document.querySelector('#counter--cross').textContent;
+    
+        sessionStorage.setItem('cross', crossScore);
+        sessionStorage.setItem('circle', circleScore);
+        sessionStorage.setItem('tied', tiesScore);
   },
 
   highlightWin: function(result) {
@@ -157,8 +168,6 @@ const Game = {
               cell.style.backgroundColor = '#F2B137';
               svg.setAttribute('href', '#circle--win')
             }
-
-            console.log(winner, Game.tokenComputer, Game.type)
 
             if (Game.type === 'PvC' && Game.tokenComputer === winner) {
               Sound.play('#audio-lose');
@@ -186,7 +195,6 @@ const Game = {
   },
 
   showWinner : function(result) {
-    console.log(result)
     setTimeout(() => {
       if (result.winner === 'tie') {
         Result.showTied();
@@ -207,11 +215,19 @@ const Game = {
         id = (target.contains('tied')) ? '#modal-tied-result' : '#modal-base-result';
     
         Game.hide(id);
-        Cells.reset();
         Game.origBoard = Array.from(Array(9).keys());
+        Game.turn = "X";
         Sound.play('#audio-win')
         Cells.detachAll();
         Cells.attachAll();
+        Cells.reset();
+
+
+        sessionStorage.setItem('board', JSON.stringify(Game.origBoard));
+
+        if (Game.type === 'PvC' && Game.tokenComputer === "X") {
+          computerTurn();
+        }
   },
 
   quit : function quit(e) {
@@ -221,7 +237,27 @@ const Game = {
     Game.hide(id);
     Cells.reset();
     Sound.play('#udio-tie');
-  }
+    Memory.clear();
+  },
+
+  setLabel : function setLabel() {
+    if (Game.type === "PvC"){
+      if (Game.tokenComputer === "X"){
+        this.crossOwner.textContent = "(CPU)";
+        this.circleOwner.textContent = "(YOU)";
+      }
+    }
+
+    if (Game.type === "PvP"){
+      if (Game.tokenPlayer1 === "X"){
+        this.crossOwner.textContent = "(P1)";
+        this.circleOwner.textContent = "(P2)";
+      } else {
+        this.crossOwner.textContent = "(P2)";
+        this.circleOwner.textContent = "(P1)";
+      }
+    }
+  },
 }
 
 export {Game}

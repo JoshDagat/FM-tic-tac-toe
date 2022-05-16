@@ -2,6 +2,7 @@ import { Sound } from "./Sound.mjs";
 import { Cells } from "./Cell.mjs";
 import { computerTurn } from "./computerTurn.mjs";
 import { Game } from "./Game.mjs";
+import { Memory } from "./Memory.mjs";
 
 function playerClick(e) {
   let cell = e.target;
@@ -41,13 +42,16 @@ function playerClick(e) {
   // 7) Change the turn:
   Game.changeTurn();
   
+  // 8) Store session:
+  sessionStorage.setItem('board', JSON.stringify(Game.origBoard));
+  sessionStorage.setItem('turn', Game.turn)
 
-  // 8) If result is null and game is "PvC" make computer take turn:
+  // 9) If result is null and game is "PvC" make computer take turn:
   if (Game.type == "PvC") {
     computerTurn(Game.origBoard)
   }
 
-  // 9) If result is null and game is "PvP".
+  // 10) If result is null and game is "PvP".
   //    Temporary disable cells to avoid overlap:
   if (Game.type == 'PvP') {
     Cells.disableEmpty();

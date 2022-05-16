@@ -231,7 +231,7 @@ html {
   background: #a8bfc9;
   box-shadow: inset 0px -4px 0px #6b8997;
   border-radius: 10px;
-  max-width: 76px;
+  min-width: 76px;
   margin-right: 1rem;
   transition: transform 0.2s ease-in-out;
   cursor: pointer;
@@ -242,7 +242,7 @@ html {
   box-shadow: inset 0px -4px 0px #cc8b13;
   border-radius: 10px;
   flex: 1 1 auto;
-  width: 146px;
+  min-width: 146px;
   transition: transform 0.2s ease-in-out;
   cursor: pointer;
 }
@@ -541,6 +541,7 @@ html {
   font-size: clamp(24px, 5.2vw, 40px);
   line-height: 1.25;
   letter-spacing: 2.5px;
+  text-align: center;
   color: #31c3bd;
 }
 
@@ -744,7 +745,7 @@ html {
 
 .body {
   background: #1a2a33;
-  min-height: calc(100vh - 100px);
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;

@@ -1,7 +1,5 @@
 import { Sound } from "./Sound.mjs";
-import { Cells } from "./Cell.mjs";
 import { Game } from "./Game.mjs";
-import { GAME_STATE as GS } from "./bin/gameState.mjs";
 
 const Result = {
   node_base : document.querySelector('#modal-base-result'),
@@ -24,7 +22,6 @@ const Result = {
   },
 
   setVarMsg : function(result) {
-    console.log(result)
     if (Game.type === 'PvC') {
       if (result === Game.tokenComputer) {
        this.varMsg.textContent = 'OH NO, YOU LOST...';
