@@ -32,12 +32,16 @@ const Game = {
   circleOwner : document.querySelector('#owner-circle'),
 
   // Game methods:
-  init : function(e) {  
+  init : function(e) {
+    let ti = document.querySelector('.turn-indicator__svg-link');
+        ti.setAttribute('href', '#svg-indicator--cross'); 
+
     Game.origBoard = Array.from(Array(9).keys());
 
     Game.setType(e.target.classList);
     Game.setTokens();
     Game.setLabel();
+    Game.turn = "X";
     Game.status = 'ongoing';
     Game.show('.main-game');
     Game.hide('.start-menu');
