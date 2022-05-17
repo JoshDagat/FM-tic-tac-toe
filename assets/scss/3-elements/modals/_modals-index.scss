@@ -47,6 +47,18 @@
   // margin-bottom: 1em;
 }
 
+.modal-countdown .modal__generic-text {
+  margin-bottom: 1rem;
+}
+
+.modal-countdown #countdown {
+  font-family: variables.$font-main;
+  font-weight: 700;
+  font-size: clamp(24px, 5.2vw, 40px);
+  line-height: 1.25;
+  color: variables.$light-yellow-hover;
+}
+
 .modal__button-group {
   display: flex;
 }

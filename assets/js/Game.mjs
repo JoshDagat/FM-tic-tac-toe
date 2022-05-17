@@ -41,7 +41,15 @@ const Game = {
     Game.status = 'ongoing';
     Game.show('.main-game');
     Game.hide('.start-menu');
+    Cells.setViewBoxes();
+    Cells.reset();
 
+
+    if (Game.type === 'PvC' && Game.tokenComputer === "X") {
+          computerTurn();
+    };
+
+    Memory.store();
   },
 
   changeTurn : function changeTurn() {
@@ -53,18 +61,6 @@ const Game = {
       Game.turn = "X";
       ti.setAttribute('href', '#svg-indicator--cross');
     }
-  },
-
-  start : function(e) {
-    if (this.tokenContainer.classList.length === 1) {
-      Game.show('.game-tokens__alert')
-      Sound.play('#audio-lose');
-      return;
-    }
-
-    Game.init(e);
-    Sound.play('#audio-select');
-    Memory.store();
   },
 
   show : function(id) {
@@ -80,13 +76,18 @@ const Game = {
   setType : function(btn) {
     if (btn.contains('btn--ng-pvc')) {
       Game.type = 'PvC'
+    } else {
+      Game.type = 'PvP'
     }
   },
 
   setTokens : function() {
     if (Game.tokenContainer.classList.contains('circle-selected')) {
       Game.tokenPlayer1 = "O";
-      Game.tokenComputer = "X"
+      Game.tokenComputer = "X";
+    } else {
+      Game.tokenPlayer1 = "X";
+      Game.tokenComputer = "O";
     }
   },
 
@@ -179,12 +180,13 @@ const Game = {
   },
 
   reset : function reset() {
+    Game.countdown('reset');
+
     let boards = document.querySelectorAll('.scoreboard__counter');
         for (let board of boards) {
           board.textContent = 0;
         }
 
-        Cells.reset();
 
         this.tokenContainer.classList = 'game-tokens__choices';
         this.hide('#modal-reset');
@@ -212,7 +214,8 @@ const Game = {
 
   nextRound : function nextRound(e) {
     let target = e.target.classList,
-        id = (target.contains('tied')) ? '#modal-tied-result' : '#modal-base-result';
+        id = (target.contains('tied')) ? '#modal-tied-result' : '#modal-base-result',
+        ti = document.querySelector('.turn-indicator__svg-link');
     
         Game.hide(id);
         Game.origBoard = Array.from(Array(9).keys());
@@ -221,7 +224,7 @@ const Game = {
         Cells.detachAll();
         Cells.attachAll();
         Cells.reset();
-
+        ti.setAttribute('href', '#svg-indicator--cross');
 
         sessionStorage.setItem('board', JSON.stringify(Game.origBoard));
 
@@ -258,6 +261,43 @@ const Game = {
       }
     }
   },
+
+  countdown : function countdown(nature) {
+    let cdModal = document.querySelector('#modal-countdown'),
+        text = cdModal.querySelector('.modal__generic-text'),
+        cdVal = cdModal.querySelector('#countdown'),
+        resetModal = document.querySelector('#modal-reset'),
+        restoreModal = document.querySelector('#modal-restore-session'),
+        i = 5;
+
+    if (nature === 'restart') {
+      text.textContent = "Restarting in ...";
+      resetModal.classList.remove('active');
+    } else if (nature === 'restore') {
+      text.textContent = "Restoring session, please wait ...";
+      restoreModal.classList.remove('active');
+    }
+
+    cdModal.classList.add('active');
+
+    let counter = setInterval(() => {
+      cdVal.textContent = --i;
+      Sound.play('#audio-lose');
+      if (i === 0) {
+        clearInterval(counter);
+        cdModal.classList.remove('active');
+        cdVal.textContent = 5;
+      
+        if (nature === 'restore') {
+          Game.hide('.start-menu');
+          Game.show('.main-game');
+          Sound.play('.music');
+        }
+      }
+
+
+    }, 1000);
+  }
 }
 
 export {Game}

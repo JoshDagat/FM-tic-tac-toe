@@ -100,6 +100,40 @@ const Cells = {
       cell.style.backgroundColor = "#1F3641";
     }
   },
+
+  setViewBoxes : function setViewBoxes() {
+    const cross = document.querySelector('#cross'),
+          crossOutline = document.querySelector('#cross--outline'),
+          crossWin = document.querySelector('#cross--win'),
+          circle = document.querySelector('#circle'),
+          circleOutline = document.querySelector('#circle--outline'),
+          circleWin = document.querySelector('#circle--win');
+    
+          cross.setAttribute('viewBox', "-8 -8 80 80");
+          crossOutline.setAttribute('viewBox', "-8 -8 80 80");
+          crossWin.setAttribute('viewBox', "-8 -8 80 80");
+          circle.setAttribute('viewBox', "-8 -8 80 80");
+          circleOutline.setAttribute('viewBox', "-8 -8 80 80");
+          circleWin.setAttribute('viewBox', "-8 -8 80 80");
+
+          if (window.innerWidth > 400) {
+            cross.setAttribute('viewBox', "-3 -3 70 70");
+            crossOutline.setAttribute('viewBox', "-3 -3 70 70");
+            crossWin.setAttribute('viewBox', "-3 -3 70 70");
+            circle.setAttribute('viewBox', "-3 -3 70 70");
+            circleOutline.setAttribute('viewBox', "-3 -3 70 70");
+            circleWin.setAttribute('viewBox', "-3 -3 70 70");
+          }
+
+          if (window.innerWidth > 450) {
+            cross.removeAttribute('viewBox');
+            crossOutline.removeAttribute('viewBox');
+            crossWin.removeAttribute('viewBox');
+            circle.removeAttribute('viewBox');
+            circleOutline.setAttribute('viewBox', "0 0 67 67");
+            circleWin.removeAttribute('viewBox');
+          }
+  }
 }
 
 export {Cells}

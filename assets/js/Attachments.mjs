@@ -18,6 +18,22 @@ const Attachments = {
   settingsBtn : document.querySelector('.btn-settings'),
 
   init : function attach() {
+    // New Game Buttons:
+    for (let btn of this.newGameBtns) {
+      btn.addEventListener('click', (e) => {
+
+        if (Game.tokenContainer.classList.length === 1 ) {
+          Game.show('.game-tokens__alert');
+          Sound.play('#audio-lose');
+          return;
+        }
+
+        Game.init(e)
+      });
+
+      btn.addEventListener('mouseenter', () => Sound.play('#audio-hover'));
+    };
+
     // Cancel Reset Button:
     this.cancelResetBtn.addEventListener('click', () => {
       Game.hide('#modal-reset');
@@ -27,21 +43,9 @@ const Attachments = {
     // Confirm Reset Button:
     this.confirmResetBtn.addEventListener('click', () => {
       Game.reset();
-      Sound.play('#audio-lose');
     });
 
-    // New Game Buttons:
-    for (let btn of this.newGameBtns) {
-      btn.addEventListener('click', (e) => {
-        Game.start(e);
-
-        if (Game.type === 'PvC' && Game.tokenComputer === "X") {
-          computerTurn();
-        };
-      });
-
-      btn.addEventListener('mouseenter', () => Sound.play('#audio-hover'));
-    };
+    
 
     // Next Round Buttons:
     for (let btn of this.nextRoundBtns) {
@@ -131,22 +135,7 @@ const Attachments = {
     }
 
     // For cell svgs
-    window.addEventListener('resize', function setCellSVGs() {
-      let allCellSVGs = document.querySelectorAll('.cell-svg'),
-        viewBox;
-  
-      if (window.innerWidth < 450) {
-        viewBox = "-3 -3 70 70"
-      }
-  
-      if (window.innerWidth < 400) {
-        viewBox = "-8 -8 80 80";
-      }
-
-      for (let i = 0; i < allCellSVGs.length; i++) {
-        allCellSVGs[i].setAttribute('viewBox', viewBox);
-      }
-    })
+    window.addEventListener('resize', Cells.setViewBoxes)
   },
 }
 

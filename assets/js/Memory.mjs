@@ -7,6 +7,8 @@ const Memory = {
   node : document.querySelector('#modal-restore-session'),
   
   restore : function restore() {
+    Game.countdown('restore');
+
     const {
       prevBoard, 
       prevTokenComputer, 
@@ -85,11 +87,10 @@ const Memory = {
 
         if (prevBGM) {
           Sound.modifyBGM();
+          Sound.stop('.music');
         }
 
         Game.setLabel();
-        Game.hide('#modal-restore-session');
-        Game.show('.main-game');
         document.querySelector('#counter--cross').textContent = prevCross;
         document.querySelector('#counter--circle').textContent = prevCircle;
         document.querySelector('#counter--ties').textContent = prevTied;
