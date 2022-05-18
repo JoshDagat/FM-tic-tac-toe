@@ -1,21 +1,7 @@
-<style>
-  h1 {
-    font-weight : bold;
-  }
-
-  .fm-link {
-    color: #f2b137;
-    font-weight: bold;
-    text-decoration: underline;
-  }
-
-</style>
-
-
-<h1><span style="color: #31C3BD;">Frontend Mentor</span> - <span style="color: #F2b137">Tic</span> <span style="color: #31c3bd">Tac</span> <span style="color: #F2b137">Toe</span></h1> 
+<h1><span style="color: #31C3BD; font-weight: bold;">Frontend Mentor</span> - <span style="color: #F2b137">Tic</span> <span style="color: #31c3bd">Tac</span> <span style="color: #F2b137">Toe</span></h1> 
 
 <p>
-This is my solution to the <a class="fm-link" href="https://www.frontendmentor.io/challenges/tic-tac-toe-game-Re7ZF_E2v">Tic Tac Toe challenge on Frontend Mentor</a>. Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
+This is my solution to the <a style="color: #f2b137; font-weight: bold; text-decoration: underline;" href="https://www.frontendmentor.io/challenges/tic-tac-toe-game-Re7ZF_E2v">Tic Tac Toe challenge on Frontend Mentor</a>. Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
 </p>
 
 <p>Check out the project here:<p>
