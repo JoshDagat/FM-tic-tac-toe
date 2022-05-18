@@ -96,15 +96,15 @@ const Game = {
   },
 
   selectToken : function (arr) {
-    this.hide('.game-tokens__alert');
-    this.tokenContainer.classList = 'game-tokens__choices'
+    Game.hide('.game-tokens__alert');
+    Game.tokenContainer.classList = 'game-tokens__choices'
 
     if (arr.contains('cross')) {
-      this.tokenContainer.classList.add('cross-selected');
+      Game.tokenContainer.classList.add('cross-selected');
     }
 
     if (arr.contains('circle')) {
-      this.tokenContainer.classList.add('circle-selected');
+      Game.tokenContainer.classList.add('circle-selected');
     }
 
     Sound.play('#audio-generic-click')
@@ -122,7 +122,7 @@ const Game = {
           }
         }
 
-        for (let combo of this.combos) {
+        for (let combo of Game.combos) {
           if (combo.every(elem => marked.indexOf(elem) > -1 )) {
             outcome.winner = player;
             outcome.combo = combo;
@@ -192,12 +192,12 @@ const Game = {
         }
 
 
-        this.tokenContainer.classList = 'game-tokens__choices';
-        this.hide('#modal-reset');
-        this.hide('.main-game');
-        this.show('.start-menu');
+        Game.tokenContainer.classList = 'game-tokens__choices';
+        Game.hide('#modal-reset');
+        Game.hide('.main-game');
+        Game.show('.start-menu');
 
-        this.origBoard = Array.from(Array(9).keys())
+        Game.origBoard = Array.from(Array(9).keys())
   },
 
   showWinner : function(result) {
@@ -250,18 +250,18 @@ const Game = {
   setLabel : function setLabel() {
     if (Game.type === "PvC"){
       if (Game.tokenComputer === "X"){
-        this.crossOwner.textContent = "(CPU)";
-        this.circleOwner.textContent = "(YOU)";
+        Game.crossOwner.textContent = "(CPU)";
+        Game.circleOwner.textContent = "(YOU)";
       }
     }
 
     if (Game.type === "PvP"){
       if (Game.tokenPlayer1 === "X"){
-        this.crossOwner.textContent = "(P1)";
-        this.circleOwner.textContent = "(P2)";
+        Game.crossOwner.textContent = "(P1)";
+        Game.circleOwner.textContent = "(P2)";
       } else {
-        this.crossOwner.textContent = "(P2)";
-        this.circleOwner.textContent = "(P1)";
+        Game.crossOwner.textContent = "(P2)";
+        Game.circleOwner.textContent = "(P1)";
       }
     }
   },

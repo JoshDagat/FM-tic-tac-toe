@@ -9,36 +9,36 @@ const Result = {
   constMsg : document.querySelector('.modal-base__winning-text'),
 
   showWin : function() {
-    this.node_base.classList.add('active');
+    Result.node_base.classList.add('active');
   },
 
   showTied : function() {
-    this.node_tied.classList.add('active');
+    Result.node_tied.classList.add('active');
   },
 
   hide : function() {
-    this.node_base.classList.remove('active');
-    this.node_tied.classList.remove('active');
+    Result.node_base.classList.remove('active');
+    Result.node_tied.classList.remove('active');
   },
 
   setVarMsg : function(result) {
     if (Game.type === 'PvC') {
       if (result === Game.tokenComputer) {
-       this.varMsg.textContent = 'OH NO, YOU LOST...';
+       Result.varMsg.textContent = 'OH NO, YOU LOST...';
         Sound.play('#audio-lose');
         return;
       }
 
-      this.varMsg.textContent = "YOU WON!";
+      Result.varMsg.textContent = "YOU WON!";
       Sound.play('#audio-win');
       return;
     }
 
     if (Game.type === 'PvP') {
       if (result === Game.tokenPlayer1) {
-        this.varMsg.textContent = "PLAYER 1 WINS!";
+        Result.varMsg.textContent = "PLAYER 1 WINS!";
       } else {
-        this.varMsg.textContent = "PLAYER 2 WINS!";
+        Result.varMsg.textContent = "PLAYER 2 WINS!";
       }
       Sound.play('#audio-win');
       return;
@@ -47,13 +47,13 @@ const Result = {
 
   setSVG : function(result) {
     if (result === "X") {
-      this.SVG.setAttribute('href', '#cross');
-      this.constMsg.style.color = '#31C3BD';
+      Result.SVG.setAttribute('href', '#cross');
+      Result.constMsg.style.color = '#31C3BD';
     }
 
     if (result === 'O') {
-      this.SVG.setAttribute('href', '#circle');
-      this.constMsg.style.color = '#F2B137';
+      Result.SVG.setAttribute('href', '#circle');
+      Result.constMsg.style.color = '#F2B137';
     }
   },
 

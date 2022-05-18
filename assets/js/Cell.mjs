@@ -5,28 +5,8 @@ import { Sound } from "./Sound.mjs";
 const Cells = {
   allCells: document.querySelectorAll('.cell'),
 
-  showOutline: function showOutline(e) {
-    let svg = e.target.querySelector('.cell__svg-link');
-    if (Game.turn === 'X') {
-      svg.setAttribute('href', '#cross--outline');
-    };
-
-    if (Game.turn === "O") {
-      svg.setAttribute('href', '#circle--outline');
-    };
-  },
-
-  hideOutline : function hideOutline(e) {
-    let target = e.target.querySelector('.cell__svg-link');
-    target.setAttribute('href', null)
-  },
-
-  hover : function hover() {
-    Sound.play('#audio-hover');
-  },
-  
   attachAll : function attach() {
-    for (let cell of this.allCells) {
+    for (let cell of Cells.allCells) {
       cell.addEventListener('click', playerClick);
       cell.addEventListener('mouseenter', Cells.hover);
       cell.addEventListener('mouseenter', Cells.showOutline);
@@ -37,7 +17,7 @@ const Cells = {
   },
 
   detachAll : function detachAll() {
-    for (let cell of this.allCells) {
+    for (let cell of Cells.allCells) {
       cell.removeEventListener('click', playerClick);
       cell.removeEventListener('mouseenter', Cells.hover);
       cell.removeEventListener('mouseenter', Cells.showOutline);
@@ -48,7 +28,7 @@ const Cells = {
     }
   },
 
-  detach : function detach(cell) {
+   detach : function detach(cell) {
     cell.removeEventListener('click', playerClick);
     cell.removeEventListener('mouseenter', Cells.hover);
     cell.removeEventListener('mouseenter', Cells.showOutline);
@@ -57,8 +37,22 @@ const Cells = {
     cell.style.cursor = 'none';
   },
 
+  emptyCells: function emptyCells(board = Game.origBoard) {
+    return board.filter(cell => typeof cell === 'number')
+  },
+
+  enableEmpty : function enable() {
+    let emptyCells = Cells.emptyCells();
+
+        for (let index  of emptyCells) {
+          let cell = document.querySelector(`#cell-${index}`);
+              cell.style.pointerEvents = 'auto';
+              cell.style.cursor = 'pointer';
+        }
+  },
+
   disableEmpty : function disable() {
-    let emptyCells = this.emptyCells();
+    let emptyCells = Cells.emptyCells();
         
         for (let index of emptyCells) {   
           let cell = document.querySelector(`#cell-${index}`);
@@ -67,18 +61,25 @@ const Cells = {
         }
   },
 
-  emptyCells: function emptyCells(board = Game.origBoard) {
-    return board.filter(cell => typeof cell === 'number')
+  hideOutline : function hideOutline(e) {
+    let target = e.target.querySelector('.cell__svg-link');
+    target.setAttribute('href', null)
   },
 
-  enableEmpty : function enable() {
-    let emptyCells = this.emptyCells();
 
-        for (let index  of emptyCells) {
-          let cell = document.querySelector(`#cell-${index}`);
-              cell.style.pointerEvents = 'auto';
-              cell.style.cursor = 'pointer';
-        }
+  showOutline: function showOutline(e) {
+    let svg = e.target.querySelector('.cell__svg-link');
+    if (Game.turn === 'X') {
+      svg.setAttribute('href', '#cross--outline');
+    };
+
+    if (Game.turn === "O") {
+      svg.setAttribute('href', '#circle--outline');
+    };
+  },
+  
+  hover : function hover() {
+    Sound.play('#audio-hover');
   },
 
   mark : function mark(cell, token) {

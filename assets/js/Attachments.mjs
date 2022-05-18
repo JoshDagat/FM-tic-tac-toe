@@ -18,6 +18,17 @@ const Attachments = {
   settingsBtn : document.querySelector('.btn-settings'),
 
   init : function attach() {
+    // Token Container
+    Game.tokenContainer.addEventListener('click', (e) => {
+      Game.selectToken(e.target.classList)
+      Sound.play('#audio-hover')
+    });
+    
+    // Tokens
+    for (let token of Game.tokens) {
+      token.addEventListener('mouseenter', () => Sound.play('#audio-hover'));
+    }
+
     // New Game Buttons:
     for (let btn of this.newGameBtns) {
       btn.addEventListener('click', (e) => {
@@ -34,6 +45,12 @@ const Attachments = {
       btn.addEventListener('mouseenter', () => Sound.play('#audio-hover'));
     };
 
+    // Reset Button
+    this.resetBtn.addEventListener('click', () => {
+      Game.show('#modal-reset')
+      Sound.play('#audio-lose')
+    });
+
     // Cancel Reset Button:
     this.cancelResetBtn.addEventListener('click', () => {
       Game.hide('#modal-reset');
@@ -44,8 +61,6 @@ const Attachments = {
     this.confirmResetBtn.addEventListener('click', () => {
       Game.reset();
     });
-
-    
 
     // Next Round Buttons:
     for (let btn of this.nextRoundBtns) {
@@ -60,13 +75,7 @@ const Attachments = {
 
       btn.addEventListener('mouseenter', Sound.play('#audio-hover'));
     };
-
-    // Reset Button
-    this.resetBtn.addEventListener('click', () => {
-      Game.show('#modal-reset')
-      Sound.play('#audio-lose')
-    });
-
+    
     // Restore Button
     this.restoreBtn.addEventListener('click', Memory.restore);
 
@@ -94,12 +103,7 @@ const Attachments = {
       Sound.play('#audio-hover')
     });
 
-    // Token Container
-    Game.tokenContainer.addEventListener('click', (e) => {
-      Game.selectToken(e.target.classList)
-      Sound.play('#audio-hover')
-    });
-
+    
     // For hover sound:
     let nodes = [
       this.cancelResetBtn, this.confirmResetBtn, this.resetBtn, this.saveSettingsBtn,
@@ -118,10 +122,6 @@ const Attachments = {
 
     Sound.bgmCheckBox.addEventListener('change', () => Sound.toggleBGM());
 
-    // Tokens
-    for (let token of Game.tokens) {
-      token.addEventListener('mouseenter', () => Sound.play('#audio-hover'));
-    }
 
     // Cells
     for (let cell of Cells.allCells) {

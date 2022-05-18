@@ -24,11 +24,11 @@
     },
     
     init : function init() {
-            this.allSFX.forEach(sfx => sfx.volume = this.sfxSlider.value / 100 );
+            Sound.allSFX.forEach(sfx => sfx.volume = Sound.sfxSlider.value / 100 );
       
-            this.BGM.loop = true;
-            this.BGM.volume = this.bgmSlider.value / 100;
-            this.BGM.play();
+            Sound.BGM.loop = true;
+            Sound.BGM.volume = Sound.bgmSlider.value / 100;
+            Sound.BGM.play();
     },
 
     loop : function loop(id) {
@@ -38,41 +38,41 @@
     },
 
     modifySFX : function modifySFX() {
-      const volume = this.sfxSlider.value;
-            this.allSFX.forEach(sfx => sfx.volume = volume / 100);
-            this.sfxLabel.textContent = volume;
+      const volume = Sound.sfxSlider.value;
+            Sound.allSFX.forEach(sfx => sfx.volume = volume / 100);
+            Sound.sfxLabel.textContent = volume;
             Sound.play('#audio-hover')
     },
 
     modifyBGM : function modifyBGM() {
-      const volume = this.bgmSlider.value;
-            this.BGM.volume = volume / 100;
-            this.BGM.play();
+      const volume = Sound.bgmSlider.value;
+            Sound.BGM.volume = volume / 100;
+            Sound.BGM.play();
       
-            this.bgmLabel.textContent = volume;
+            Sound.bgmLabel.textContent = volume;
     },
 
     toggleSFX : function toggleSFX() {      
-            if (this.sfxCheckBox.checked === true) {
-                this.allSFX.forEach(sfx => {
-                  sfx.volume = this.sfxSlider.value / 100;
+            if (Sound.sfxCheckBox.checked === true) {
+                Sound.allSFX.forEach(sfx => {
+                  sfx.volume = Sound.sfxSlider.value / 100;
                   sfx.muted = false;
                 })
               
                 Sound.play('#audio-generic-click');
 
             } else {
-                this.allSFX.forEach(sfx => sfx.muted = true);
+                Sound.allSFX.forEach(sfx => sfx.muted = true);
             }
     },
 
     toggleBGM: function toggleBGM() {
-            if (this.bgmCheckBox.checked === true) {
-              this.BGM.volume = this.bgmSlider.value / 100;
-              this.BGM.muted = false;
+            if (Sound.bgmCheckBox.checked === true) {
+              Sound.BGM.volume = Sound.bgmSlider.value / 100;
+              Sound.BGM.muted = false;
               Sound.play(`.music`);
             } else {
-              this.BGM.muted = true;
+              Sound.BGM.muted = true;
               Sound.stop(`.music`);
             }
     }
